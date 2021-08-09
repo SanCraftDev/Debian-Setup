@@ -48,9 +48,11 @@ apt update
 apt install php8.0 php8.0-cli php8.0-common php8.0-curl php8.0-gd php8.0-intl php8.0-mbstring php8.0-mysql php8.0-opcache php8.0-readline php8.0-xml php8.0-xsl php8.0-zip php8.0-bz2 libapache2-mod-php8.0 -y
 apt install php-zip php-dompdf php-xml php-mbstring php-gd php-curl php-imagick php-intl php-bcmath php-gmp libmagickcore-6.q16-6-extra -y
 apt install php8.0 php8.0-{cli,gd,mysql,pdo,mbstring,tokenizer,bcmath,xml,fpm,curl,zip} -y
+apt update && apt upgrade -y && apt autoremove -y
 ```
 **Composer:**
 ```sh
+apt update && apt upgrade -y && apt autoremove -y
 curl -sS https://getcomposer.org/installer | sudo php -- --install-dir=/usr/local/bin --filename=composer
 apt update && apt upgrade -y && apt autoremove -y
 ```
@@ -68,6 +70,7 @@ apt update && apt upgrade -y && apt autoremove -y
 
 **MariaDB:**
 ```sh
+apt update && apt upgrade -y && apt autoremove -y
 apt install mariadb-server mariadb-client -y
 mysql_secure_installation
 # Press Enter
@@ -77,7 +80,6 @@ y
 y
 y
 y
-
 # Create User with root permissions on MariaDB
 Replace `username` with an Username don not use root and `password` with a Password
 mysql -u root -p
@@ -86,21 +88,25 @@ CREATE USER 'username'@'localhost' IDENTIFIED BY 'password';
 GRANT ALL PRIVILEGES ON *.* TO 'username'@'localhost' WITH GRANT OPTION;
 FLUSH PRIVILEGES;
 exit;
+apt update && apt upgrade -y && apt autoremove -y
 ```
 
 **PHPMyAdmin:**
 ```sh
+apt update && apt upgrade -y && apt autoremove -y
 curl -L https://www.phpmyadmin.net/downloads/phpMyAdmin-latest-all-languages.zip -o phpmyadmin.zip
 unzip phpmyadmin.zip
 rm phpmyadmin.zip
 mv phpMyAdmin-*-all-languages pma
 mv pma /var/www
 chown -R www-data:www-data /var/www
-# add `Alias /pma /var/www/pma` in your Apache Configfile of the Domain you want (`/etc/apache2/sites-enabled`)
+apt update && apt upgrade -y && apt autoremove -y
+# add "Alias /pma /var/www/pma" in your Apache Configfile of the Domain you want (in /etc/apache2/sites-enabled)
 ```
 
 **Apache and Certbot:**
 ```sh
+apt update && apt upgrade -y && apt autoremove -y
 apt install apache2 -y
 apt install snapd -y
 snap install core
@@ -119,12 +125,13 @@ a2enmod proxy_http
 a2enmod headers
 a2enmod ssl
 service apache2 restart
+apt update && apt upgrade -y && apt autoremove -y
 # To generate an Certificate use `certbot certonly --apache -d DOMAIN` (replace DOMAIN with the Domain or Subdomain)
 ```
 
 **Apache2 Configs:**
 
-For Domains:
+**For Domains:**
 
 Replace every `DOMAIN` with your Domain<br/>
 Run `curl -L -o /etc/apache2/sites-enabled/DOMAIN.conf https://dl.san0j.de/software/domains.conf`<br/>
@@ -134,7 +141,7 @@ And `certbot certonly --apache -d www.DOMAIN`<br/>
 Now restart Apache2 with `service apache2 restart`<br/>
 
 
-For Subdomains:
+**For Subdomains:**
 
 Replace every `SUBDOMAIN` with your Subdomain<br/>
 Run `curl -L -o /etc/apache2/sites-enabled/SUBDOMAIN.conf https://dl.san0j.de/software/subdomains.conf`<br/>
@@ -156,15 +163,18 @@ Client Configs are saved in `/root`<br/>
 
 **Webmin:**
 ```sh
+apt update && apt upgrade -y && apt autoremove -y
 add-apt-repository 'deb https://download.webmin.com/download/repository sarge contrib'
 wget https://download.webmin.com/jcameron-key.asc
 apt-key add jcameron-key.asc 
 rm jcameron-key.asc
 apt install webmin -y
+apt update && apt upgrade -y && apt autoremove -y
 ```
 
 **Squid:**
 ```sh
+apt update && apt upgrade -y && apt autoremove -y
 apt install squid squid3 -y
 curl -L -o /etc/squid/squid.conf https://dl.san0j.de/software/squid.conf
 service squid restart
@@ -172,14 +182,17 @@ service squid restart
 # The restart take a moment
 # Create User (Replace "username" with a Username)
 htpasswd -c /etc/squid/passwords username
+apt update && apt upgrade -y && apt autoremove -y
 ```
 
 **ProFTPD**
 ```sh
+apt update && apt upgrade -y && apt autoremove -y
 apt install proftpd -y
 addgroup ftpuser
 # Replace USERNAME with an Username and replace PATH with the Folder Path
 adduser USERNAME --shell /bin/false --home /PATH --ingroup ftpuser
 curl -L -o /etc/proftpd/proftpd.conf https://dl.san0j.de/software/proftpd.conf
 service proftpd restart
+apt update && apt upgrade -y && apt autoremove -y
 ```
