@@ -1,2 +1,185 @@
 # Debian-Setup
- 
+
+**Default:**
+```sh
+apt update && apt upgrade -y && apt autoremove -y
+apt install vim sudo redis redis-server cron git curl htop neofetch python-pip python3-pip screenapt-transport-https lsb-release ca-certificates software-properties-common gnupg nano unzip zip tar perl libnet-ssleay-perl openssl libauthen-pam-perl libpam-runtime libio-pty-perl apt-show-versions python python3 -y
+apt update && apt upgrade -y && apt autoremove -y
+```
+
+**Java:**
+```sh
+apt update && apt upgrade -y && apt autoremove -y
+wget -O- https://apt.corretto.aws/corretto.key | sudo apt-key add - 
+add-apt-repository 'deb https://apt.corretto.aws stable main'
+apt-get update; sudo apt-get install -y java-16-amazon-corretto-jdk
+apt update && apt upgrade -y && apt autoremove -y
+```
+
+**MongoDB:**
+```sh
+apt update && apt upgrade -y && apt autoremove -y
+apt remove mongodb
+wget -qO - https://www.mongodb.org/static/pgp/server-5.0.asc | sudo apt-key add -
+echo `deb http://repo.mongodb.org/apt/debian buster/mongodb-org/5.0 main` | sudo tee /etc/apt/sources.list.d/mongodb-org-5.0.list
+apt update
+sudo apt-get install -y mongodb-org
+sudo systemctl daemon-reload
+sudo systemctl start mongod
+sudo systemctl enable mongod
+apt update && apt upgrade -y && apt autoremove -y
+```
+
+**Node.js:**
+```sh
+apt update && apt upgrade -y && apt autoremove -y
+curl -fsSL https://deb.nodesource.com/setup_16.x | bash -
+apt update
+apt-get install nodejs -y
+apt update && apt upgrade -y && apt autoremove -y
+```
+
+**PHP:**
+```sh
+apt update && apt upgrade -y && apt autoremove -y
+wget -O /etc/apt/trusted.gpg.d/php.gpg https://packages.sury.org/php/apt.gpg
+sh -c 'echo `deb https://packages.sury.org/php/ $(lsb_release -sc) main` > /etc/apt/sources.list.d/php.list'
+apt update
+apt install php8.0 php8.0-cli php8.0-common php8.0-curl php8.0-gd php8.0-intl php8.0-mbstring php8.0-mysql php8.0-opcache php8.0-readline php8.0-xml php8.0-xsl php8.0-zip php8.0-bz2 libapache2-mod-php8.0 -y
+apt install php-zip php-dompdf php-xml php-mbstring php-gd php-curl php-imagick php-intl php-bcmath php-gmp libmagickcore-6.q16-6-extra -y
+apt install php8.0 php8.0-{cli,gd,mysql,pdo,mbstring,tokenizer,bcmath,xml,fpm,curl,zip} -y
+```
+**Composer:**
+```sh
+curl -sS https://getcomposer.org/installer | sudo php -- --install-dir=/usr/local/bin --filename=composer
+apt update && apt upgrade -y && apt autoremove -y
+```
+
+**Docker:**
+```sh
+apt update && apt upgrade -y && apt autoremove -y
+apt-get remove docker docker-engine docker.io containerd runc -y
+curl -fsSL https://download.docker.com/linux/debian/gpg | sudo gpg --dearmor -o /usr/share/keyrings/docker-archive-keyring.gpg
+echo `deb [arch=amd64 signed-by=/usr/share/keyrings/docker-archive-keyring.gpg] https://download.docker.com/linux/debian $(lsb_release -cs) stable` | sudo tee /etc/apt/sources.list.d/docker.list > /dev/null
+apt update
+apt-get install docker-ce docker-ce-cli containerd.io -y
+apt update && apt upgrade -y && apt autoremove -y
+```
+
+**MariaDB:**
+```sh
+apt install mariadb-server mariadb-client -y
+mysql_secure_installation
+# Press Enter
+y
+# Set a Password
+y
+y
+y
+y
+
+# Create User with root permissions on MariaDB
+Replace `username` with an Username don not use root and `password` with a Password
+mysql -u root -p
+# Enter the Password
+CREATE USER 'username'@'localhost' IDENTIFIED BY 'password';
+GRANT ALL PRIVILEGES ON *.* TO 'username'@'localhost' WITH GRANT OPTION;
+FLUSH PRIVILEGES;
+exit;
+```
+
+**PHPMyAdmin:**
+```sh
+curl -L https://www.phpmyadmin.net/downloads/phpMyAdmin-latest-all-languages.zip -o phpmyadmin.zip
+unzip phpmyadmin.zip
+rm phpmyadmin.zip
+mv phpMyAdmin-*-all-languages pma
+mv pma /var/www
+chown -R www-data:www-data /var/www
+# add `Alias /pma /var/www/pma` in your Apache Configfile of the Domain you want (`/etc/apache2/sites-enabled`)
+```
+
+**Apache and Certbot:**
+```sh
+apt install apache2 -y
+apt install snapd -y
+snap install core
+snap install core; sudo snap refresh core
+apt-get remove certbot
+sudo ln -s /snap/bin/certbot /usr/bin/certbot
+{ crontab -l 2>/dev/null; echo `$(( $RANDOM % 60 )) $(( $RANDOM % 3 + 3 )) * * * sudo certbot renew --dry-run` ; } | crontab -
+rm /etc/apache2/sites-enabled/000-default.conf
+a2enmod rewrite
+a2enmod headers
+a2enmod env
+a2enmod dir
+a2enmod mime
+a2enmod proxy
+a2enmod proxy_http
+a2enmod headers
+a2enmod ssl
+service apache2 restart
+# To generate an Certificate use `certbot certonly --apache -d DOMAIN` (replace DOMAIN with the Domain or Subdomain)
+```
+
+**Apache2 Configs:**
+
+For Domains:
+
+Replace every `DOMAIN` with your Domain
+Run `curl -L -o /etc/apache2/sites-enabled/DOMAIN.conf https://dl.san0j.de/software/domains.conf`
+Replace every `DOMAIN` with your Domain with `nano /etc/apache2/sites-enabled/DOMAIN.conf`
+Generate before restarting Apache2 a SSL-Certificate with `certbot certonly --apache -d DOMAIN`
+And `certbot certonly --apache -d www.DOMAIN`
+Now restart Apache2 with `service apache2 restart`
+
+
+For Subdomains:
+
+Replace every `SUBDOMAIN` with your Subdomain
+Run `curl -L -o /etc/apache2/sites-enabled/SUBDOMAIN.conf https://dl.san0j.de/software/subdomains.conf`
+Replace every `SUBDOMAIN` with your Subdomain with `nano /etc/apache2/sites-enabled/SUBDOMAIN.conf`
+Generate before restarting Apache2 a SSL-Certificate with `certbot certonly --apache -d SUBDOMAIN`
+Now restart Apache2 with `service apache2 restart`
+
+
+**Wireguard (VPN):**
+`wget git.io/wireguard -O wireguard-install.sh && bash wireguard-install.sh`
+# Set a Random Number under 1000 - Press Enter
+# Give your first VPN Client an Name - Press Enter
+# I recomend to use AdGuard - 6 - Press Enter
+# Press Enter
+`chmod 700 /root/wireguard-install.sh`
+# To greate a New Wireguard User or remove one use `/root/wireguard-install.sh`
+# Do the same as before
+# Client Configs are saved in `/root`
+
+**Webmin:**
+```sh
+add-apt-repository 'deb https://download.webmin.com/download/repository sarge contrib'
+wget https://download.webmin.com/jcameron-key.asc
+apt-key add jcameron-key.asc 
+rm jcameron-key.asc
+apt install webmin -y
+```
+
+**Squid:**
+```sh
+apt install squid squid3 -y
+curl -L -o /etc/squid/squid.conf https://dl.san0j.de/software/squid.conf
+service squid restart
+# Port is 8449
+# The restart take a moment
+# Create User (Replace "username" with a Username)
+htpasswd -c /etc/squid/passwords username
+```
+
+**ProFTPD**
+```sh
+apt install proftpd -y
+addgroup ftpuser
+# Replace USERNAME with an Username and replace PATH with the Folder Path
+adduser USERNAME --shell /bin/false --home /PATH --ingroup ftpuser
+curl -L -o /etc/proftpd/proftpd.conf https://dl.san0j.de/software/proftpd.conf
+service proftpd restart
+```
