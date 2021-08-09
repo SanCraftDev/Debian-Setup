@@ -131,7 +131,7 @@ Run `curl -L -o /etc/apache2/sites-enabled/DOMAIN.conf https://dl.san0j.de/softw
 Replace every `DOMAIN` with your Domain with `nano /etc/apache2/sites-enabled/DOMAIN.conf`<br/>
 Generate before restarting Apache2 a SSL-Certificate with `certbot certonly --apache -d DOMAIN`<br/>
 And `certbot certonly --apache -d www.DOMAIN`<br/>
-Now restart Apache2 with `service apache2 restart`
+Now restart Apache2 with `service apache2 restart`<br/>
 
 
 For Subdomains:
@@ -140,19 +140,19 @@ Replace every `SUBDOMAIN` with your Subdomain<br/>
 Run `curl -L -o /etc/apache2/sites-enabled/SUBDOMAIN.conf https://dl.san0j.de/software/subdomains.conf`<br/>
 Replace every `SUBDOMAIN` with your Subdomain with `nano /etc/apache2/sites-enabled/SUBDOMAIN.conf`<br/>
 Generate before restarting Apache2 a SSL-Certificate with `certbot certonly --apache -d SUBDOMAIN`<br/>
-Now restart Apache2 with `service apache2 restart`
+Now restart Apache2 with `service apache2 restart`<br/>
 
 
 **Wireguard (VPN):**<br/>
-`wget git.io/wireguard -O wireguard-install.sh && bash wireguard-install.sh`
-#Set a Random Number under 1000 - Press Enter
-#Give your first VPN Client an Name - Press Enter
-#I recomend to use AdGuard - 6 - Press Enter
-#Press Enter
-`chmod 700 /root/wireguard-install.sh`
-#To greate a New Wireguard User or remove one use `/root/wireguard-install.sh`
-#Do the same as before
-#Client Configs are saved in `/root`
+`wget git.io/wireguard -O wireguard-install.sh && bash wireguard-install.sh`<br/>
+#Set a Random Number under 1000 - Press Enter<br/>
+#Give your first VPN Client an Name - Press Enter<br/>
+#I recomend to use AdGuard - 6 - Press Enter<br/>
+#Press Enter<br/>
+`chmod 700 /root/wireguard-install.sh`<br/>
+#To greate a New Wireguard User or remove one use `/root/wireguard-install.sh`<br/>
+#Do the same as before<br/>
+#Client Configs are saved in `/root`<br/>
 
 **Webmin:**
 ```sh
