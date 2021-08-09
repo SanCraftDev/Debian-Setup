@@ -126,7 +126,7 @@ a2enmod headers
 a2enmod ssl
 service apache2 restart
 apt update && apt upgrade -y && apt autoremove -y
-# To generate an Certificate use `certbot certonly --apache -d DOMAIN` (replace DOMAIN with the Domain or Subdomain)
+# To generate an Certificate use "certbot certonly --apache -d DOMAIN" (replace DOMAIN with the Domain or Subdomain)
 ```
 
 **Apache2 Configs:**
