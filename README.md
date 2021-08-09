@@ -145,14 +145,14 @@ Now restart Apache2 with `service apache2 restart`<br/>
 
 **Wireguard (VPN):**<br/>
 `wget git.io/wireguard -O wireguard-install.sh && bash wireguard-install.sh`<br/>
-#Set a Random Number under 1000 - Press Enter<br/>
-#Give your first VPN Client an Name - Press Enter<br/>
-#I recomend to use AdGuard - 6 - Press Enter<br/>
-#Press Enter<br/>
+Set a Random Number under 1000 - Press Enter<br/>
+Give your first VPN Client an Name - Press Enter<br/>
+I recomend to use AdGuard - 6 - Press Enter<br/>
+Press Enter<br/>
 `chmod 700 /root/wireguard-install.sh`<br/>
-#To greate a New Wireguard User or remove one use `/root/wireguard-install.sh`<br/>
-#Do the same as before<br/>
-#Client Configs are saved in `/root`<br/>
+To greate a New Wireguard User or remove one use `/root/wireguard-install.sh`<br/>
+Do the same as before<br/>
+Client Configs are saved in `/root`<br/>
 
 **Webmin:**
 ```sh
