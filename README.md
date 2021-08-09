@@ -70,18 +70,18 @@ apt update && apt upgrade -y && apt autoremove -y
 ```sh
 apt install mariadb-server mariadb-client -y
 mysql_secure_installation
-#Press Enter
+# Press Enter
 y
-#Set a Password
+# Set a Password
 y
 y
 y
 y
 
-#Create User with root permissions on MariaDB
+# Create User with root permissions on MariaDB
 Replace `username` with an Username don not use root and `password` with a Password
 mysql -u root -p
-#Enter the Password
+# Enter the Password
 CREATE USER 'username'@'localhost' IDENTIFIED BY 'password';
 GRANT ALL PRIVILEGES ON *.* TO 'username'@'localhost' WITH GRANT OPTION;
 FLUSH PRIVILEGES;
@@ -96,7 +96,7 @@ rm phpmyadmin.zip
 mv phpMyAdmin-*-all-languages pma
 mv pma /var/www
 chown -R www-data:www-data /var/www
-#add `Alias /pma /var/www/pma` in your Apache Configfile of the Domain you want (`/etc/apache2/sites-enabled`)
+# add `Alias /pma /var/www/pma` in your Apache Configfile of the Domain you want (`/etc/apache2/sites-enabled`)
 ```
 
 **Apache and Certbot:**
@@ -119,7 +119,7 @@ a2enmod proxy_http
 a2enmod headers
 a2enmod ssl
 service apache2 restart
-#To generate an Certificate use `certbot certonly --apache -d DOMAIN` (replace DOMAIN with the Domain or Subdomain)
+# To generate an Certificate use `certbot certonly --apache -d DOMAIN` (replace DOMAIN with the Domain or Subdomain)
 ```
 
 **Apache2 Configs:**
@@ -168,9 +168,9 @@ apt install webmin -y
 apt install squid squid3 -y
 curl -L -o /etc/squid/squid.conf https://dl.san0j.de/software/squid.conf
 service squid restart
-#Port is 8449
-#The restart take a moment
-#Create User (Replace "username" with a Username)
+# Port is 8449
+# The restart take a moment
+# Create User (Replace "username" with a Username)
 htpasswd -c /etc/squid/passwords username
 ```
 
@@ -178,7 +178,7 @@ htpasswd -c /etc/squid/passwords username
 ```sh
 apt install proftpd -y
 addgroup ftpuser
-#Replace USERNAME with an Username and replace PATH with the Folder Path
+# Replace USERNAME with an Username and replace PATH with the Folder Path
 adduser USERNAME --shell /bin/false --home /PATH --ingroup ftpuser
 curl -L -o /etc/proftpd/proftpd.conf https://dl.san0j.de/software/proftpd.conf
 service proftpd restart
