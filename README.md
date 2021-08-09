@@ -101,7 +101,7 @@ mv phpMyAdmin-*-all-languages pma
 mv pma /var/www
 chown -R www-data:www-data /var/www
 apt update && apt upgrade -y && apt autoremove -y
-# add "Alias /pma /var/www/pma" in your Apache Configfile of the Domain you want (in /etc/apache2/sites-enabled)
+# Add "Alias /pma /var/www/pma" in your Apache Configfile of the Domain you want (in /etc/apache2/sites-enabled)
 ```
 
 ## Apache and Certbot:
