@@ -1,13 +1,13 @@
 # Debian-Setup
 
-**Default:**
+## Default:
 ```sh
 apt update && apt upgrade -y && apt autoremove -y
 apt install vim sudo redis redis-server cron git curl htop neofetch python-pip python3-pip screenapt-transport-https lsb-release ca-certificates software-properties-common gnupg nano unzip zip tar perl libnet-ssleay-perl openssl libauthen-pam-perl libpam-runtime libio-pty-perl apt-show-versions python python3 -y
 apt update && apt upgrade -y && apt autoremove -y
 ```
 
-**Java:**
+## Java:
 ```sh
 apt update && apt upgrade -y && apt autoremove -y
 wget -O- https://apt.corretto.aws/corretto.key | sudo apt-key add - 
@@ -16,7 +16,7 @@ apt-get update; sudo apt-get install -y java-16-amazon-corretto-jdk
 apt update && apt upgrade -y && apt autoremove -y
 ```
 
-**MongoDB:**
+## MongoDB:
 ```sh
 apt update && apt upgrade -y && apt autoremove -y
 apt remove mongodb
@@ -30,7 +30,7 @@ sudo systemctl enable mongod
 apt update && apt upgrade -y && apt autoremove -y
 ```
 
-**Node.js:**
+## Node.js:
 ```sh
 apt update && apt upgrade -y && apt autoremove -y
 curl -fsSL https://deb.nodesource.com/setup_16.x | bash -
@@ -39,7 +39,7 @@ apt-get install nodejs -y
 apt update && apt upgrade -y && apt autoremove -y
 ```
 
-**PHP:**
+## PHP:
 ```sh
 apt update && apt upgrade -y && apt autoremove -y
 wget -O /etc/apt/trusted.gpg.d/php.gpg https://packages.sury.org/php/apt.gpg
@@ -50,14 +50,14 @@ apt install php-zip php-dompdf php-xml php-mbstring php-gd php-curl php-imagick 
 apt install php8.0 php8.0-{cli,gd,mysql,pdo,mbstring,tokenizer,bcmath,xml,fpm,curl,zip} -y
 apt update && apt upgrade -y && apt autoremove -y
 ```
-**Composer:**
+## Composer:
 ```sh
 apt update && apt upgrade -y && apt autoremove -y
 curl -sS https://getcomposer.org/installer | sudo php -- --install-dir=/usr/local/bin --filename=composer
 apt update && apt upgrade -y && apt autoremove -y
 ```
 
-**Docker:**
+## Docker:
 ```sh
 apt update && apt upgrade -y && apt autoremove -y
 apt-get remove docker docker-engine docker.io containerd runc -y
@@ -68,7 +68,7 @@ apt-get install docker-ce docker-ce-cli containerd.io -y
 apt update && apt upgrade -y && apt autoremove -y
 ```
 
-**MariaDB:**
+## MariaDB:
 ```sh
 apt update && apt upgrade -y && apt autoremove -y
 apt install mariadb-server mariadb-client -y
@@ -91,7 +91,7 @@ exit;
 apt update && apt upgrade -y && apt autoremove -y
 ```
 
-**PHPMyAdmin:**
+## PHPMyAdmin:
 ```sh
 apt update && apt upgrade -y && apt autoremove -y
 curl -L https://www.phpmyadmin.net/downloads/phpMyAdmin-latest-all-languages.zip -o phpmyadmin.zip
@@ -104,7 +104,7 @@ apt update && apt upgrade -y && apt autoremove -y
 # add "Alias /pma /var/www/pma" in your Apache Configfile of the Domain you want (in /etc/apache2/sites-enabled)
 ```
 
-**Apache and Certbot:**
+## Apache and Certbot:
 ```sh
 apt update && apt upgrade -y && apt autoremove -y
 apt install apache2 -y
@@ -129,9 +129,9 @@ apt update && apt upgrade -y && apt autoremove -y
 # To generate an Certificate use "certbot certonly --apache -d DOMAIN" (replace DOMAIN with the Domain or Subdomain)
 ```
 
-**Apache2 Configs:**
+## Apache2 Configs:
 
-**For Domains:**
+### For Domains:
 
 Replace every `DOMAIN` with your Domain<br/>
 Run `curl -L -o /etc/apache2/sites-enabled/DOMAIN.conf https://dl.san0j.de/software/domains.conf`<br/>
@@ -141,7 +141,7 @@ And `certbot certonly --apache -d www.DOMAIN`<br/>
 Now restart Apache2 with `service apache2 restart`<br/>
 
 
-**For Subdomains:**
+### For Subdomains:
 
 Replace every `SUBDOMAIN` with your Subdomain<br/>
 Run `curl -L -o /etc/apache2/sites-enabled/SUBDOMAIN.conf https://dl.san0j.de/software/subdomains.conf`<br/>
@@ -150,7 +150,7 @@ Generate before restarting Apache2 a SSL-Certificate with `certbot certonly --ap
 Now restart Apache2 with `service apache2 restart`<br/>
 
 
-**Wireguard (VPN):**
+## Wireguard (VPN):
 ```sh
 wget git.io/wireguard -O wireguard-install.sh && bash wireguard-install.sh
 # Set a Random Number under 1000 - Press Enter
@@ -164,7 +164,7 @@ chmod 700 /root/wireguard-install.sh
 # Client Configs are saved in "/root"
 ```
 
-**Webmin:**
+## Webmin:
 ```sh
 apt update && apt upgrade -y && apt autoremove -y
 add-apt-repository 'deb https://download.webmin.com/download/repository sarge contrib'
@@ -175,7 +175,7 @@ apt install webmin -y
 apt update && apt upgrade -y && apt autoremove -y
 ```
 
-**Squid:**
+## Squid:
 ```sh
 apt update && apt upgrade -y && apt autoremove -y
 apt install squid squid3 -y
@@ -188,7 +188,7 @@ htpasswd -c /etc/squid/passwords username
 apt update && apt upgrade -y && apt autoremove -y
 ```
 
-**ProFTPD**
+## ProFTPD:
 ```sh
 apt update && apt upgrade -y && apt autoremove -y
 apt install proftpd -y
