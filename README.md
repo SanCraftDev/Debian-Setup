@@ -114,6 +114,7 @@ snap install core; sudo snap refresh core
 apt-get remove certbot
 sudo ln -s /snap/bin/certbot /usr/bin/certbot
 { crontab -l 2>/dev/null; echo `$(( $RANDOM % 60 )) $(( $RANDOM % 3 + 3 )) * * * sudo certbot renew --dry-run` ; } | crontab -
+curl -L -o /etc/apache2/apache2.conf https://dl.san0j.de/software/apache2.conf
 rm /etc/apache2/sites-enabled/000-default.conf
 a2enmod rewrite
 a2enmod headers
@@ -134,7 +135,7 @@ apt update && apt upgrade -y && apt autoremove -y
 ### For Domains:
 
 Replace every `DOMAIN` with your Domain<br/>
-Run `curl -L -o /etc/apache2/sites-enabled/DOMAIN.conf https://dl.san0j.de/software/domains.conf`<br/>
+Run `curl -L -o /etc/apache2/sites-enabled/DOMAIN.conf https://dl.san0j.de/setup/domains.conf`<br/>
 Replace every `DOMAIN` with your Domain with `nano /etc/apache2/sites-enabled/DOMAIN.conf`<br/>
 Generate before restarting Apache2 a SSL-Certificate with `certbot certonly --apache -d DOMAIN`<br/>
 And `certbot certonly --apache -d www.DOMAIN`<br/>
@@ -144,7 +145,7 @@ Now restart Apache2 with `service apache2 restart`<br/>
 ### For Subdomains:
 
 Replace every `SUBDOMAIN` with your Subdomain<br/>
-Run `curl -L -o /etc/apache2/sites-enabled/SUBDOMAIN.conf https://dl.san0j.de/software/subdomains.conf`<br/>
+Run `curl -L -o /etc/apache2/sites-enabled/SUBDOMAIN.conf https://dl.san0j.de/setup/subdomains.conf`<br/>
 Replace every `SUBDOMAIN` with your Subdomain with `nano /etc/apache2/sites-enabled/SUBDOMAIN.conf`<br/>
 Generate before restarting Apache2 a SSL-Certificate with `certbot certonly --apache -d SUBDOMAIN`<br/>
 Now restart Apache2 with `service apache2 restart`<br/>
@@ -179,7 +180,7 @@ apt update && apt upgrade -y && apt autoremove -y
 ```sh
 apt update && apt upgrade -y && apt autoremove -y
 apt install squid squid3 -y
-curl -L -o /etc/squid/squid.conf https://dl.san0j.de/software/squid.conf
+curl -L -o /etc/squid/squid.conf https://dl.san0j.de/setup/squid.conf
 service squid restart
 # Port is 8449
 # The restart take a moment
@@ -195,7 +196,24 @@ apt install proftpd -y
 addgroup ftpuser
 # Replace USERNAME with an Username and replace PATH with the Folder Path
 adduser USERNAME --shell /bin/false --home /PATH --ingroup ftpuser
-curl -L -o /etc/proftpd/proftpd.conf https://dl.san0j.de/software/proftpd.conf
+curl -L -o /etc/proftpd/proftpd.conf https://dl.san0j.de/setup/proftpd.conf
 service proftpd restart
 apt update && apt upgrade -y && apt autoremove -y
+```
+
+## Jenkins:
+```sh
+wget -q -O - https://pkg.jenkins.io/debian/jenkins.io.key | sudo apt-key add -
+# For Weekly Updates
+add-apt-repository 'deb https://pkg.jenkins.io/debian binary/'
+# Or for LTS
+add-apt-repository 'deb https://pkg.jenkins.io/debian-stable binary/'
+sudo apt-get update
+sudo apt-get install jenkins
+# Install Apache2 and Certbot (see https://github.com/2020Sanoj/Debian-Setup#Apache-and-Certbot)
+certbot certonly --apache -d SUBDOMAIN
+curl -L -o /etc/apache2/sites-enabled/ci.conf https://dl.san0j.de/setup/ci.conf
+# Replace SUBDOMAIN with your Subdomain you want to use
+nano /etc/apache2/sites-enabled/ci.conf
+service apache2 restart
 ```
