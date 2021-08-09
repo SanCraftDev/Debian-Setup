@@ -136,7 +136,7 @@ Now restart Apache2 with `service apache2 restart`
 
 For Subdomains:
 
-Replace every `SUBDOMAIN` with your Subdomain
+Replace every `SUBDOMAIN` with your Subdomain<br/>
 Run `curl -L -o /etc/apache2/sites-enabled/SUBDOMAIN.conf https://dl.san0j.de/software/subdomains.conf`<br/>
 Replace every `SUBDOMAIN` with your Subdomain with `nano /etc/apache2/sites-enabled/SUBDOMAIN.conf`<br/>
 Generate before restarting Apache2 a SSL-Certificate with `certbot certonly --apache -d SUBDOMAIN`<br/>
