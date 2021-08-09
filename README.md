@@ -126,20 +126,20 @@ service apache2 restart
 
 For Domains:
 
-Replace every `DOMAIN` with your Domain
-Run `curl -L -o /etc/apache2/sites-enabled/DOMAIN.conf https://dl.san0j.de/software/domains.conf`
-Replace every `DOMAIN` with your Domain with `nano /etc/apache2/sites-enabled/DOMAIN.conf`
-Generate before restarting Apache2 a SSL-Certificate with `certbot certonly --apache -d DOMAIN`
-And `certbot certonly --apache -d www.DOMAIN`
+Replace every `DOMAIN` with your Domain<br/>
+Run `curl -L -o /etc/apache2/sites-enabled/DOMAIN.conf https://dl.san0j.de/software/domains.conf`<br/>
+Replace every `DOMAIN` with your Domain with `nano /etc/apache2/sites-enabled/DOMAIN.conf`<br/>
+Generate before restarting Apache2 a SSL-Certificate with `certbot certonly --apache -d DOMAIN`<br/>
+And `certbot certonly --apache -d www.DOMAIN`<br/>
 Now restart Apache2 with `service apache2 restart`
 
 
 For Subdomains:
 
 Replace every `SUBDOMAIN` with your Subdomain
-Run `curl -L -o /etc/apache2/sites-enabled/SUBDOMAIN.conf https://dl.san0j.de/software/subdomains.conf`
-Replace every `SUBDOMAIN` with your Subdomain with `nano /etc/apache2/sites-enabled/SUBDOMAIN.conf`
-Generate before restarting Apache2 a SSL-Certificate with `certbot certonly --apache -d SUBDOMAIN`
+Run `curl -L -o /etc/apache2/sites-enabled/SUBDOMAIN.conf https://dl.san0j.de/software/subdomains.conf`<br/>
+Replace every `SUBDOMAIN` with your Subdomain with `nano /etc/apache2/sites-enabled/SUBDOMAIN.conf`<br/>
+Generate before restarting Apache2 a SSL-Certificate with `certbot certonly --apache -d SUBDOMAIN`<br/>
 Now restart Apache2 with `service apache2 restart`
 
 
