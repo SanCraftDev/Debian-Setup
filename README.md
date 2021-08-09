@@ -175,7 +175,7 @@ apt install webmin -y
 apt update && apt upgrade -y && apt autoremove -y
 ```
 
-## Squid:
+## Squid (HTTP-Proxy - with Password Authentication):
 ```sh
 apt update && apt upgrade -y && apt autoremove -y
 apt install squid squid3 -y
