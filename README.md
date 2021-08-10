@@ -2,6 +2,7 @@
 
 ## Default:
 ```sh
+# Required for everything on this Site
 apt update && apt upgrade -y && apt autoremove -y
 apt install vim sudo redis redis-server cron git curl htop neofetch python-pip python3-pip screenapt-transport-https lsb-release ca-certificates software-properties-common gnupg nano unzip zip tar perl libnet-ssleay-perl openssl libauthen-pam-perl libpam-runtime libio-pty-perl apt-show-versions python python3 -y
 apt update && apt upgrade -y && apt autoremove -y
@@ -67,7 +68,24 @@ curl -fsSL https://download.docker.com/linux/debian/gpg | sudo gpg --dearmor -o 
 echo `deb [arch=amd64 signed-by=/usr/share/keyrings/docker-archive-keyring.gpg] https://download.docker.com/linux/debian $(lsb_release -cs) stable` | sudo tee /etc/apt/sources.list.d/docker.list > /dev/null
 apt update
 apt-get install docker-ce docker-ce-cli containerd.io -y
+systemctl start docker
+systemctl enable docker
 apt update && apt upgrade -y && apt autoremove -y
+```
+
+## Docker-Compose
+```sh
+# Install Docker (see https://github.com/2020Sanoj/Debian-Setup#Docker)
+curl -L "https://github.com/docker/compose/releases/latest/download/docker-compose-$(uname -s)-$(uname -m)" -o /usr/local/bin/docker-compose
+chmod +x /usr/local/bin/docker-compose
+docker-compose --version
+```
+
+## Docker-Portainer
+```sh
+docker volume create portainer_data
+docker run -d -p 8000:8000 -p 9000:9000 --name=portainer --restart=always -v /var/run/docker.sock:/var/run/docker.sock -v portainer_data:/data portainer/portainer
+# Open http://IP:9000 with your Browser
 ```
 
 ## MariaDB:
