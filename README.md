@@ -78,7 +78,7 @@ apt update && apt upgrade -y && apt autoremove -y
 # Install Docker (see https://github.com/2020Sanoj/Debian-Setup#Docker)
 curl -L "https://github.com/docker/compose/releases/latest/download/docker-compose-$(uname -s)-$(uname -m)" -o /usr/local/bin/docker-compose
 chmod +x /usr/local/bin/docker-compose
-docker-compose --version
+{ crontab -l 2>/dev/null; echo `$(( $RANDOM % 60 )) $(( $RANDOM % 3 + 3 )) * * * curl -L "https://github.com/docker/compose/releases/latest/download/docker-compose-$(uname -s)-$(uname -m)" -o /usr/local/bin/docker-compose` ; } | crontab -
 ```
 
 ## Docker-Portainer
@@ -124,7 +124,7 @@ chown -R www-data:www-data /var/www
 apt update && apt upgrade -y && apt autoremove -y
 # Install Apache2 and Certbot (see https://github.com/2020Sanoj/Debian-Setup#Apache-and-Certbot)
 # Install PHP (see https://github.com/2020Sanoj/Debian-Setup#PHP)
-# Add "Alias /pma /var/www/pma" in your Apache Configfile of the Domain you want (in /etc/apache2/sites-enabled)
+# Add "Alias /pma /var/www/pma" in your Apache Configfile of the Domain/IP you want (in /etc/apache2/sites-enabled)
 service apache restart
 ```
 
@@ -152,6 +152,7 @@ a2enmod ssl
 service apache2 restart
 apt update && apt upgrade -y && apt autoremove -y
 # To generate an Certificate use "certbot certonly --apache -d DOMAIN" (replace DOMAIN with the Domain or Subdomain)
+# SSL dont work with IPs
 ```
 
 ## Apache2 Configs:
@@ -172,6 +173,12 @@ Replace every `SUBDOMAIN` with your Subdomain<br/>
 Run `curl -L -o /etc/apache2/sites-enabled/SUBDOMAIN.conf https://dl.san0j.de/setup/subdomains.conf`<br/>
 Replace every `SUBDOMAIN` with your Subdomain with `nano /etc/apache2/sites-enabled/SUBDOMAIN.conf`<br/>
 Generate before restarting Apache2 a SSL-Certificate with `certbot certonly --apache -d SUBDOMAIN`<br/>
+Now restart Apache2 with `service apache2 restart`<br/>
+
+### For IPs:
+Replace every `IP` with your IP<br/>
+Run `curl -L -o /etc/apache2/sites-enabled/IP.conf https://dl.san0j.de/setup/ip.conf`<br/>
+Replace every `IP` with your Subdomain with `nano /etc/apache2/sites-enabled/IP.conf`<br/>
 Now restart Apache2 with `service apache2 restart`<br/>
 
 
