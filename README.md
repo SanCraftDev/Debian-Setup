@@ -62,6 +62,7 @@ apt update && apt upgrade -y && apt autoremove -y
 
 ## Docker:
 ```sh
+# Only on x86_64 / amd64 Platforms
 apt update && apt upgrade -y && apt autoremove -y
 apt-get remove docker docker-engine docker.io containerd runc -y
 curl -fsSL https://download.docker.com/linux/debian/gpg | sudo gpg --dearmor -o /usr/share/keyrings/docker-archive-keyring.gpg
