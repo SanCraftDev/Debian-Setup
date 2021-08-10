@@ -203,6 +203,7 @@ add-apt-repository 'deb https://download.webmin.com/download/repository sarge co
 wget https://download.webmin.com/jcameron-key.asc
 apt-key add jcameron-key.asc 
 rm jcameron-key.asc
+apt update
 apt install webmin -y
 apt update && apt upgrade -y && apt autoremove -y
 ```
