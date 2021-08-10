@@ -4,7 +4,7 @@
 ```sh
 # Required for everything on this Site
 apt update && apt upgrade -y && apt autoremove -y
-apt install vim sudo redis redis-server cron git curl htop neofetch python-pip python3-pip screenapt-transport-https lsb-release ca-certificates software-properties-common gnupg nano unzip zip tar perl libnet-ssleay-perl openssl libauthen-pam-perl libpam-runtime libio-pty-perl apt-show-versions python python3 -y
+apt install vim sudo redis redis-server cron git curl htop neofetch python-pip python3-pip screen apt-transport-https lsb-release ca-certificates software-properties-common gnupg nano unzip zip tar perl libnet-ssleay-perl openssl libauthen-pam-perl libpam-runtime libio-pty-perl apt-show-versions python python3 -y
 apt update && apt upgrade -y && apt autoremove -y
 ```
 
