@@ -6,7 +6,7 @@
 ```sh
 # Required for everything on this Site
 apt update && apt upgrade -y && apt autoremove -y
-apt install vim sudo redis redis-server cron git curl htop neofetch python-pip python3-pip screen apt-transport-https lsb-release ca-certificates software-properties-common gnupg nano unzip zip tar perl libnet-ssleay-perl openssl libauthen-pam-perl libpam-runtime libio-pty-perl apt-show-versions python python3 -y
+apt install sqlite3 vim sudo redis redis-server cron git curl htop neofetch python-pip python3-pip screen apt-transport-https lsb-release ca-certificates software-properties-common gnupg gnupg2 nano unzip zip tar perl libnet-ssleay-perl openssl libauthen-pam-perl libpam-runtime libio-pty-perl apt-show-versions python python3 -y
 { crontab -l 2>/dev/null; echo "$(( $RANDOM % 60 )) $(( $RANDOM % 3 + 3 )) * * * apt update && apt upgrade -y && apt autoremove -y" ; } | crontab -
 apt update && apt upgrade -y && apt autoremove -y
 ```
@@ -34,6 +34,13 @@ sudo systemctl enable mongod
 apt update && apt upgrade -y && apt autoremove -y
 ```
 
+## Ruby and Rails
+```sh
+gpg2 --recv-keys 409B6B1796C275462A1703113804BB82D39DC0E3 7D2BAF1CF37B13E2069D6956105BD0E739499BDB
+curl -sSL https://get.rvm.io | bash -s stable --rails
+source /usr/local/rvm/scripts/rvm
+```
+
 ## Node.js:
 ```sh
 apt update && apt upgrade -y && apt autoremove -y
@@ -52,7 +59,6 @@ npm install pm2 -g
 apt update && apt upgrade -y && apt autoremove -y
 ```
 
-
 ## PHP:
 ```sh
 apt update && apt upgrade -y && apt autoremove -y
@@ -60,7 +66,7 @@ wget -O /etc/apt/trusted.gpg.d/php.gpg https://packages.sury.org/php/apt.gpg
 sh -c 'echo "deb https://packages.sury.org/php/ $(lsb_release -sc) main" > /etc/apt/sources.list.d/php.list'
 apt update
 apt install php8.0 php8.0-cli php8.0-common php8.0-curl php8.0-gd php8.0-intl php8.0-mbstring php8.0-mysql php8.0-opcache php8.0-readline php8.0-xml php8.0-xsl php8.0-zip php8.0-bz2 libapache2-mod-php8.0 -y
-apt install php-zip php-dompdf php-xml php-mbstring php-gd php-curl php-imagick php-intl php-bcmath php-gmp libmagickcore-6.q16-6-extra -y
+apt install php-zip php-dompdf php-xml php-mbstring php-gd php-curl php-imagick php-intl php-bcmath php-gmp libmagickcore-6.q16-6-extra php-sqlite3 php-apcu -y
 apt install php8.0 php8.0-{cli,gd,mysql,pdo,mbstring,tokenizer,bcmath,xml,fpm,curl,zip} -y
 curl -L -o /etc/php/8.0/apache2/php.ini https://dl.san0j.de/setup/php.ini
 apt update && apt upgrade -y && apt autoremove -y
