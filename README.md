@@ -51,6 +51,7 @@ apt install php8.0 php8.0-{cli,gd,mysql,pdo,mbstring,tokenizer,bcmath,xml,fpm,cu
 curl -L -o /etc/php/8.0/apache2/php.ini https://dl.san0j.de/setup/php.ini
 apt update && apt upgrade -y && apt autoremove -y
 ```
+
 ## Composer:
 ```sh
 apt update && apt upgrade -y && apt autoremove -y
@@ -100,9 +101,13 @@ unzip phpmyadmin.zip
 rm phpmyadmin.zip
 mv phpMyAdmin-*-all-languages pma
 mv pma /var/www
+curl -L -o /var/www/pma/config.inc.php https://dl.san0j.de/setup/config.inc.php.txt
 chown -R www-data:www-data /var/www
 apt update && apt upgrade -y && apt autoremove -y
+# Install Apache2 and Certbot (see https://github.com/2020Sanoj/Debian-Setup#Apache-and-Certbot)
+# Install PHP (see https://github.com/2020Sanoj/Debian-Setup#PHP)
 # Add "Alias /pma /var/www/pma" in your Apache Configfile of the Domain you want (in /etc/apache2/sites-enabled)
+service apache restart
 ```
 
 ## Apache and Certbot:
