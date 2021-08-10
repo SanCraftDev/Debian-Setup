@@ -22,7 +22,7 @@ apt update && apt upgrade -y && apt autoremove -y
 apt update && apt upgrade -y && apt autoremove -y
 apt remove mongodb
 wget -qO - https://www.mongodb.org/static/pgp/server-5.0.asc | sudo apt-key add -
-echo `deb http://repo.mongodb.org/apt/debian buster/mongodb-org/5.0 main` | sudo tee /etc/apt/sources.list.d/mongodb-org-5.0.list
+echo "deb http://repo.mongodb.org/apt/debian buster/mongodb-org/5.0 main" | sudo tee /etc/apt/sources.list.d/mongodb-org-5.0.list
 apt update
 sudo apt-get install -y mongodb-org
 sudo systemctl daemon-reload
@@ -44,7 +44,7 @@ apt update && apt upgrade -y && apt autoremove -y
 ```sh
 apt update && apt upgrade -y && apt autoremove -y
 wget -O /etc/apt/trusted.gpg.d/php.gpg https://packages.sury.org/php/apt.gpg
-sh -c 'echo `deb https://packages.sury.org/php/ $(lsb_release -sc) main` > /etc/apt/sources.list.d/php.list'
+sh -c 'echo "deb https://packages.sury.org/php/ $(lsb_release -sc) main" > /etc/apt/sources.list.d/php.list'
 apt update
 apt install php8.0 php8.0-cli php8.0-common php8.0-curl php8.0-gd php8.0-intl php8.0-mbstring php8.0-mysql php8.0-opcache php8.0-readline php8.0-xml php8.0-xsl php8.0-zip php8.0-bz2 libapache2-mod-php8.0 -y
 apt install php-zip php-dompdf php-xml php-mbstring php-gd php-curl php-imagick php-intl php-bcmath php-gmp libmagickcore-6.q16-6-extra -y
@@ -65,7 +65,7 @@ apt update && apt upgrade -y && apt autoremove -y
 apt update && apt upgrade -y && apt autoremove -y
 apt-get remove docker docker-engine docker.io containerd runc -y
 curl -fsSL https://download.docker.com/linux/debian/gpg | sudo gpg --dearmor -o /usr/share/keyrings/docker-archive-keyring.gpg
-echo `deb [arch=amd64 signed-by=/usr/share/keyrings/docker-archive-keyring.gpg] https://download.docker.com/linux/debian $(lsb_release -cs) stable` | sudo tee /etc/apt/sources.list.d/docker.list > /dev/null
+echo "deb [arch=amd64 signed-by=/usr/share/keyrings/docker-archive-keyring.gpg] https://download.docker.com/linux/debian $(lsb_release -cs) stable" | sudo tee /etc/apt/sources.list.d/docker.list > /dev/null
 apt update
 apt-get install docker-ce docker-ce-cli containerd.io -y
 systemctl start docker
