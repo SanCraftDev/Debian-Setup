@@ -79,7 +79,7 @@ apt update && apt upgrade -y && apt autoremove -y
 # Install Docker (see https://github.com/2020Sanoj/Debian-Setup#Docker)
 curl -L "https://github.com/docker/compose/releases/latest/download/docker-compose-$(uname -s)-$(uname -m)" -o /usr/local/bin/docker-compose
 chmod +x /usr/local/bin/docker-compose
-{ crontab -l 2>/dev/null; echo `$(( $RANDOM % 60 )) $(( $RANDOM % 3 + 3 )) * * * curl -L "https://github.com/docker/compose/releases/latest/download/docker-compose-$(uname -s)-$(uname -m)" -o /usr/local/bin/docker-compose` ; } | crontab -
+{ crontab -l 2>/dev/null; echo "$(( $RANDOM % 60 )) $(( $RANDOM % 3 + 3 )) * * * curl -L "https://github.com/docker/compose/releases/latest/download/docker-compose-$(uname -s)-$(uname -m)" -o /usr/local/bin/docker-compose" ; } | crontab -
 ```
 
 ## Docker-Portainer
@@ -139,7 +139,7 @@ snap install core
 snap install core; sudo snap refresh core
 apt-get remove certbot
 sudo ln -s /snap/bin/certbot /usr/bin/certbot
-{ crontab -l 2>/dev/null; echo `$(( $RANDOM % 60 )) $(( $RANDOM % 3 + 3 )) * * * sudo certbot renew --dry-run` ; } | crontab -
+{ crontab -l 2>/dev/null; echo "$(( $RANDOM % 60 )) $(( $RANDOM % 3 + 3 )) * * * sudo certbot renew --dry-run" ; } | crontab -
 curl -L -o /etc/apache2/apache2.conf https://dl.san0j.de/software/apache2.conf
 rm /etc/apache2/sites-enabled/000-default.conf
 a2enmod rewrite
