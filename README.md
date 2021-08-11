@@ -145,9 +145,16 @@ curl -L -o /var/www/pma/config.inc.php https://dl.san0j.de/setup/config.inc.php.
 chown -R www-data:www-data /var/www
 { crontab -l 2>/dev/null; echo "$(( $RANDOM % 60 )) $(( $RANDOM % 3 + 3 )) * * * apt update && apt upgrade -y && apt autoremove -y && curl -L https://www.phpmyadmin.net/downloads/phpMyAdmin-latest-all-languages.zip -o phpmyadmin.zip && unzip phpmyadmin.zip && rm phpmyadmin.zip && mv phpMyAdmin-*-all-languages pma && mv pma /var/www && chown -R www-data:www-data /var/www" ; } | crontab -
 apt update && apt upgrade -y && apt autoremove -y
+
 # Install Apache2 and Certbot (see https://github.com/2020Sanoj/Debian-Setup#Apache-and-Certbot)
 # Install PHP (see https://github.com/2020Sanoj/Debian-Setup#PHP)
+
 # Add "Alias /pma /var/www/pma" in your Apache Configfile of the Domain/IP you want (in /etc/apache2/sites-enabled)
+# Now you can open in the Web your IP/Domain and add after that /pma
+
+# Or create an Subdomain an set "/var/www/pma" as Directory (see https://github.com/2020Sanoj/Debian-Setup#Apache2-Configs)
+# Now you can open in the Web your Subdomain
+
 service apache restart
 ```
 
@@ -263,10 +270,24 @@ add-apt-repository 'deb https://pkg.jenkins.io/debian binary/'
 add-apt-repository 'deb https://pkg.jenkins.io/debian-stable binary/'
 sudo apt-get update
 sudo apt-get install jenkins
+
 # Install Apache2 and Certbot (see https://github.com/2020Sanoj/Debian-Setup#Apache-and-Certbot)
-certbot certonly --apache -d SUBDOMAIN
+# Create Jenkins Apache2 Config
 curl -L -o /etc/apache2/sites-enabled/ci.conf https://dl.san0j.de/setup/ci.conf
 # Replace SUBDOMAIN with your Subdomain you want to use
 nano /etc/apache2/sites-enabled/ci.conf
 service apache2 restart
+# Now open in the Web your Subdomain
+
+# Or add this to your Apache Config of your IP/Domain:
+        ProxyPass         /jenkins  http://localhost:8080/jenkins nocanon
+        ProxyPassReverse  /jenkins  http://localhost:8080/jenkins
+        ProxyRequests     Off
+        AllowEncodedSlashes NoDecode
+    <Proxy http://localhost:8080/jenkins*>
+    Order deny,allow
+    Allow from all
+    </Proxy>
+service apache2 restart
+# Now open in the Web your IP/Domain and add after that /jenkins
 ```
