@@ -118,54 +118,6 @@ apt update && apt upgrade -y && apt autoremove -y
 # Open http://IP:9000 with your Browser
 ```
 
-## MariaDB:
-```sh
-apt update && apt upgrade -y && apt autoremove -y
-apt install mariadb-server mariadb-client -y
-mysql_secure_installation
-# Press Enter
-y
-# Set a Password
-y
-y
-y
-y
-# Create User with root permissions on MariaDB
-mysql -u root -p
-# Enter the Password
-# Replace "USERNAME" with an Username don not use root and "PASSWORD" with a Password
-CREATE USER 'USERNAME'@'localhost' IDENTIFIED BY 'PASSWORD';
-GRANT ALL PRIVILEGES ON *.* TO 'Username'@'localhost' WITH GRANT OPTION;
-FLUSH PRIVILEGES;
-exit;
-apt update && apt upgrade -y && apt autoremove -y
-```
-
-## PHPMyAdmin:
-```sh
-apt update && apt upgrade -y && apt autoremove -y
-curl -L https://www.phpmyadmin.net/downloads/phpMyAdmin-latest-all-languages.zip -o phpmyadmin.zip
-unzip phpmyadmin.zip
-rm phpmyadmin.zip
-mv phpMyAdmin-*-all-languages pma
-mv pma /var/www
-curl -L -o /var/www/pma/config.inc.php https://dl.san0j.de/setup/config.inc.php.txt
-chown -R www-data:www-data /var/www
-{ crontab -l 2>/dev/null; echo "$(( $RANDOM % 60 )) $(( $RANDOM % 3 + 3 )) * * * apt update && apt upgrade -y && apt autoremove -y && curl -L https://www.phpmyadmin.net/downloads/phpMyAdmin-latest-all-languages.zip -o phpmyadmin.zip && unzip phpmyadmin.zip && rm phpmyadmin.zip && mv phpMyAdmin-*-all-languages pma && mv pma /var/www && chown -R www-data:www-data /var/www" ; } | crontab -
-apt update && apt upgrade -y && apt autoremove -y
-
-# Install Apache2 and Certbot (see https://github.com/2020Sanoj/Debian-Setup#Apache-and-Certbot)
-# Install PHP (see https://github.com/2020Sanoj/Debian-Setup#PHP)
-
-# Add "Alias /pma /var/www/pma" in your Apache Configfile of the Domain/IP you want (in /etc/apache2/sites-enabled)
-# Now you can open in the Web your IP/Domain and add after that /pma
-
-# Or create an Subdomain an set "/var/www/pma" as Directory (see https://github.com/2020Sanoj/Debian-Setup#Apache2-Configs)
-# Now you can open in the Web your Subdomain
-
-service apache restart
-```
-
 ## Apache and Certbot:
 ```sh
 apt update && apt upgrade -y && apt autoremove -y
@@ -217,6 +169,54 @@ Replace every `IP` with your IP<br/>
 Run `curl -L -o /etc/apache2/sites-enabled/IP.conf https://dl.san0j.de/setup/ip.conf`<br/>
 Replace every `IP` with your Subdomain with `nano /etc/apache2/sites-enabled/IP.conf`<br/>
 Now restart Apache2 with `service apache2 restart`<br/>
+
+## MariaDB:
+```sh
+apt update && apt upgrade -y && apt autoremove -y
+apt install mariadb-server mariadb-client -y
+mysql_secure_installation
+# Press Enter
+y
+# Set a Password
+y
+y
+y
+y
+# Create User with root permissions on MariaDB
+mysql -u root -p
+# Enter the Password
+# Replace "USERNAME" with an Username don not use root and "PASSWORD" with a Password
+CREATE USER 'USERNAME'@'localhost' IDENTIFIED BY 'PASSWORD';
+GRANT ALL PRIVILEGES ON *.* TO 'Username'@'localhost' WITH GRANT OPTION;
+FLUSH PRIVILEGES;
+exit;
+apt update && apt upgrade -y && apt autoremove -y
+```
+
+## PHPMyAdmin:
+```sh
+apt update && apt upgrade -y && apt autoremove -y
+curl -L https://www.phpmyadmin.net/downloads/phpMyAdmin-latest-all-languages.zip -o phpmyadmin.zip
+unzip phpmyadmin.zip
+rm phpmyadmin.zip
+mv phpMyAdmin-*-all-languages pma
+mv pma /var/www
+curl -L -o /var/www/pma/config.inc.php https://dl.san0j.de/setup/config.inc.php.txt
+chown -R www-data:www-data /var/www
+{ crontab -l 2>/dev/null; echo "$(( $RANDOM % 60 )) $(( $RANDOM % 3 + 3 )) * * * apt update && apt upgrade -y && apt autoremove -y && curl -L https://www.phpmyadmin.net/downloads/phpMyAdmin-latest-all-languages.zip -o phpmyadmin.zip && unzip phpmyadmin.zip && rm phpmyadmin.zip && mv phpMyAdmin-*-all-languages pma && mv pma /var/www && chown -R www-data:www-data /var/www" ; } | crontab -
+apt update && apt upgrade -y && apt autoremove -y
+
+# Install Apache2 and Certbot (see https://github.com/2020Sanoj/Debian-Setup#Apache-and-Certbot)
+# Install PHP (see https://github.com/2020Sanoj/Debian-Setup#PHP)
+
+# Add "Alias /pma /var/www/pma" in your Apache Configfile of the Domain/IP you want (in /etc/apache2/sites-enabled)
+# Now you can open in the Web your IP/Domain and add after that /pma
+
+# Or create an Subdomain an set "/var/www/pma" as Directory (see https://github.com/2020Sanoj/Debian-Setup#Apache2-Configs)
+# Now you can open in the Web your Subdomain
+
+service apache restart
+```
 
 ## Wireguard (VPN):
 ```sh
