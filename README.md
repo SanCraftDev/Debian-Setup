@@ -251,12 +251,12 @@ apt update && apt upgrade -y && apt autoremove -y
 apt update && apt upgrade -y && apt autoremove -y
 apt install squid squid3 -y
 curl -L -o /etc/squid/squid.conf https://dl.san0j.de/setup/squid.conf
-service squid restart
-# Port is 8449
-# The restart take a moment
 # Create User (Replace "USERNAME" with a Username)
 htpasswd -c /etc/squid/passwords USERNAME
 # Enter a new Password
+service squid restart
+# Port is 8449
+# The restart take a moment
 apt update && apt upgrade -y && apt autoremove -y
 ```
 
