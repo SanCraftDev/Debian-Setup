@@ -1,6 +1,7 @@
 # Debian-Setup
 
 **Please run everything as root User (run `su` and than enter your root password)**
+**Please run every Command for its own**
 
 ## Default:
 ```sh
@@ -36,9 +37,11 @@ apt update && apt upgrade -y && apt autoremove -y
 
 ## Ruby and Rails
 ```sh
+apt update && apt upgrade -y && apt autoremove -y
 gpg2 --recv-keys 409B6B1796C275462A1703113804BB82D39DC0E3 7D2BAF1CF37B13E2069D6956105BD0E739499BDB
 curl -sSL https://get.rvm.io | bash -s stable --rails
 source /usr/local/rvm/scripts/rvm
+apt update && apt upgrade -y && apt autoremove -y
 ```
 
 ## Node.js:
@@ -48,6 +51,7 @@ curl -fsSL https://deb.nodesource.com/setup_16.x | bash -
 apt update
 apt-get install nodejs -y
 { crontab -l 2>/dev/null; echo "$(( $RANDOM % 60 )) $(( $RANDOM % 3 + 3 )) * * * npm i" ; } | crontab -
+npm config set fund false --global
 apt update && apt upgrade -y && apt autoremove -y
 ```
 
@@ -97,16 +101,20 @@ apt update && apt upgrade -y && apt autoremove -y
 ## Docker-Compose
 ```sh
 # Install Docker (see https://github.com/2020Sanoj/Debian-Setup#Docker)
+apt update && apt upgrade -y && apt autoremove -y
 curl -L "https://github.com/docker/compose/releases/latest/download/docker-compose-$(uname -s)-$(uname -m)" -o /usr/local/bin/docker-compose
 chmod +x /usr/local/bin/docker-compose
 { crontab -l 2>/dev/null; echo "$(( $RANDOM % 60 )) $(( $RANDOM % 3 + 3 )) * * * curl -L "https://github.com/docker/compose/releases/latest/download/docker-compose-$(uname -s)-$(uname -m)" -o /usr/local/bin/docker-compose" ; } | crontab -
+apt update && apt upgrade -y && apt autoremove -y
 ```
 
 ## Docker-Portainer
 ```sh
 # Install Docker-Compose and Docker (see https://github.com/2020Sanoj/Debian-Setup#Docker and https://github.com/2020Sanoj/Debian-Setup#Docker)
+apt update && apt upgrade -y && apt autoremove -y
 docker volume create portainer_data
 docker run -d -p 8000:8000 -p 9000:9000 --name=portainer --restart=always -v /var/run/docker.sock:/var/run/docker.sock -v portainer_data:/data portainer/portainer
+apt update && apt upgrade -y && apt autoremove -y
 # Open http://IP:9000 with your Browser
 ```
 
@@ -123,7 +131,7 @@ y
 y
 y
 # Create User with root permissions on MariaDB
-Replace `username` with an Username don not use root and `password` with a Password
+# Replace "username" with an Username don not use root and "password" with a Password
 mysql -u root -p
 # Enter the Password
 CREATE USER 'username'@'localhost' IDENTIFIED BY 'password';
@@ -212,12 +220,14 @@ Now restart Apache2 with `service apache2 restart`<br/>
 
 ## Wireguard (VPN):
 ```sh
+apt update && apt upgrade -y && apt autoremove -y
 wget git.io/wireguard -O wireguard-install.sh && bash wireguard-install.sh
 # Set a Random Number under 1000 - Press Enter
 # Give your first VPN Client an Name - Press Enter
 # I recomend to use AdGuard - 6 - Press Enter
 # Press Enter
 chmod 700 /root/wireguard-install.sh
+apt update && apt upgrade -y && apt autoremove -y
 # To create a New Wireguard User or remove one use:
 /root/wireguard-install.sh
 # Do the same as before
@@ -263,6 +273,7 @@ apt update && apt upgrade -y && apt autoremove -y
 
 ## Jenkins:
 ```sh
+apt update && apt upgrade -y && apt autoremove -y
 wget -q -O - https://pkg.jenkins.io/debian/jenkins.io.key | sudo apt-key add -
 # For Weekly Updates
 add-apt-repository 'deb https://pkg.jenkins.io/debian binary/'
@@ -270,6 +281,7 @@ add-apt-repository 'deb https://pkg.jenkins.io/debian binary/'
 add-apt-repository 'deb https://pkg.jenkins.io/debian-stable binary/'
 sudo apt-get update
 sudo apt-get install jenkins
+apt update && apt upgrade -y && apt autoremove -y
 
 # Install Apache2 and Certbot (see https://github.com/2020Sanoj/Debian-Setup#Apache-and-Certbot)
 # Create Jenkins Apache2 Config
