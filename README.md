@@ -131,11 +131,11 @@ y
 y
 y
 # Create User with root permissions on MariaDB
-# Replace "username" with an Username don not use root and "password" with a Password
 mysql -u root -p
 # Enter the Password
-CREATE USER 'username'@'localhost' IDENTIFIED BY 'password';
-GRANT ALL PRIVILEGES ON *.* TO 'username'@'localhost' WITH GRANT OPTION;
+# Replace "USERNAME" with an Username don not use root and "PASSWORD" with a Password
+CREATE USER 'USERNAME'@'localhost' IDENTIFIED BY 'PASSWORD';
+GRANT ALL PRIVILEGES ON *.* TO 'Username'@'localhost' WITH GRANT OPTION;
 FLUSH PRIVILEGES;
 exit;
 apt update && apt upgrade -y && apt autoremove -y
