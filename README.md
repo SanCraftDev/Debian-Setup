@@ -254,8 +254,9 @@ curl -L -o /etc/squid/squid.conf https://dl.san0j.de/setup/squid.conf
 service squid restart
 # Port is 8449
 # The restart take a moment
-# Create User (Replace "username" with a Username)
-htpasswd -c /etc/squid/passwords username
+# Create User (Replace "USERNAME" with a Username)
+htpasswd -c /etc/squid/passwords Username
+# Enter a new Password
 apt update && apt upgrade -y && apt autoremove -y
 ```
 
