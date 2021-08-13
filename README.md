@@ -7,7 +7,7 @@
 ```sh
 # Required for everything on this Site
 apt update && apt upgrade -y && apt autoremove -y
-apt install sqlite3 vim sudo redis redis-server cron git curl htop neofetch python-pip python3-pip screen apt-transport-https lsb-release ca-certificates software-properties-common gnupg gnupg2 nano unzip zip tar perl libnet-ssleay-perl openssl libauthen-pam-perl libpam-runtime libio-pty-perl apt-show-versions python python3 -y
+apt install gcc-8-base sqlite3 vim sudo redis redis-server cron git curl htop neofetch python-pip python3-pip screen apt-transport-https lsb-release ca-certificates software-properties-common gnupg gnupg2 nano unzip zip tar perl libnet-ssleay-perl openssl libauthen-pam-perl libpam-runtime libio-pty-perl apt-show-versions python python3 -y
 { crontab -l 2>/dev/null; echo "$(( $RANDOM % 60 )) $(( $RANDOM % 3 + 3 )) * * * apt update && apt upgrade -y && apt autoremove -y" ; } | crontab -
 apt update && apt upgrade -y && apt autoremove -y
 ```
@@ -307,4 +307,12 @@ service apache2 restart
     </Proxy>
 service apache2 restart
 # Now open in the Web your IP/Domain and add after that /jenkins
+```
+
+## Speedtest:
+```sh
+apt update && apt upgrade -y && apt autoremove -y
+curl -s https://install.speedtest.net/app/cli/install.deb.sh | sudo bash
+sudo apt-get install speedtest -y
+apt update && apt upgrade -y && apt autoremove -y
 ```
