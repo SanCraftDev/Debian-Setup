@@ -1,4 +1,4 @@
-# Debian-Setup
+# Debian 10 Buster Setup
 
 **Please run everything as root User (run `su` and than enter your root password)**
 **Please run every Command for its own**
