@@ -58,7 +58,7 @@ apt update && apt upgrade -y && apt autoremove -y
 cat /etc/os-release
 ```
 
-# Proftpd
+## Proftpd
 **Only If you running Proftpd please run now:**
 ```sh
 curl -L -o /etc/proftpd/proftpd.conf https://dl.san0j.de/setup/proftpd11.conf
