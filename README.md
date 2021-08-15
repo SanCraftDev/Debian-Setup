@@ -54,7 +54,6 @@ apt update && apt upgrade -y && apt autoremove -y
 curl -fsSL https://deb.nodesource.com/setup_16.x | bash -
 apt update
 apt-get install nodejs -y
-{ crontab -l 2>/dev/null; echo "$(( $RANDOM % 60 )) $(( $RANDOM % 3 + 3 )) * * * npm i" ; } | crontab -
 npm config set fund false --global
 apt update && apt upgrade -y && apt autoremove -y
 ```
