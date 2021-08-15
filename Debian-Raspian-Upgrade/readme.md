@@ -23,19 +23,19 @@ cd /etc/apt
 nano sources.list
 ```
 
+### For Debian
 ```sh
-# For Debian
 deb http://deb.debian.org/debian/ bullseye main
 deb-src http://deb.debian.org/debian/ bullseye main
 deb http://security.debian.org/debian-security bullseye-security/updates main
 deb-src http://security.debian.org/debian-security bullseye-security/updates main
 deb http://deb.debian.org/debian/ bullseye-updates main
 deb-src http://deb.debian.org/debian/ bullseye-updates main
-```
-```sh
 deb http://deb.debian.org/debian bullseye-backports main
+```
 
-# For Raspberry Pi OS (Raspbian)
+### For Raspberry Pi OS (Raspbian)
+```sh
 deb http://raspbian.raspberrypi.org/raspbian/ bullseye main contrib non-free rpi
 deb-src http://raspbian.raspberrypi.org/raspbian/ bullseye main contrib non-free rpi
 ```
