@@ -155,6 +155,7 @@ apt update && apt upgrade -y && apt autoremove -y
 
 ### For Domains:
 
+Set your DNS Records
 Replace every `DOMAIN` with your Domain<br/>
 Run `curl -L -o /etc/apache2/sites-enabled/DOMAIN.conf https://dl.san0j.de/setup/domains.conf`<br/>
 Replace every `DOMAIN` with your Domain with `nano /etc/apache2/sites-enabled/DOMAIN.conf`<br/>
@@ -164,6 +165,7 @@ Now restart Apache2 with `service apache2 restart`<br/>
 
 ### For Subdomains:
 
+Set your DNS RecordsSet your DNS Records
 Replace every `SUBDOMAIN` with your Subdomain<br/>
 Run `curl -L -o /etc/apache2/sites-enabled/SUBDOMAIN.conf https://dl.san0j.de/setup/subdomains.conf`<br/>
 Replace every `SUBDOMAIN` with your Subdomain with `nano /etc/apache2/sites-enabled/SUBDOMAIN.conf`<br/>
@@ -218,7 +220,7 @@ apt update && apt upgrade -y && apt autoremove -y
 # Add "Alias /pma /var/www/pma" in your Apache Configfile of the Domain/IP you want (in /etc/apache2/sites-enabled)
 # Now you can open in the Web your IP/Domain and add after that /pma
 
-# Or create an Subdomain an set "/var/www/pma" as Directory (see https://github.com/2020Sanoj/Debian-Setup#Apache2-Configs)
+# Or create an Subdomain an - set "/var/www/pma" as Directory (see https://github.com/2020Sanoj/Debian-Setup#Apache2-Configs)
 # Now you can open in the Web your Subdomain
 
 service apache restart
@@ -296,10 +298,12 @@ sudo apt-get install jenkins
 apt update && apt upgrade -y && apt autoremove -y
 
 # Install Apache2 and Certbot (see https://github.com/2020Sanoj/Debian-Setup#Apache-and-Certbot)
+# Set your DNS Records
 # Create Jenkins Apache2 Config
 curl -L -o /etc/apache2/sites-enabled/ci.conf https://dl.san0j.de/setup/ci.conf
 # Replace SUBDOMAIN with your Subdomain you want to use
 nano /etc/apache2/sites-enabled/ci.conf
+certbot certonly --apache -d SUBDOMAIN
 service apache2 restart
 # Now open in the Web your Subdomain
 
