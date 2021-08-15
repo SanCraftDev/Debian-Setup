@@ -3,6 +3,10 @@
 **Please run everything as root User (run `su` and than enter your root password)**
 **Please run every Command for its own**
 
+## Upgrade Debian 10 -> 11
+
+[Click here](./Debian-Raspian-Upgrade/README.md)
+
 ## Default:
 ```sh
 # Required for everything on this Site
