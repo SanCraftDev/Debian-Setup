@@ -1,10 +1,10 @@
 # Debian 10 Buster to Debian 11 Upgrade for amd64/x64_86 Systems - most working on other Systems too (like Raspberry Pi)
 
-**Please run everything as root User (run `su` and than enter your root password)**
-**Please run every Command for its own**
-**Only Working with Debian Packages and external Packages of this Manual**
-**PLease make a Backup/Snapshot of your Server!**
-**See Pictures in also in this Folder**
+**Please run everything as root User (run `su` and than enter your root password)**</br>
+**Please run every Command for its own**</br>
+**Only Working with Debian Packages and external Packages of this Manual**</br>
+**PLease make a Backup/Snapshot of your Server!**</br>
+**See Pictures in also in this Folder**</br>
 
 ## Update System:
 
@@ -27,9 +27,9 @@ apt update
 apt full-upgrade
 ```
 
-Press Q if you see the Changelogs
-If you getting asked for auto restarts of services Select Yes with Tab to select ant Space to Enter it
-If you getting asked what should happen with an Configfile select keep local Version
+Press Q if you see the Changelogs</br>
+If you getting asked for auto restarts of services Select Yes with Tab to select ant Space to Enter it</br>
+If you getting asked what should happen with an Configfile select keep local Version</br>
 
 ```sh
 reboot
@@ -51,9 +51,9 @@ service proftpd restart
 
 ## Recommended
 **Remove Python2**
-Reinstall every pip Package you need with pip3
-Change in every Start of a Python File `python` with `python3` in the start command
-Make sure all your python files work with Python 3.9!
+Reinstall every pip Package you need with pip3</br>
+Change in every Start of a Python File `python` with `python3` in the start command</br>
+Make sure all your python files work with Python 3.9!</br>
 ```sh
 apt update
 apt remove python2
