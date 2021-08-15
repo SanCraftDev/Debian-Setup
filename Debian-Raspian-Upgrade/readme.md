@@ -44,7 +44,7 @@ deb-src http://raspbian.raspberrypi.org/raspbian/ bullseye main contrib non-free
 cd sources.list.d/
 # Replace every Buster with Bullseye in all Files in this Directory (use "nano FILE-NAME")
 apt update
-apt full-upgrade
+apt full-upgrade -y
 ```
 
 Press Q if you see the Changelogs</br>
