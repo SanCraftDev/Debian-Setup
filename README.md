@@ -1,4 +1,4 @@
-# Debian 10 Buster Setup
+# Debian 10/11 Buster/Bullseye Setup for amd64/x64_86 Systems - most working on other Systems too (like Raspberry Pi)
 
 **Please run everything as root User (run `su` and than enter your root password)**
 **Please run every Command for its own**
@@ -7,7 +7,7 @@
 ```sh
 # Required for everything on this Site
 apt update && apt upgrade -y && apt autoremove -y
-apt install gcc-8-base sqlite3 vim sudo redis redis-server cron git curl htop neofetch python-pip python3-pip screen apt-transport-https lsb-release ca-certificates software-properties-common gnupg gnupg2 nano unzip zip tar perl libnet-ssleay-perl openssl libauthen-pam-perl libpam-runtime libio-pty-perl apt-show-versions python python3 -y
+apt install python-pip-whl gcc-8-base sqlite3 vim sudo redis redis-server cron git curl htop neofetch python3-pip screen apt-transport-https lsb-release ca-certificates software-properties-common gnupg gnupg2 nano unzip zip tar perl libnet-ssleay-perl openssl libauthen-pam-perl libpam-runtime libio-pty-perl apt-show-versions -y
 { crontab -l 2>/dev/null; echo "$(( $RANDOM % 60 )) $(( $RANDOM % 3 + 3 )) * * * apt update && apt upgrade -y && apt autoremove -y" ; } | crontab -
 apt update && apt upgrade -y && apt autoremove -y
 ```
@@ -25,6 +25,7 @@ apt update && apt upgrade -y && apt autoremove -y
 ```
 
 ## MongoDB:
+**ONLY DEBIAN 10 BUSTER CUURENT!!!**
 ```sh
 apt update && apt upgrade -y && apt autoremove -y
 apt remove mongodb
@@ -270,7 +271,11 @@ apt install proftpd -y
 addgroup ftpuser
 # Replace USERNAME with an Username and replace PATH with the Folder Path
 adduser USERNAME --shell /bin/false --home /PATH --ingroup ftpuser
-curl -L -o /etc/proftpd/proftpd.conf https://dl.san0j.de/setup/proftpd.conf
+# Debian 10 Buster
+curl -L -o /etc/proftpd/proftpd.conf https://dl.san0j.de/setup/proftpd10.conf
+# Debian 11 Bullseye
+curl -L -o /etc/proftpd/proftpd.conf https://dl.san0j.de/setup/proftpd11.conf
+
 service proftpd restart
 apt update && apt upgrade -y && apt autoremove -y
 ```
