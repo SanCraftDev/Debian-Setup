@@ -18,12 +18,12 @@ apt update && apt upgrade -y && apt autoremove -y
 
 ```sh
 cd /etc/apt
-# Replace every Buster with Bullseye (Not with MongoDB current) - see Pictures
+# Replace every Buster with Bullseye (Not with MongoDB Sources current) - see Pictures
 # Or remove everything from Debian and paste the Lines below
 nano sources.list
 ```
 
-### For Debian
+### New Debian-Sources
 ```sh
 deb http://deb.debian.org/debian/ bullseye main
 deb-src http://deb.debian.org/debian/ bullseye main
@@ -34,12 +34,13 @@ deb-src http://deb.debian.org/debian/ bullseye-updates main
 deb http://deb.debian.org/debian bullseye-backports main
 ```
 
-### For Raspberry Pi OS (Raspbian)
+### New Raspberry Pi OS (Raspbian) Sources
 ```sh
 deb http://raspbian.raspberrypi.org/raspbian/ bullseye main contrib non-free rpi
 deb-src http://raspbian.raspberrypi.org/raspbian/ bullseye main contrib non-free rpi
 ```
 
+### Other Sources not in the Main File
 ```sh
 cd sources.list.d/
 # Replace every Buster with Bullseye in all Files in this Directory (use "nano FILE-NAME")
