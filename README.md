@@ -5,7 +5,7 @@
 
 ## Upgrade Debian 10 -> 11
 
-[Click here](./Debian-Raspian-Upgrade/README.md) # It works!
+[Click here](./Debian-Raspian-Upgrade/README.md)
 
 ## Default:
 ```sh
