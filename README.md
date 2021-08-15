@@ -1,11 +1,10 @@
-# Debian 10/11 Buster/Bullseye Setup for amd64/x64_86 Systems - most working on other Systems too (like Raspberry Pi)
+# [Debian 10/11 Buster/Bullseye Setup for amd64/x64_86 Systems - most working on other Systems too (like Raspberry Pi)](https://2020sanoj.github.io/Debian-Setup/)
 
 **Please run everything as root User (run `su` or `sudo su` and than enter your root password)**
 **Please run every Command for its own**
 
 ## Upgrade Debian 10 -> 11
-
-[Click here](https://github.com/2020Sanoj/Debian-Setup/tree/main/Debian-Raspian-Upgrade)
+### [Click here](./Debian-Raspian-Upgrade/readme.md)
 
 ## Default:
 ```sh
