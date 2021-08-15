@@ -52,7 +52,8 @@ service proftpd restart
 ## Recommended
 **Remove Python2**
 Reinstall every pip Package you need with pip3
-Change in every Start of a Python File `python` with `python3.9` in the start command
+Change in every Start of a Python File `python` with `python3` in the start command
+Make sure all your python files work with Python 3.9!
 ```sh
 apt update
 apt remove python2
