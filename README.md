@@ -5,7 +5,7 @@
 
 ## Upgrade Debian 10 -> 11
 
-[Click here](./Debian-Raspian-Upgrade/README.md)
+[Click here](https://github.com/2020Sanoj/Debian-Setup/tree/main/Debian-Raspian-Upgrade)
 
 ## Default:
 ```sh
