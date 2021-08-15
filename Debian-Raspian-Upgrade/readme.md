@@ -31,15 +31,13 @@ deb http://security.debian.org/debian-security bullseye-security/updates main
 deb-src http://security.debian.org/debian-security bullseye-security/updates main
 deb http://deb.debian.org/debian/ bullseye-updates main
 deb-src http://deb.debian.org/debian/ bullseye-updates main
+```
+```sh
 deb http://deb.debian.org/debian bullseye-backports main
 
 # For Raspberry Pi OS (Raspbian)
 deb http://raspbian.raspberrypi.org/raspbian/ bullseye main contrib non-free rpi
 deb-src http://raspbian.raspberrypi.org/raspbian/ bullseye main contrib non-free rpi
-```
-
-```sh
-
 ```
 
 ```sh
