@@ -57,7 +57,6 @@ apt update && apt upgrade -y && apt autoremove -y
 # Check if Upgrade was successful
 cat /etc/os-release
 ```
-```
 
 # Proftpd
 **Only If you running Proftpd please run now:**
