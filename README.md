@@ -28,7 +28,6 @@ apt update && apt upgrade -y && apt autoremove -y
 ```
 
 ## MongoDB:
-**ONLY DEBIAN 10 BUSTER CUURENT!!!**
 ```sh
 apt update && apt upgrade -y && apt autoremove -y
 apt remove mongodb
