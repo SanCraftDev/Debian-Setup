@@ -75,8 +75,8 @@ apt install apache2 -y
 apt install snapd -y
 snap install core
 snap install core; sudo snap refresh core
-sudo snap install --classic certbot
 apt-get remove certbot
+sudo snap install --classic certbot
 sudo ln -s /snap/bin/certbot /usr/bin/certbot
 { crontab -l 2>/dev/null; echo "$(( $RANDOM % 60 )) $(( $RANDOM % 3 + 3 )) * * * sudo certbot renew --dry-run" ; } | crontab -
 curl -L -o /etc/apache2/apache2.conf https://dl.san0j.de/setup/apache2.conf
