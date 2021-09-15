@@ -1,7 +1,7 @@
 # [Debian 10/11 Buster/Bullseye Setup for amd64/x64_86 Systems - most working on other Systems too (like Raspberry Pi)](https://2020sanoj.github.io/Debian-Setup/)
 
 **Please run everything as root User (run `su` or `sudo su` and than enter your root password)** <br/>
-**Please run every Command for its own**
+**Please run every Command for its own and Please read the Comments!**
 
 ## Upgrade Debian 10 -> 11
 ### [Click here](./Debian-Raspian-Upgrade/readme.md)
@@ -68,61 +68,6 @@ npm install pm2 -g
 apt update && apt upgrade -y && apt autoremove -y
 ```
 
-## PHP:
-```sh
-apt update && apt upgrade -y && apt autoremove -y
-wget -O /etc/apt/trusted.gpg.d/php.gpg https://packages.sury.org/php/apt.gpg
-sh -c 'echo "deb https://packages.sury.org/php/ $(lsb_release -sc) main" > /etc/apt/sources.list.d/php.list'
-apt update
-apt install php8.0 php8.0-cli php8.0-common php8.0-curl php8.0-gd php8.0-intl php8.0-redis php8.0-mbstring php8.0-mysql php8.0-opcache php8.0-readline php8.0-xml php8.0-xsl php8.0-zip php8.0-bz2 libapache2-mod-php8.0 -y
-apt install php-zip php-dompdf php-xml php-mbstring php-gd php-curl php-imagick php-intl php-bcmath php-gmp libmagickcore-6.q16-6-extra php-sqlite3 php-apcu -y
-apt install php8.0 php8.0-{cli,gd,mysql,pdo,mbstring,tokenizer,bcmath,xml,fpm,curl,zip} -y
-curl -L -o /etc/php/8.0/apache2/php.ini https://dl.san0j.de/setup/php.ini
-apt update && apt upgrade -y && apt autoremove -y
-```
-
-## Composer:
-```sh
-apt update && apt upgrade -y && apt autoremove -y
-curl -sS https://getcomposer.org/installer | sudo php -- --install-dir=/usr/local/bin --filename=composer
-{ crontab -l 2>/dev/null; echo "$(( $RANDOM % 60 )) $(( $RANDOM % 3 + 3 )) * * * curl -sS https://getcomposer.org/installer | sudo php -- --install-dir=/usr/local/bin --filename=composer" ; } | crontab -
-apt update && apt upgrade -y && apt autoremove -y
-```
-
-## Docker:
-```sh
-# Only on x86_64 / amd64 Platforms
-apt update && apt upgrade -y && apt autoremove -y
-apt-get remove docker docker-engine docker.io containerd runc -y
-curl -fsSL https://download.docker.com/linux/debian/gpg | sudo gpg --dearmor -o /usr/share/keyrings/docker-archive-keyring.gpg
-echo "deb [arch=amd64 signed-by=/usr/share/keyrings/docker-archive-keyring.gpg] https://download.docker.com/linux/debian $(lsb_release -cs) stable" | sudo tee /etc/apt/sources.list.d/docker.list > /dev/null
-apt update
-apt-get install docker-ce docker-ce-cli containerd.io -y
-systemctl start docker
-systemctl enable docker
-apt update && apt upgrade -y && apt autoremove -y
-```
-
-## Docker-Compose
-```sh
-# Install Docker (see https://github.com/2020Sanoj/Debian-Setup#Docker)
-apt update && apt upgrade -y && apt autoremove -y
-curl -L "https://github.com/docker/compose/releases/latest/download/docker-compose-$(uname -s)-$(uname -m)" -o /usr/local/bin/docker-compose
-chmod +x /usr/local/bin/docker-compose
-{ crontab -l 2>/dev/null; echo "$(( $RANDOM % 60 )) $(( $RANDOM % 3 + 3 )) * * * curl -L "https://github.com/docker/compose/releases/latest/download/docker-compose-$(uname -s)-$(uname -m)" -o /usr/local/bin/docker-compose" ; } | crontab -
-apt update && apt upgrade -y && apt autoremove -y
-```
-
-## Docker-Portainer
-```sh
-# Install Docker-Compose and Docker (see https://github.com/2020Sanoj/Debian-Setup#Docker and https://github.com/2020Sanoj/Debian-Setup#Docker)
-apt update && apt upgrade -y && apt autoremove -y
-docker volume create portainer_data
-docker run -d -p 8000:8000 -p 9000:9000 --name=portainer --restart=always -v /var/run/docker.sock:/var/run/docker.sock -v portainer_data:/data portainer/portainer
-apt update && apt upgrade -y && apt autoremove -y
-# Open http://IP:9000 with your Browser
-```
-
 ## Apache and Certbot:
 ```sh
 apt update && apt upgrade -y && apt autoremove -y
@@ -131,6 +76,7 @@ apt install snapd -y
 snap install core
 snap install core; sudo snap refresh core
 apt-get remove certbot
+sudo snap install --classic certbot
 sudo ln -s /snap/bin/certbot /usr/bin/certbot
 { crontab -l 2>/dev/null; echo "$(( $RANDOM % 60 )) $(( $RANDOM % 3 + 3 )) * * * sudo certbot renew --dry-run" ; } | crontab -
 curl -L -o /etc/apache2/apache2.conf https://dl.san0j.de/setup/apache2.conf
@@ -177,6 +123,28 @@ Run `curl -L -o /etc/apache2/sites-enabled/IP.conf https://dl.san0j.de/setup/ip.
 Replace every `IP` with your Subdomain with `nano /etc/apache2/sites-enabled/IP.conf`<br/>
 Now restart Apache2 with `service apache2 restart`<br/>
 
+
+## PHP:
+```sh
+apt update && apt upgrade -y && apt autoremove -y
+wget -O /etc/apt/trusted.gpg.d/php.gpg https://packages.sury.org/php/apt.gpg
+sh -c 'echo "deb https://packages.sury.org/php/ $(lsb_release -sc) main" > /etc/apt/sources.list.d/php.list'
+apt update
+apt install php8.0 php8.0-cli php8.0-common php8.0-curl php8.0-gd php8.0-intl php8.0-redis php8.0-mbstring php8.0-mysql php8.0-opcache php8.0-readline php8.0-xml php8.0-xsl php8.0-zip php8.0-bz2 libapache2-mod-php8.0 -y
+apt install php-zip php-dompdf php-xml php-mbstring php-gd php-curl php-imagick php-intl php-bcmath php-gmp libmagickcore-6.q16-6-extra php-sqlite3 php-apcu -y
+apt install php8.0 php8.0-{cli,gd,mysql,pdo,mbstring,tokenizer,bcmath,xml,fpm,curl,zip} -y
+curl -L -o /etc/php/8.0/apache2/php.ini https://dl.san0j.de/setup/php.ini
+apt update && apt upgrade -y && apt autoremove -y
+```
+
+## Composer:
+```sh
+apt update && apt upgrade -y && apt autoremove -y
+curl -sS https://getcomposer.org/installer | sudo php -- --install-dir=/usr/local/bin --filename=composer
+{ crontab -l 2>/dev/null; echo "$(( $RANDOM % 60 )) $(( $RANDOM % 3 + 3 )) * * * curl -sS https://getcomposer.org/installer | sudo php -- --install-dir=/usr/local/bin --filename=composer" ; } | crontab -
+apt update && apt upgrade -y && apt autoremove -y
+```
+
 ## MariaDB:
 ```sh
 apt update && apt upgrade -y && apt autoremove -y
@@ -222,6 +190,40 @@ apt update && apt upgrade -y && apt autoremove -y
 # Now you can open in the Web your Subdomain
 
 service apache restart
+```
+
+## Docker:
+```sh
+# Only on x86_64 / amd64 Platforms
+apt update && apt upgrade -y && apt autoremove -y
+apt-get remove docker docker-engine docker.io containerd runc -y
+curl -fsSL https://download.docker.com/linux/debian/gpg | sudo gpg --dearmor -o /usr/share/keyrings/docker-archive-keyring.gpg
+echo "deb [arch=amd64 signed-by=/usr/share/keyrings/docker-archive-keyring.gpg] https://download.docker.com/linux/debian $(lsb_release -cs) stable" | sudo tee /etc/apt/sources.list.d/docker.list > /dev/null
+apt update
+apt-get install docker-ce docker-ce-cli containerd.io -y
+systemctl start docker
+systemctl enable docker
+apt update && apt upgrade -y && apt autoremove -y
+```
+
+## Docker-Compose
+```sh
+# Install Docker (see https://github.com/2020Sanoj/Debian-Setup#Docker)
+apt update && apt upgrade -y && apt autoremove -y
+curl -L "https://github.com/docker/compose/releases/latest/download/docker-compose-$(uname -s)-$(uname -m)" -o /usr/local/bin/docker-compose
+chmod +x /usr/local/bin/docker-compose
+{ crontab -l 2>/dev/null; echo "$(( $RANDOM % 60 )) $(( $RANDOM % 3 + 3 )) * * * curl -L "https://github.com/docker/compose/releases/latest/download/docker-compose-$(uname -s)-$(uname -m)" -o /usr/local/bin/docker-compose" ; } | crontab -
+apt update && apt upgrade -y && apt autoremove -y
+```
+
+## Docker-Portainer
+```sh
+# Install Docker-Compose and Docker (see https://github.com/2020Sanoj/Debian-Setup#Docker and https://github.com/2020Sanoj/Debian-Setup#Docker)
+apt update && apt upgrade -y && apt autoremove -y
+docker volume create portainer_data
+docker run -d -p 8000:8000 -p 9000:9000 --name=portainer --restart=always -v /var/run/docker.sock:/var/run/docker.sock -v portainer_data:/data portainer/portainer
+apt update && apt upgrade -y && apt autoremove -y
+# Open http://IP:9000 with your Browser
 ```
 
 ## Wireguard (VPN):
