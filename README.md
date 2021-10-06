@@ -12,29 +12,29 @@ apt install wget python-pip-whl sqlite3 youtube-dl ffmpeg vim sudo redis redis-s
 apt update && apt upgrade -y && apt autoremove -y
 ```
 
-# List of Content:
-[Upgrade Debian 10 -> 11](./Debian-Raspian-Upgrade/readme.md)
-[Default](https://github.com/2020Sanoj/Debian-Setup#Default)
-[Java](https://github.com/2020Sanoj/Debian-Setup#Java)
-[MongoDB](https://github.com/2020Sanoj/Debian-Setup#MongoDB)
-[Ruby and Rails](https://github.com/2020Sanoj/Debian-Setup#Ruby-and-Rails)
-[Node.js](https://github.com/2020Sanoj/Debian-Setup#Nodejs)
-[PM2](https://github.com/2020Sanoj/Debian-Setup#PM2)
-[Apache and Certbot](https://github.com/2020Sanoj/Debian-Setup#Apache-and-Certbot)
-[Apache2 Configs](https://github.com/2020Sanoj/Debian-Setup#Apache2-Configs)
-[PHP](https://github.com/2020Sanoj/Debian-Setup#PHP)
-[Composer](https://github.com/2020Sanoj/Debian-Setup#Composer)
-[MariaDB](https://github.com/2020Sanoj/Debian-Setup#MariaDB)
-[PHPMyAdmin](https://github.com/2020Sanoj/Debian-Setup#PHPMyAdmin)
-[Docker](https://github.com/2020Sanoj/Debian-Setup#Docker)
-[Docker-Compose](https://github.com/2020Sanoj/Debian-Setup#Docker-Compose)
-[Docker-Portainer](https://github.com/2020Sanoj/Debian-Setup#Docker-Portainer)
-[Wireguard (VPN)](https://github.com/2020Sanoj/Debian-Setup#Wireguard-VPN)
-[Webmin](https://github.com/2020Sanoj/Debian-Setup#Webmin)
-[Squid (HTTP-Proxy - with Password Authentication)](https://github.com/2020Sanoj/Debian-Setup#Squid-HTTP-Proxy---with-Password-Authentication)
-[ProFTPD](https://github.com/2020Sanoj/Debian-Setup#ProFTPD)
-[Jenkins](https://github.com/2020Sanoj/Debian-Setup#Jenkins)
-[Speedtest](https://github.com/2020Sanoj/Debian-Setup#Speedtest)
+# List of Content:<br/>
+[Upgrade Debian 10 -> 11](./Debian-Raspian-Upgrade/readme.md)<br/>
+[Default](https://github.com/2020Sanoj/Debian-Setup#Default)<br/>
+[Java](https://github.com/2020Sanoj/Debian-Setup#Java)<br/>
+[MongoDB](https://github.com/2020Sanoj/Debian-Setup#MongoDB)<br/>
+[Ruby and Rails](https://github.com/2020Sanoj/Debian-Setup#Ruby-and-Rails)<br/>
+[Node.js](https://github.com/2020Sanoj/Debian-Setup#Nodejs)<br/>
+[PM2](https://github.com/2020Sanoj/Debian-Setup#PM2)<br/>
+[Apache and Certbot](https://github.com/2020Sanoj/Debian-Setup#Apache-and-Certbot)<br/>
+[Apache2 Configs](https://github.com/2020Sanoj/Debian-Setup#Apache2-Configs)<br/>
+[PHP](https://github.com/2020Sanoj/Debian-Setup#PHP)<br/>
+[Composer](https://github.com/2020Sanoj/Debian-Setup#Composer)<br/>
+[MariaDB](https://github.com/2020Sanoj/Debian-Setup#MariaDB)<br/>
+[PHPMyAdmin](https://github.com/2020Sanoj/Debian-Setup#PHPMyAdmin)<br/>
+[Docker](https://github.com/2020Sanoj/Debian-Setup#Docker)<br/>
+[Docker-Compose](https://github.com/2020Sanoj/Debian-Setup#Docker-Compose)<br/>
+[Docker-Portainer](https://github.com/2020Sanoj/Debian-Setup#Docker-Portainer)<br/>
+[Wireguard (VPN)](https://github.com/2020Sanoj/Debian-Setup#Wireguard-VPN)<br/>
+[Webmin](https://github.com/2020Sanoj/Debian-Setup#Webmin)<br/>
+[Squid (HTTP-Proxy - with Password Authentication)](https://github.com/2020Sanoj/Debian-Setup#Squid-HTTP-Proxy---with-Password-Authentication)<br/>
+[ProFTPD](https://github.com/2020Sanoj/Debian-Setup#ProFTPD)<br/>
+[Jenkins](https://github.com/2020Sanoj/Debian-Setup#Jenkins)<br/>
+[Speedtest](https://github.com/2020Sanoj/Debian-Setup#Speedtest)<br/>
 
 ## Java:
 ```sh
@@ -352,4 +352,3 @@ curl -s https://install.speedtest.net/app/cli/install.deb.sh | sudo bash
 sudo apt-get install speedtest -y
 apt update && apt upgrade -y && apt autoremove -y
 ```
-
