@@ -1,10 +1,7 @@
-# [Debian 10/11 Buster/Bullseye Setup for amd64/x64_86 Systems - most working on other Systems too (like Raspberry Pi)](https://2020sanoj.github.io/Debian-Setup/)
+# [Debian 10/11 Buster/Bullseye Setup for amd64/x64_86 Systems - most working on other Systems too (like Raspberry Pi)](./)
 
 **Please run everything as root User (run `su` or `sudo su` and than enter your root password)** <br/>
 **Please run every Command for its own and Please read the Comments!**
-
-## Upgrade Debian 10 -> 11
-### [Click here](./Debian-Raspian-Upgrade/readme.md)
 
 ## Default:
 ```sh
@@ -14,6 +11,30 @@ apt install wget python-pip-whl sqlite3 youtube-dl ffmpeg vim sudo redis redis-s
 { crontab -l 2>/dev/null; echo "$(( $RANDOM % 60 )) $(( $RANDOM % 3 + 3 )) * * * apt update && apt upgrade -y && apt autoremove -y" ; } | crontab -
 apt update && apt upgrade -y && apt autoremove -y
 ```
+
+# List of Content:
+[Upgrade Debian 10 -> 11](./Debian-Raspian-Upgrade/readme.md)
+[Default](https://github.com/2020Sanoj/Debian-Setup#Default)
+[Java](https://github.com/2020Sanoj/Debian-Setup#Java)
+[MongoDB](https://github.com/2020Sanoj/Debian-Setup#MongoDB)
+[Ruby and Rails](https://github.com/2020Sanoj/Debian-Setup#Ruby-and-Rails)
+[Node.js](https://github.com/2020Sanoj/Debian-Setup#Nodejs)
+[PM2](https://github.com/2020Sanoj/Debian-Setup#PM2)
+[Apache and Certbot](https://github.com/2020Sanoj/Debian-Setup#Apache-and-Certbot)
+[Apache2 Configs](https://github.com/2020Sanoj/Debian-Setup#Apache2-Configs)
+[PHP](https://github.com/2020Sanoj/Debian-Setup#PHP)
+[Composer](https://github.com/2020Sanoj/Debian-Setup#Composer)
+[MariaDB](https://github.com/2020Sanoj/Debian-Setup#MariaDB)
+[PHPMyAdmin](https://github.com/2020Sanoj/Debian-Setup#PHPMyAdmin)
+[Docker](https://github.com/2020Sanoj/Debian-Setup#Docker)
+[Docker-Compose](https://github.com/2020Sanoj/Debian-Setup#Docker-Compose)
+[Docker-Portainer](https://github.com/2020Sanoj/Debian-Setup#Docker-Portainer)
+[Wireguard (VPN)](https://github.com/2020Sanoj/Debian-Setup#Wireguard-VPN)
+[Webmin](https://github.com/2020Sanoj/Debian-Setup#Webmin)
+[Squid (HTTP-Proxy - with Password Authentication)](https://github.com/2020Sanoj/Debian-Setup#Squid-HTTP-Proxy---with-Password-Authentication)
+[ProFTPD](https://github.com/2020Sanoj/Debian-Setup#ProFTPD)
+[Jenkins](https://github.com/2020Sanoj/Debian-Setup#Jenkins)
+[Speedtest](https://github.com/2020Sanoj/Debian-Setup#Speedtest)
 
 ## Java:
 ```sh
@@ -331,3 +352,4 @@ curl -s https://install.speedtest.net/app/cli/install.deb.sh | sudo bash
 sudo apt-get install speedtest -y
 apt update && apt upgrade -y && apt autoremove -y
 ```
+
