@@ -13,7 +13,7 @@ apt install wget python-pip-whl sqlite3 youtube-dl ffmpeg vim sudo redis redis-s
 apt update && apt upgrade -y && apt autoremove -y
 ```
 
-# List of Content:<br/>
+# [List of Content (Only Works on the Website):](https://2020sanoj.github.io/Debian-Setup/)<br/>
 - [Upgrade Debian 10 -> 11](./Debian-Raspian-Upgrade/readme.md)<br/>
 - [Default](./#Default)<br/>
 - [Java](./#Java)<br/>
