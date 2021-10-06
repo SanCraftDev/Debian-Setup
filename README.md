@@ -1,9 +1,10 @@
+
 # [Debian 10/11 Buster/Bullseye Setup for amd64/x64_86 Systems - most working on other Systems too (like Raspberry Pi)](./)
 
 **Please run everything as root User (run `su` or `sudo su` and than enter your root password)** <br/>
 **Please run every Command for its own and Please read the Comments!**
 
-## Default:
+# Default:
 ```sh
 # Required for everything on this Site
 apt update && apt upgrade -y && apt autoremove -y
@@ -13,28 +14,28 @@ apt update && apt upgrade -y && apt autoremove -y
 ```
 
 # List of Content:<br/>
-[Upgrade Debian 10 -> 11](./Debian-Raspian-Upgrade/readme.md)<br/>
-[Default](https://github.com/2020Sanoj/Debian-Setup#Default)<br/>
-[Java](https://github.com/2020Sanoj/Debian-Setup#Java)<br/>
-[MongoDB](https://github.com/2020Sanoj/Debian-Setup#MongoDB)<br/>
-[Ruby and Rails](https://github.com/2020Sanoj/Debian-Setup#Ruby-and-Rails)<br/>
-[Node.js](https://github.com/2020Sanoj/Debian-Setup#Nodejs)<br/>
-[PM2](https://github.com/2020Sanoj/Debian-Setup#PM2)<br/>
-[Apache and Certbot](https://github.com/2020Sanoj/Debian-Setup#Apache-and-Certbot)<br/>
-[Apache2 Configs](https://github.com/2020Sanoj/Debian-Setup#Apache2-Configs)<br/>
-[PHP](https://github.com/2020Sanoj/Debian-Setup#PHP)<br/>
-[Composer](https://github.com/2020Sanoj/Debian-Setup#Composer)<br/>
-[MariaDB](https://github.com/2020Sanoj/Debian-Setup#MariaDB)<br/>
-[PHPMyAdmin](https://github.com/2020Sanoj/Debian-Setup#PHPMyAdmin)<br/>
-[Docker](https://github.com/2020Sanoj/Debian-Setup#Docker)<br/>
-[Docker-Compose](https://github.com/2020Sanoj/Debian-Setup#Docker-Compose)<br/>
-[Docker-Portainer](https://github.com/2020Sanoj/Debian-Setup#Docker-Portainer)<br/>
-[Wireguard (VPN)](https://github.com/2020Sanoj/Debian-Setup#Wireguard-VPN)<br/>
-[Webmin](https://github.com/2020Sanoj/Debian-Setup#Webmin)<br/>
-[Squid (HTTP-Proxy - with Password Authentication)](https://github.com/2020Sanoj/Debian-Setup#Squid-HTTP-Proxy---with-Password-Authentication)<br/>
-[ProFTPD](https://github.com/2020Sanoj/Debian-Setup#ProFTPD)<br/>
-[Jenkins](https://github.com/2020Sanoj/Debian-Setup#Jenkins)<br/>
-[Speedtest](https://github.com/2020Sanoj/Debian-Setup#Speedtest)<br/>
+- [Upgrade Debian 10 -> 11](./Debian-Raspian-Upgrade/readme.md)<br/>
+- [Default](https://github.com/2020Sanoj/Debian-Setup#Default)<br/>
+- [Java](https://github.com/2020Sanoj/Debian-Setup#Java)<br/>
+- [MongoDB](https://github.com/2020Sanoj/Debian-Setup#MongoDB)<br/>
+- [Ruby and Rails](https://github.com/2020Sanoj/Debian-Setup#Ruby-and-Rails)<br/>
+- [Node.js](https://github.com/2020Sanoj/Debian-Setup#Nodejs)<br/>
+- [PM2](https://github.com/2020Sanoj/Debian-Setup#PM2)<br/>
+- [Apache and Certbot](https://github.com/2020Sanoj/Debian-Setup#Apache-and-Certbot)<br/>
+- [Apache2 Configs](https://github.com/2020Sanoj/Debian-Setup#Apache2-Configs)<br/>
+- [PHP](https://github.com/2020Sanoj/Debian-Setup#PHP)<br/>
+- [Composer](https://github.com/2020Sanoj/Debian-Setup#Composer)<br/>
+- [MariaDB](https://github.com/2020Sanoj/Debian-Setup#MariaDB)<br/>
+- [PHPMyAdmin](https://github.com/2020Sanoj/Debian-Setup#PHPMyAdmin)<br/>
+- [Docker](https://github.com/2020Sanoj/Debian-Setup#Docker)<br/>
+- [Docker-Compose](https://github.com/2020Sanoj/Debian-Setup#Docker-Compose)<br/>
+- [Docker-Portainer](https://github.com/2020Sanoj/Debian-Setup#Docker-Portainer)<br/>
+- [Wireguard (VPN)](https://github.com/2020Sanoj/Debian-Setup#Wireguard-VPN)<br/>
+- [Webmin](https://github.com/2020Sanoj/Debian-Setup#Webmin)<br/>
+- [Squid (HTTP-Proxy - with Password Authentication)](https://github.com/2020Sanoj/Debian-Setup#Squid-HTTP-Proxy---with-Password-Authentication)<br/>
+- [ProFTPD](https://github.com/2020Sanoj/Debian-Setup#ProFTPD)<br/>
+- [Jenkins](https://github.com/2020Sanoj/Debian-Setup#Jenkins)<br/>
+- [Speedtest](https://github.com/2020Sanoj/Debian-Setup#Speedtest)<br/>
 
 ## Java:
 ```sh
