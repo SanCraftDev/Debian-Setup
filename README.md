@@ -16,7 +16,7 @@ apt update && apt upgrade -y && apt autoremove -y
 # [List of Content (Only Works on the Github direkt):](https://github.com/2020Sanoj/Debian-Setup/)<br/>
 - [Upgrade Debian 10 -> 11](https://github.com/2020Sanoj/Debian-Setup/Debian-Raspian-Upgrade/readme.md)<br/>
 - [Default](https://github.com/2020Sanoj/Debian-Setup/#Default)<br/>
-- [Java](https://github.com/2020Sanoj/Debian-Setup./#Java)<br/>
+- [Java](https://github.com/2020Sanoj/Debian-Setup/#Java)<br/>
 - [MongoDB](https://github.com/2020Sanoj/Debian-Setup/#MongoDB)<br/>
 - [Ruby and Rails](https://github.com/2020Sanoj/Debian-Setup/#Ruby-and-Rails)<br/>
 - [Node.js](https://github.com/2020Sanoj/Debian-Setup/#Nodejs)<br/>
