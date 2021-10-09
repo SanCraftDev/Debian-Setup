@@ -128,7 +128,9 @@ apt update && apt upgrade -y && apt autoremove -y
 Set your DNS Records
 Replace every `DOMAIN` with your Domain<br/>
 Run `curl -L -o /etc/apache2/sites-enabled/DOMAIN.conf https://dl.san0j.de/setup/domains.conf`<br/>
-Replace every `DOMAIN` with your Domain with `nano /etc/apache2/sites-enabled/DOMAIN.conf`<br/>
+`cd /etc/apache2/sites-enabled`
+`mv DOMAIN.conf DOMAIN.conf` <- Change Only the last DOMAIN
+Replace every `DOMAIN` with your Domain with `nano DOMAIN.conf` <- Change `DOMAIN` in the Command<br/>
 Generate before restarting Apache2 a SSL-Certificate with `certbot certonly --apache -d DOMAIN`<br/>
 And `certbot certonly --apache -d www.DOMAIN`<br/>
 Now restart Apache2 with `service apache2 restart`<br/>
@@ -138,7 +140,9 @@ Now restart Apache2 with `service apache2 restart`<br/>
 Set your DNS RecordsSet your DNS Records
 Replace every `SUBDOMAIN` with your Subdomain<br/>
 Run `curl -L -o /etc/apache2/sites-enabled/SUBDOMAIN.conf https://dl.san0j.de/setup/subdomains.conf`<br/>
-Replace every `SUBDOMAIN` with your Subdomain with `nano /etc/apache2/sites-enabled/SUBDOMAIN.conf`<br/>
+`cd /etc/apache2/sites-enabled`
+`mv SUBDOMAIN.conf SUBDOMAIN.conf` <- Change Only the last DOMAIN
+Replace every `SUBDOMAIN` with your Domain with `nano SUBDOMAIN.conf` <- Change `SUBDOMAIN` in the Command<br/>
 Generate before restarting Apache2 a SSL-Certificate with `certbot certonly --apache -d SUBDOMAIN`<br/>
 Now restart Apache2 with `service apache2 restart`<br/>
 
