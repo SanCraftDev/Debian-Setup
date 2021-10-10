@@ -77,7 +77,7 @@ apt update && apt upgrade -y && apt autoremove -y
 ## Node.js:
 ```sh
 apt update && apt upgrade -y && apt autoremove -y
-curl -fsSL https://deb.nodesource.com/setup_16.x | bash -
+curl -fsSL https://deb.nodesource.com/setup_14.x | bash -
 apt update
 apt-get install nodejs -y
 npm config set fund false --global
