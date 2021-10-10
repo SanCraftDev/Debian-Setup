@@ -267,8 +267,10 @@ wget git.io/wireguard -O wireguard-install.sh && bash wireguard-install.sh
 # Give your first VPN Client an Name - Press Enter
 # I recomend to use AdGuard - 6 - Press Enter
 # Press Enter
+wget git.io/wireguard -O wireguard-install.sh
 chmod 700 /root/wireguard-install.sh
 apt update && apt upgrade -y && apt autoremove -y
+# Download the Clients from here: https://www.wireguard.com/install/ and load the generated Config
 # To create a New Wireguard User or remove one use:
 /root/wireguard-install.sh
 # Do the same as before
