@@ -152,7 +152,7 @@ Now restart Apache2 with `service apache2 restart`<br/>
 ### For IPs:
 Replace every `IP` with your IP<br/>
 Run `curl -L -o /etc/apache2/sites-enabled/IP.conf https://dl.san0j.de/setup/ip.conf`<br/>
-Replace every `IP` with your Subdomain with `nano /etc/apache2/sites-enabled/IP.conf`<br/>
+Replace every `IP` with your IP with `nano /etc/apache2/sites-enabled/IP.conf`<br/>
 Now restart Apache2 with `service apache2 restart`<br/>
 
 
