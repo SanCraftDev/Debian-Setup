@@ -24,7 +24,7 @@ apt update && apt upgrade -y && apt autoremove -y
 - [Apache and Certbot](https://github.com/2020Sanoj/Debian-Setup/#Apache-and-Certbot)<br/>
 - [Apache2 Configs](https://github.com/2020Sanoj/Debian-Setup/#Apache2-Configs)<br/>
 - [PHP](https://github.com/2020Sanoj/Debian-Setup/#PHP)<br/>
-- [Composer](https://github.com/2020Sanoj/Debian-Setup/#Composer)<br/>
+- [oser](https://github.com/2020Sanoj/Debian-Setup/#Composer)<br/>
 - [MariaDB](https://github.com/2020Sanoj/Debian-Setup/#MariaDB)<br/>
 - [PHPMyAdmin](https://github.com/2020Sanoj/Debian-Setup/#PHPMyAdmin)<br/>
 - [Docker](https://github.com/2020Sanoj/Debian-Setup/#Docker)<br/>
