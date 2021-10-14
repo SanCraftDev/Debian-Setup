@@ -79,7 +79,10 @@ apt update && apt upgrade -y && apt autoremove -y
 ## Node.js:
 ```sh
 apt update && apt upgrade -y && apt autoremove -y
+# For Node.js 16.x
 curl -fsSL https://deb.nodesource.com/setup_16.x | bash -
+# For Node.js 14.x
+curl -fsSL https://deb.nodesource.com/setup_14.x | bash -
 apt update
 apt-get install nodejs -y
 npm config set fund false --global
@@ -159,7 +162,7 @@ Install Apache2 and Certbot (see https://github.com/2020Sanoj/Debian-Setup#Apach
 ### For IPs:
 Replace every `IP` with your IP<br/>
 Run `curl -L -o /etc/apache2/sites-enabled/IP.conf https://dl.san0j.de/setup/ip.conf`<br/>
-Replace every `IP` with your Subdomain with `nano /etc/apache2/sites-enabled/IP.conf`<br/>
+Replace every `IP` with your IP with `nano /etc/apache2/sites-enabled/IP.conf`<br/>
 Now restart Apache2 with `service apache2 restart`<br/>
 
 
@@ -173,7 +176,7 @@ apt update
 apt install php8.0 php8.0-cli php8.0-common php8.0-curl php8.0-gd php8.0-intl php8.0-redis php8.0-mbstring php8.0-mysql php8.0-opcache php8.0-readline php8.0-xml php8.0-xsl php8.0-zip php8.0-bz2 libapache2-mod-php8.0 -y
 apt install php-zip php-dompdf php-xml php-mbstring php-gd php-curl php-imagick php-intl php-bcmath php-gmp libmagickcore-6.q16-6-extra php-sqlite3 php-apcu -y
 apt install php8.0 php8.0-{cli,gd,mysql,pdo,mbstring,tokenizer,bcmath,xml,fpm,curl,zip} -y
-apt install libapache2-mod-php php-zip php-dompdf php-xml php-mbstring php-gd php-curl php-imagick libmagickcore-6.q16-6-extra php-intl php-bcmath php-gmp php-cli php-json php-mysql php-zip php-gd  php-mbstring php-curl php-xml php-pear unzip php-apcu redis-server php-redis
+apt install libapache2-mod-php php-zip php-dompdf php-xml php-mbstring php-gd php-curl php-imagick libmagickcore-6.q16-6-extra php-intl php-bcmath php-gmp php-cli php-json php-mysql php-zip php-gd  php-mbstring php-curl php-xml php-pear unzip php-apcu redis-server php-redis -y
 curl -L -o /etc/php/8.0/apache2/php.ini https://dl.san0j.de/setup/php.ini
 apt update && apt upgrade -y && apt autoremove -y
 ```
@@ -275,8 +278,10 @@ wget git.io/wireguard -O wireguard-install.sh && bash wireguard-install.sh
 # Give your first VPN Client an Name - Press Enter
 # I recomend to use AdGuard - 6 - Press Enter
 # Press Enter
+wget git.io/wireguard -O wireguard-install.sh
 chmod 700 /root/wireguard-install.sh
 apt update && apt upgrade -y && apt autoremove -y
+# Download the Clients from here: https://www.wireguard.com/install/ and load the generated Config
 # To create a New Wireguard User or remove one use:
 /root/wireguard-install.sh
 # Do the same as before
