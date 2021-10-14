@@ -21,6 +21,7 @@ apt update && apt upgrade -y && apt autoremove -y
 - [Ruby and Rails](https://github.com/2020Sanoj/Debian-Setup/#Ruby-and-Rails)<br/>
 - [Node.js](https://github.com/2020Sanoj/Debian-Setup/#Nodejs)<br/>
 - [PM2](https://github.com/2020Sanoj/Debian-Setup/#PM2)<br/>
+- [Snapd](https://github.com/2020Sanoj/Debian-Setup/#Snapd)<br/>
 - [Apache and Certbot](https://github.com/2020Sanoj/Debian-Setup/#Apache-and-Certbot)<br/>
 - [Apache2 Configs](https://github.com/2020Sanoj/Debian-Setup/#Apache2-Configs)<br/>
 - [PHP](https://github.com/2020Sanoj/Debian-Setup/#PHP)<br/>
@@ -36,6 +37,7 @@ apt update && apt upgrade -y && apt autoremove -y
 - [ProFTPD](https://github.com/2020Sanoj/Debian-Setup/#ProFTPD)<br/>
 - [Jenkins](https://github.com/2020Sanoj/Debian-Setup/#Jenkins)<br/>
 - [Speedtest](https://github.com/2020Sanoj/Debian-Setup/#Speedtest)<br/>
+- [Monitoring Services](https://github.com/2020Sanoj/Debian-Setup/#Monitoring-Services)<br/>
 
 ## Java:
 ```sh
@@ -86,19 +88,24 @@ apt update && apt upgrade -y && apt autoremove -y
 
 ## PM2:
 ```sh
-# Install before Node.js (see https://github.com/2020Sanoj/Debian-Setup#PM2)
+# Install Node.js (see https://github.com/2020Sanoj/Debian-Setup#Nodejs)
 apt update && apt upgrade -y && apt autoremove -y
 npm install pm2 -g
 apt update && apt upgrade -y && apt autoremove -y
 ```
 
-## Apache and Certbot:
+## Snapd
 ```sh
-apt update && apt upgrade -y && apt autoremove -y
-apt install apache2 -y
 apt install snapd -y
 snap install core
 snap install core; sudo snap refresh core
+```
+
+## Apache and Certbot:
+```sh
+# Install Snapd (see https://github.com/2020Sanoj/Debian-Setup#Snapd)
+apt update && apt upgrade -y && apt autoremove -y
+apt install apache2 -y
 apt-get remove certbot
 sudo snap install --classic certbot
 sudo ln -s /snap/bin/certbot /usr/bin/certbot
@@ -125,6 +132,7 @@ apt update && apt upgrade -y && apt autoremove -y
 
 ### For Domains:
 
+Install Apache2 and Certbot (see https://github.com/2020Sanoj/Debian-Setup#Apache-and-Certbot)
 Set your DNS Records
 Replace every `DOMAIN` with your Domain<br/>
 Run `curl -L -o /etc/apache2/sites-enabled/DOMAIN.conf https://dl.san0j.de/setup/domains.conf`<br/>
@@ -137,6 +145,7 @@ Now restart Apache2 with `service apache2 restart`<br/>
 
 ### For Subdomains:
 
+Install Apache2 and Certbot (see https://github.com/2020Sanoj/Debian-Setup#Apache-and-Certbot)
 Set your DNS RecordsSet your DNS Records
 Replace every `SUBDOMAIN` with your Subdomain<br/>
 Run `curl -L -o /etc/apache2/sites-enabled/SUBDOMAIN.conf https://dl.san0j.de/setup/subdomains.conf`<br/>
@@ -146,6 +155,7 @@ Replace every `SUBDOMAIN` with your Domain with `nano SUBDOMAIN.conf` <- Change 
 Generate before restarting Apache2 a SSL-Certificate with `certbot certonly --apache -d SUBDOMAIN`<br/>
 Now restart Apache2 with `service apache2 restart`<br/>
 
+Install Apache2 and Certbot (see https://github.com/2020Sanoj/Debian-Setup#Apache-and-Certbot)
 ### For IPs:
 Replace every `IP` with your IP<br/>
 Run `curl -L -o /etc/apache2/sites-enabled/IP.conf https://dl.san0j.de/setup/ip.conf`<br/>
@@ -155,6 +165,7 @@ Now restart Apache2 with `service apache2 restart`<br/>
 
 ## PHP:
 ```sh
+# Install Apache2 and Certbot (see https://github.com/2020Sanoj/Debian-Setup#Apache-and-Certbot)
 apt update && apt upgrade -y && apt autoremove -y
 wget -O /etc/apt/trusted.gpg.d/php.gpg https://packages.sury.org/php/apt.gpg
 sh -c 'echo "deb https://packages.sury.org/php/ $(lsb_release -sc) main" > /etc/apt/sources.list.d/php.list'
@@ -356,4 +367,30 @@ apt update && apt upgrade -y && apt autoremove -y
 curl -s https://install.speedtest.net/app/cli/install.deb.sh | sudo bash
 sudo apt-get install speedtest -y
 apt update && apt upgrade -y && apt autoremove -y
+```
+
+## Monitoring Services:
+```sh
+# gtop (recomended):
+# Install Node.js (see https://github.com/2020Sanoj/Debian-Setup#Nodejs)
+npm install -g gtop
+# Use:
+gtop
+
+# vtop:
+# Install Node.js (see https://github.com/2020Sanoj/Debian-Setup#Nodejs)
+npm install -g vtop
+# Use:
+vtop
+
+# duf (for disks):
+# Install Snapd (see https://github.com/2020Sanoj/Debian-Setup#Snapd)
+snap install duf-utility
+# Use:
+duf
+
+# htop:
+apt install htop -y
+# Use:
+htop
 ```
