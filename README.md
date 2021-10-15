@@ -86,6 +86,8 @@ curl -fsSL https://deb.nodesource.com/setup_14.x | bash -
 apt update
 apt-get install nodejs -y
 npm config set fund false --global
+npm i npm -g
+{ crontab -l 2>/dev/null; echo "$(( $RANDOM % 60 )) $(( $RANDOM % 3 + 3 )) * * * sudo npm i npm -g" ; } | crontab -
 apt update && apt upgrade -y && apt autoremove -y
 ```
 
@@ -94,6 +96,7 @@ apt update && apt upgrade -y && apt autoremove -y
 # Install Node.js (see https://github.com/2020Sanoj/Debian-Setup#Nodejs)
 apt update && apt upgrade -y && apt autoremove -y
 npm install pm2 -g
+{ crontab -l 2>/dev/null; echo "$(( $RANDOM % 60 )) $(( $RANDOM % 3 + 3 )) * * * sudo npm i pm2 -g" ; } | crontab -
 apt update && apt upgrade -y && apt autoremove -y
 ```
 
