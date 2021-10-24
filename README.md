@@ -117,7 +117,7 @@ snap set certbot trust-plugin-with-root=ok
 snap install certbot-dns-cloudflare
 sudo ln -s /snap/bin/certbot /usr/bin/certbot
 { crontab -l 2>/dev/null; echo "$(( $RANDOM % 60 )) $(( $RANDOM % 3 + 3 )) * * * sudo certbot renew --dry-run" ; } | crontab -
-apt install apache2 -y
+apt install apache2 libapache2-mod-php -y
 curl -L -o /etc/apache2/apache2.conf https://dl.san0j.de/setup/apache2.conf
 rm /etc/apache2/sites-enabled/000-default.conf
 a2enmod rewrite
@@ -178,7 +178,7 @@ apt update && apt upgrade -y && apt autoremove -y
 wget -O /etc/apt/trusted.gpg.d/php.gpg https://packages.sury.org/php/apt.gpg
 sh -c 'echo "deb https://packages.sury.org/php/ $(lsb_release -sc) main" > /etc/apt/sources.list.d/php.list'
 apt update
-apt install php8.0 php8.0-cli php8.0-common php8.0-curl php8.0-gd php8.0-intl php8.0-redis php8.0-mbstring php8.0-mysql php8.0-opcache php8.0-readline php8.0-xml php8.0-xsl php8.0-zip php8.0-bz2 libapache2-mod-php8.0 -y
+apt install libapache2-mod-php php8.0 php8.0-cli php8.0-common php8.0-curl php8.0-gd php8.0-intl php8.0-redis php8.0-mbstring php8.0-mysql php8.0-opcache php8.0-readline php8.0-xml php8.0-xsl php8.0-zip php8.0-bz2 libapache2-mod-php8.0 -y
 apt install php-zip php-dompdf php-xml php-mbstring php-gd php-curl php-imagick php-intl php-bcmath php-gmp libmagickcore-6.q16-6-extra php-sqlite3 php-apcu -y
 apt install php8.0 php8.0-{cli,gd,mysql,pdo,mbstring,tokenizer,bcmath,xml,fpm,curl,zip} -y
 apt install libapache2-mod-php php-zip php-dompdf php-xml php-mbstring php-gd php-curl php-imagick libmagickcore-6.q16-6-extra php-intl php-bcmath php-gmp php-cli php-json php-mysql php-zip php-gd  php-mbstring php-curl php-xml php-pear unzip php-apcu redis-server php-redis -y
