@@ -201,6 +201,7 @@ apt install mariadb-server mariadb-client -y
 mysql_secure_installation
 # Press Enter
 y
+y
 # Set a Password
 y
 y
