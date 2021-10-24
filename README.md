@@ -111,11 +111,12 @@ snap install core; sudo snap refresh core
 ```sh
 # Install Snapd (see https://github.com/2020Sanoj/Debian-Setup#Snapd)
 apt update && apt upgrade -y && apt autoremove -y
-apt install apache2 -y
 apt-get remove certbot
 sudo snap install --classic certbot
+snap install certbot-dns-cloudflare certbot-dns-google certbot-dns-hetzner
 sudo ln -s /snap/bin/certbot /usr/bin/certbot
 { crontab -l 2>/dev/null; echo "$(( $RANDOM % 60 )) $(( $RANDOM % 3 + 3 )) * * * sudo certbot renew --dry-run" ; } | crontab -
+apt install apache2 -y
 curl -L -o /etc/apache2/apache2.conf https://dl.san0j.de/setup/apache2.conf
 rm /etc/apache2/sites-enabled/000-default.conf
 a2enmod rewrite
