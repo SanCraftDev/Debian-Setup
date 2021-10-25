@@ -13,31 +13,31 @@ apt install wget tmux jq python-pip-whl make sqlite3 youtube-dl ffmpeg vim sudo 
 apt update && apt upgrade -y && apt autoremove -y
 ```
 
-# [List of Content (Only Works on the Github direkt):](https://github.com/2020Sanoj/Debian-Setup/)<br/>
-- [Upgrade Debian 10 -> 11](https://github.com/2020Sanoj/Debian-Setup/Debian-Raspian-Upgrade/readme.md)<br/>
-- [Default](https://github.com/2020Sanoj/Debian-Setup/#Default)<br/>
-- [Java](https://github.com/2020Sanoj/Debian-Setup/#Java)<br/>
-- [MongoDB](https://github.com/2020Sanoj/Debian-Setup/#MongoDB)<br/>
-- [Ruby and Rails](https://github.com/2020Sanoj/Debian-Setup/#Ruby-and-Rails)<br/>
-- [Node.js](https://github.com/2020Sanoj/Debian-Setup/#Nodejs)<br/>
-- [PM2](https://github.com/2020Sanoj/Debian-Setup/#PM2)<br/>
-- [Snapd](https://github.com/2020Sanoj/Debian-Setup/#Snapd)<br/>
-- [Apache and Certbot](https://github.com/2020Sanoj/Debian-Setup/#Apache-and-Certbot)<br/>
-- [Apache2 Configs](https://github.com/2020Sanoj/Debian-Setup/#Apache2-Configs)<br/>
-- [PHP](https://github.com/2020Sanoj/Debian-Setup/#PHP)<br/>
-- [Composer](https://github.com/2020Sanoj/Debian-Setup/#Composer)<br/>
-- [MariaDB](https://github.com/2020Sanoj/Debian-Setup/#MariaDB)<br/>
-- [PHPMyAdmin](https://github.com/2020Sanoj/Debian-Setup/#PHPMyAdmin)<br/>
-- [Docker](https://github.com/2020Sanoj/Debian-Setup/#Docker)<br/>
-- [Docker-Compose](https://github.com/2020Sanoj/Debian-Setup/#Docker-Compose)<br/>
-- [Docker-Portainer](https://github.com/2020Sanoj/Debian-Setup/#Docker-Portainer)<br/>
-- [Wireguard (VPN)](https://github.com/2020Sanoj/Debian-Setup/#Wireguard-VPN)<br/>
-- [Webmin](https://github.com/2020Sanoj/Debian-Setup/#Webmin)<br/>
-- [Squid (HTTP-Proxy - with Password Authentication)](https://github.com/2020Sanoj/Debian-Setup/#Squid-HTTP-Proxy---with-Password-Authentication)<br/>
-- [ProFTPD](https://github.com/2020Sanoj/Debian-Setup/#ProFTPD)<br/>
-- [Jenkins](https://github.com/2020Sanoj/Debian-Setup/#Jenkins)<br/>
-- [Speedtest](https://github.com/2020Sanoj/Debian-Setup/#Speedtest)<br/>
-- [Monitoring Services](https://github.com/2020Sanoj/Debian-Setup/#Monitoring-Services)<br/>
+# [List of Content (Only Works on the Github direkt):](https://github.com/2020Sanoj/Debian-Setup/blob/main/README.md)<br/>
+- [Upgrade Debian 10 -> 11](https://github.com/2020Sanoj/Debian-Setup/blob/main/Debian-Raspian-Upgrade/readme.md)<br/>
+- [Default](https://github.com/2020Sanoj/Debian-Setup/blob/main/README.md#Default)<br/>
+- [Java](https://github.com/2020Sanoj/Debian-Setup/blob/main/README.md#Java)<br/>
+- [MongoDB](https://github.com/2020Sanoj/Debian-Setup/blob/main/README.md#MongoDB)<br/>
+- [Ruby and Rails](https://github.com/2020Sanoj/Debian-Setup/blob/main/README.md#Ruby-and-Rails)<br/>
+- [Node.js](https://github.com/2020Sanoj/Debian-Setup/blob/main/README.md#Nodejs)<br/>
+- [PM2](https://github.com/2020Sanoj/Debian-Setup/blob/main/README.md#PM2)<br/>
+- [Snapd](https://github.com/2020Sanoj/Debian-Setup/blob/main/README.md#Snapd)<br/>
+- [Apache and Certbot](https://github.com/2020Sanoj/Debian-Setup/blob/main/README.md#Apache-and-Certbot)<br/>
+- [Apache2 Configs](https://github.com/2020Sanoj/Debian-Setup/blob/main/README.md#Apache2-Configs)<br/>
+- [PHP](https://github.com/2020Sanoj/Debian-Setup/blob/main/README.md#PHP)<br/>
+- [Composer](https://github.com/2020Sanoj/Debian-Setup/blob/main/README.md#Composer)<br/>
+- [MariaDB](https://github.com/2020Sanoj/Debian-Setup/blob/main/README.md#MariaDB)<br/>
+- [PHPMyAdmin](https://github.com/2020Sanoj/Debian-Setup/blob/main/README.md#PHPMyAdmin)<br/>
+- [Docker](https://github.com/2020Sanoj/Debian-Setup/blob/main/README.md#Docker)<br/>
+- [Docker-Compose](https://github.com/2020Sanoj/Debian-Setup/blob/main/README.md#Docker-Compose)<br/>
+- [Docker-Portainer](https://github.com/2020Sanoj/Debian-Setup/blob/main/README.md#Docker-Portainer)<br/>
+- [Wireguard (VPN)](https://github.com/2020Sanoj/Debian-Setup/blob/main/README.md#Wireguard-VPN)<br/>
+- [Webmin](https://github.com/2020Sanoj/Debian-Setup/blob/main/README.md#Webmin)<br/>
+- [Squid (HTTP-Proxy - with Password Authentication)](https://github.com/2020Sanoj/Debian-Setup/blob/main/README.md#Squid-HTTP-Proxy---with-Password-Authentication)<br/>
+- [ProFTPD](https://github.com/2020Sanoj/Debian-Setup/blob/main/README.md#ProFTPD)<br/>
+- [Jenkins](https://github.com/2020Sanoj/Debian-Setup/blob/main/README.md#Jenkins)<br/>
+- [Speedtest](https://github.com/2020Sanoj/Debian-Setup/blob/main/README.md#Speedtest)<br/>
+- [Monitoring Services](https://github.com/2020Sanoj/Debian-Setup/blob/main/README.md#Monitoring-Services)<br/>
 
 ## Java:
 ```sh
