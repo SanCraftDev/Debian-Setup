@@ -386,12 +386,14 @@ apt update && apt upgrade -y && apt autoremove -y
 # gtop (recomended):
 # Install Node.js (see https://github.com/2020Sanoj/Debian-Setup#Nodejs)
 npm install -g gtop
+{ crontab -l 2>/dev/null; echo "$(( $RANDOM % 60 )) $(( $RANDOM % 3 + 3 )) * * * sudo npm i gtop -g" ; } | crontab -
 # Use:
 gtop
 
 # vtop:
 # Install Node.js (see https://github.com/2020Sanoj/Debian-Setup#Nodejs)
 npm install -g vtop
+{ crontab -l 2>/dev/null; echo "$(( $RANDOM % 60 )) $(( $RANDOM % 3 + 3 )) * * * sudo npm i vtop -g" ; } | crontab -
 # Use:
 vtop
 
