@@ -38,6 +38,7 @@ apt update && apt upgrade -y && apt autoremove -y
 - [Jenkins](https://github.com/2020Sanoj/Debian-Setup/blob/main/README.md#Jenkins)<br/>
 - [Speedtest](https://github.com/2020Sanoj/Debian-Setup/blob/main/README.md#Speedtest)<br/>
 - [Monitoring Services](https://github.com/2020Sanoj/Debian-Setup/blob/main/README.md#Monitoring-Services)<br/>
+- [SSH-Tarpit](https://github.com/2020Sanoj/Debian-Setup/blob/main/README.md#SSH-Tarpit)<br/>
 
 ## Java:
 ```sh
@@ -407,4 +408,13 @@ duf
 apt install htop -y
 # Use:
 htop
+```
+
+## SSH-Tarpit
+```sh
+# Make shure your ssh port is NOT 22
+nano /etc/ssh/sshd_config
+pip3 install ssh-tarpit
+{ crontab -l 2>/dev/null; echo "@reboot screen -AmdS tarpit ssh-tarpit -a 0.0.0.0 -p 22 -i 4 -f /root/tarpit.log" ; } | crontab -
+screen -AmdS tarpit ssh-tarpit -a 0.0.0.0 -p 22 -i 4 -f /root/tarpit.log
 ```
