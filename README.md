@@ -1,5 +1,5 @@
 
-# [Debian 10/11 Buster/Bullseye Setup](https://2020sanoj.github.io/Debian-Setup/)
+# [Debian 10/11 Buster/Bullseye Setup](https://github.com/SanCraft-io/Debian-Setup/blob/main/README.md#list-of-content-only-works-on-direkt-on-github)
 
 **Please run everything as root User (run `su` or `sudo su` and than enter the password)** <br/>
 **Please run every Command for its own and Please read the Comments!**
