@@ -263,25 +263,21 @@ apt update && apt upgrade -y && apt autoremove -y
 mkdir /usr/local/lib/docker/
 mkdir /usr/local/lib/docker/cli-plugins
 
-# Docker-Compose V2:
 # For x86_64 / amd64 Platforms
 curl -L https://github.com/docker/compose/releases/latest/download/docker-compose-linux-x86_64 > /usr/local/lib/docker/cli-plugins/docker-compose
 { crontab -l 2>/dev/null; echo "$(( $RANDOM % 60 )) $(( $RANDOM % 3 + 3 )) * * * curl -L https://github.com/docker/compose/releases/latest/download/docker-compose-linux-x86_64 > /usr/local/lib/docker/cli-plugins/docker-compose" ; } | crontab -
+curl -fL https://github.com/docker/compose-switch/releases/latest/download/docker-compose-linux-amd64 -o /usr/local/bin/docker-compose
+{ crontab -l 2>/dev/null; echo "$(( $RANDOM % 60 )) $(( $RANDOM % 3 + 3 )) * * * curl -fL https://github.com/docker/compose-switch/releases/latest/download/docker-compose-linux-amd64 -o /usr/local/bin/docker-compose" ; } | crontab -
 # For Raspbery Pi
 curl -L https://github.com/docker/compose/releases/latest/download/docker-compose-linux-armv7 > /usr/local/lib/docker/cli-plugins/docker-compose
 { crontab -l 2>/dev/null; echo "$(( $RANDOM % 60 )) $(( $RANDOM % 3 + 3 )) * * * curl -L https://github.com/docker/compose/releases/latest/download/docker-compose-linux-armv7 > /usr/local/lib/docker/cli-plugins/docker-compose" ; } | crontab -
 # For 64-Bit Raspbery Pi
 curl -L https://github.com/docker/compose/releases/latest/download/docker-compose-linux-arm64 > /usr/local/lib/docker/cli-plugins/docker-compose
 { crontab -l 2>/dev/null; echo "$(( $RANDOM % 60 )) $(( $RANDOM % 3 + 3 )) * * * curl -L https://github.com/docker/compose/releases/latest/download/docker-compose-linux-arm64 > /usr/local/lib/docker/cli-plugins/docker-compose" ; } | crontab -
+curl -fL https://github.com/docker/compose-switch/releases/latest/download/docker-compose-linux-arm64 -o /usr/local/bin/docker-compose
+{ crontab -l 2>/dev/null; echo "$(( $RANDOM % 60 )) $(( $RANDOM % 3 + 3 )) * * * curl -fL https://github.com/docker/compose-switch/releases/latest/download/docker-compose-linux-arm64 -o /usr/local/bin/docker-compose" ; } | crontab -
 
 chmod +x /usr/local/lib/docker/cli-plugins/docker-compose
-apt update && apt upgrade -y && apt autoremove -y
-
-# Docker-Compose V1:
-# Only on x86_64 / amd64 Platforms
-apt update && apt upgrade -y && apt autoremove -y
-curl -L https://github.com/docker/compose/releases/download/$(curl -Ls https://www.servercow.de/docker-compose/latest.php)/docker-compose-$(uname -s)-$(uname -m) > /usr/local/bin/docker-compose
-{ crontab -l 2>/dev/null; echo "$(( $RANDOM % 60 )) $(( $RANDOM % 3 + 3 )) * * * curl -L https://github.com/docker/compose/releases/download/$(curl -Ls https://www.servercow.de/docker-compose/latest.php)/docker-compose-$(uname -s)-$(uname -m) > /usr/local/bin/docker-compose" ; } | crontab -
 chmod +x /usr/local/bin/docker-compose
 apt update && apt upgrade -y && apt autoremove -y
 ```
