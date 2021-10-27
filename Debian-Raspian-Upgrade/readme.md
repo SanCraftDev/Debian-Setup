@@ -50,8 +50,8 @@ apt full-upgrade -y
 ```
 
 Press Q if you see the Changelogs<br/>
-If you getting asked for auto restarts of services Select Yes with Tab to select ant Space to Enter it<br/>
-If you getting asked what should happen with an Configfile select keep local Version<br/>
+If you getting asked for auto restarts of services Select Yes with Tab to select and than press Space to select this<br/>
+If you getting asked what should happen with an old config-file select keep local Version<br/>
 
 ```sh
 reboot
