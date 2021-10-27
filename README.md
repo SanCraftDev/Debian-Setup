@@ -56,6 +56,7 @@ apt update && apt upgrade -y && apt autoremove -y
 
 ## MongoDB:
 ```sh
+# Not working on every server, no plan why
 apt update && apt upgrade -y && apt autoremove -y
 apt remove mongodb
 wget -qO - https://www.mongodb.org/static/pgp/server-5.0.asc | sudo apt-key add -
