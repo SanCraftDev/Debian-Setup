@@ -13,7 +13,7 @@ apt install wget tmux jq python-pip-whl make sqlite3 youtube-dl ffmpeg vim sudo 
 apt update && apt upgrade -y && apt autoremove -y
 ```
 
-# [List of Content (Only Works on direkt on Github):](https://github.com/2020Sanoj/Debian-Setup/blob/main/README.md)<br/>
+# [List of Content (Only Works on direkt on Github):](https://github.com/SanCraft-io/Debian-Setup/blob/main/README.md#list-of-content-only-works-on-direkt-on-github)<br/>
 - [Upgrade Debian 10 -> 11](https://github.com/2020Sanoj/Debian-Setup/blob/main/Debian-Raspian-Upgrade/readme.md)<br/>
 - [Default](https://github.com/2020Sanoj/Debian-Setup/blob/main/README.md#Default)<br/>
 - [Java](https://github.com/2020Sanoj/Debian-Setup/blob/main/README.md#Java)<br/>
