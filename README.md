@@ -120,7 +120,7 @@ snap install certbot-dns-cloudflare
 sudo ln -s /snap/bin/certbot /usr/bin/certbot
 { crontab -l 2>/dev/null; echo "$(( $RANDOM % 60 )) $(( $RANDOM % 3 + 3 )) * * * sudo certbot renew --dry-run" ; } | crontab -
 apt install apache2 libapache2-mod-php -y
-curl -L -o /etc/apache2/apache2.conf https://dl.san0j.de/setup/apache2.conf
+curl -L -o /etc/apache2/apache2.conf https://raw.githubusercontent.com/SanCraft-io/Debian-Setup/main/configs/apache2.conf
 rm /etc/apache2/sites-enabled/000-default.conf
 a2enmod rewrite
 a2enmod headers
@@ -145,7 +145,7 @@ apt update && apt upgrade -y && apt autoremove -y
 Install Apache2 and Certbot (see https://github.com/2020Sanoj/Debian-Setup#Apache-and-Certbot)
 Set your DNS Records
 Replace every `DOMAIN` with your Domain<br/>
-Run `curl -L -o /etc/apache2/sites-enabled/DOMAIN.conf https://dl.san0j.de/setup/domains.conf`<br/>
+Run `curl -L -o /etc/apache2/sites-enabled/DOMAIN.conf https://raw.githubusercontent.com/SanCraft-io/Debian-Setup/main/configs/domains.conf`<br/>
 `cd /etc/apache2/sites-enabled`
 `mv DOMAIN.conf DOMAIN.conf` <- Change Only the last DOMAIN
 Replace every `DOMAIN` with your Domain with `nano DOMAIN.conf` <- Change `DOMAIN` in the Command<br/>
@@ -158,7 +158,7 @@ Now restart Apache2 with `service apache2 restart`<br/>
 Install Apache2 and Certbot (see https://github.com/2020Sanoj/Debian-Setup#Apache-and-Certbot)
 Set your DNS RecordsSet your DNS Records
 Replace every `SUBDOMAIN` with your Subdomain<br/>
-Run `curl -L -o /etc/apache2/sites-enabled/SUBDOMAIN.conf https://dl.san0j.de/setup/subdomains.conf`<br/>
+Run `curl -L -o /etc/apache2/sites-enabled/SUBDOMAIN.conf https://raw.githubusercontent.com/SanCraft-io/Debian-Setup/main/configs/subdomains.conf`<br/>
 `cd /etc/apache2/sites-enabled`
 `mv SUBDOMAIN.conf SUBDOMAIN.conf` <- Change Only the last DOMAIN
 Replace every `SUBDOMAIN` with your Domain with `nano SUBDOMAIN.conf` <- Change `SUBDOMAIN` in the Command<br/>
@@ -168,7 +168,7 @@ Now restart Apache2 with `service apache2 restart`<br/>
 Install Apache2 and Certbot (see https://github.com/2020Sanoj/Debian-Setup#Apache-and-Certbot)
 ### For IPs:
 Replace every `IP` with your IP<br/>
-Run `curl -L -o /etc/apache2/sites-enabled/IP.conf https://dl.san0j.de/setup/ip.conf`<br/>
+Run `curl -L -o /etc/apache2/sites-enabled/IP.conf https://raw.githubusercontent.com/SanCraft-io/Debian-Setup/main/configs/ip.conf`<br/>
 Replace every `IP` with your IP with `nano /etc/apache2/sites-enabled/IP.conf`<br/>
 Now restart Apache2 with `service apache2 restart`<br/>
 
@@ -184,7 +184,7 @@ apt install libapache2-mod-php libapache2-mod-php8.0 php8.0 php8.0-cli php8.0-co
 apt install php-zip php-dompdf php-xml php-mbstring php-gd php-curl php-imagick php-intl php-bcmath php-gmp libmagickcore-6.q16-6-extra php-sqlite3 php-apcu -y
 apt install php8.0 php8.0-{cli,gd,mysql,pdo,mbstring,tokenizer,bcmath,xml,fpm,curl,zip} -y
 apt install libapache2-mod-php php-zip php-dompdf php-xml php-mbstring php-gd php-curl php-imagick libmagickcore-6.q16-6-extra php-intl php-bcmath php-gmp php-cli php-json php-mysql php-zip php-gd  php-mbstring php-curl php-xml php-pear unzip php-apcu redis-server php-redis -y
-curl -L -o /etc/php/8.0/apache2/php.ini https://dl.san0j.de/setup/php.ini
+curl -L -o /etc/php/8.0/apache2/php.ini https://raw.githubusercontent.com/SanCraft-io/Debian-Setup/main/configs/php.ini
 apt update && apt upgrade -y && apt autoremove -y
 ```
 
@@ -374,7 +374,7 @@ apt update && apt upgrade -y && apt autoremove -y
 # Install Apache2 and Certbot (see https://github.com/2020Sanoj/Debian-Setup#Apache-and-Certbot)
 # Set your DNS Records
 # Create Jenkins Apache2 Config
-curl -L -o /etc/apache2/sites-enabled/ci.conf https://dl.san0j.de/setup/ci.conf
+curl -L -o /etc/apache2/sites-enabled/ci.conf https://raw.githubusercontent.com/SanCraft-io/Debian-Setup/main/configs/ci.conf
 # Replace SUBDOMAIN with your Subdomain you want to use
 nano /etc/apache2/sites-enabled/ci.conf
 certbot certonly --apache -d SUBDOMAIN
