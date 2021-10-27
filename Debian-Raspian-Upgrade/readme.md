@@ -15,7 +15,7 @@ apt install wget tmux jq python-pip-whl make sqlite3 youtube-dl ffmpeg vim sudo 
 apt update && apt upgrade -y && apt autoremove -y
 ```
 
-## Edit APT Sources
+## Edit APT Sources:
 
 ```sh
 cd /etc/apt
@@ -24,7 +24,7 @@ cd /etc/apt
 nano sources.list
 ```
 
-### New Debian-Sources
+### New Debian-Sources:
 ```sh
 deb http://deb.debian.org/debian/ bullseye main
 deb-src http://deb.debian.org/debian/ bullseye main
@@ -35,13 +35,13 @@ deb-src http://deb.debian.org/debian/ bullseye-updates main
 deb http://deb.debian.org/debian bullseye-backports main
 ```
 
-### New Raspberry Pi OS (Raspbian) Sources
+### New Raspberry Pi OS (Raspbian) Sources:
 ```sh
 deb http://raspbian.raspberrypi.org/raspbian/ bullseye main contrib non-free rpi
 deb-src http://raspbian.raspberrypi.org/raspbian/ bullseye main contrib non-free rpi
 ```
 
-### Other Sources not in the Main File
+### Other Sources not in the Main File:
 ```sh
 cd sources.list.d/
 # Replace every Buster with Bullseye in all Files in this Directory (use "nano FILE-NAME")
@@ -60,7 +60,7 @@ apt update && apt upgrade -y && apt autoremove -y
 cat /etc/os-release
 ```
 
-## Proftpd
+## Proftpd:
 **Only If you running Proftpd please run now:**
 ```sh
 curl -L -o /etc/proftpd/proftpd.conf https://dl.san0j.de/setup/proftpd11.conf
@@ -70,7 +70,7 @@ apt update && apt upgrade -y && apt autoremove -y
 service proftpd restart
 ```
 
-## Recommended
+## Recommended:
 **Remove Python2**
 Reinstall every pip Package you need with pip3<br/>
 Change in every Start of a Python File `python` with `python3` in the start command<br/>
