@@ -414,7 +414,9 @@ htop
 ```sh
 # Make shure your ssh port is NOT 22
 nano /etc/ssh/sshd_config
+# Now Install the Tarpit
 pip3 install ssh-tarpit
 { crontab -l 2>/dev/null; echo "@reboot screen -AmdS tarpit ssh-tarpit -a 0.0.0.0 -p 22 -i 4 -f /root/tarpit.log" ; } | crontab -
 screen -AmdS tarpit ssh-tarpit -a 0.0.0.0 -p 22 -i 4 -f /root/tarpit.log
+# Your Tarpit log is in /root/tarpit.log saved
 ```
