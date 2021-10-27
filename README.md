@@ -332,7 +332,7 @@ apt update && apt upgrade -y && apt autoremove -y
 ```sh
 apt update && apt upgrade -y && apt autoremove -y
 apt install squid squid3 -y
-curl -L -o /etc/squid/squid.conf https://github.com/SanCraft-io/Debian-Setup/raw/main/configs/squid.conf
+curl -L -o /etc/squid/squid.conf https://raw.githubusercontent.com/SanCraft-io/Debian-Setup/main/configs/squid.conf
 # Create User (Replace "USERNAME" with a Username)
 htpasswd -c /etc/squid/passwords USERNAME
 # Enter a new Password
