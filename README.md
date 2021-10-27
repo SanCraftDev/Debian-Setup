@@ -272,8 +272,6 @@ curl -fL https://github.com/docker/compose-switch/releases/latest/download/docke
 # For Raspbery Pi
 curl -L https://github.com/docker/compose/releases/latest/download/docker-compose-linux-armv7 > /usr/local/lib/docker/cli-plugins/docker-compose
 { crontab -l 2>/dev/null; echo "$(( $RANDOM % 60 )) $(( $RANDOM % 3 + 3 )) * * * curl -L https://github.com/docker/compose/releases/latest/download/docker-compose-linux-armv7 > /usr/local/lib/docker/cli-plugins/docker-compose" ; } | crontab -
-curl -L https://github.com/docker/compose/releases/latest/download/docker-compose-linux-armv7 > /usr/local/bin/docker-compose
-{ crontab -l 2>/dev/null; echo "$(( $RANDOM % 60 )) $(( $RANDOM % 3 + 3 )) * * * curl -L https://github.com/docker/compose/releases/latest/download/docker-compose-linux-armv7 > /usr/local/bin/docker-compose" ; } | crontab -
 
 # For 64-Bit Raspbery Pi
 curl -L https://github.com/docker/compose/releases/latest/download/docker-compose-linux-arm64 > /usr/local/lib/docker/cli-plugins/docker-compose
