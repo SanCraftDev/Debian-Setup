@@ -4,7 +4,7 @@
 **Please run every Command for its own**<br/>
 **Only Working with Debian Packages and external Packages of this Manual**<br/>
 **Please make a Backup/Snapshot of your Server!**<br/>
-**See Pictures in also in this Folder**<br/>
+**See Pictures in this Folder**<br/>
 
 ## Update System:
 
