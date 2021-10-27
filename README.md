@@ -228,7 +228,7 @@ unzip phpmyadmin.zip
 rm phpmyadmin.zip
 mv phpMyAdmin-*-all-languages pma
 mv pma /var/www
-curl -L -o /var/www/pma/config.inc.php https://dl.san0j.de/setup/config.inc.php.txt
+curl -L -o /var/www/pma/config.inc.php https://raw.githubusercontent.com/SanCraft-io/Debian-Setup/main/configs/config.inc.php.txt
 chown -R www-data:www-data /var/www
 apt update && apt upgrade -y && apt autoremove -y
 
@@ -332,7 +332,7 @@ apt update && apt upgrade -y && apt autoremove -y
 ```sh
 apt update && apt upgrade -y && apt autoremove -y
 apt install squid squid3 -y
-curl -L -o /etc/squid/squid.conf https://dl.san0j.de/setup/squid.conf
+curl -L -o /etc/squid/squid.conf https://github.com/SanCraft-io/Debian-Setup/raw/main/configs/squid.conf
 # Create User (Replace "USERNAME" with a Username)
 htpasswd -c /etc/squid/passwords USERNAME
 # Enter a new Password
@@ -350,9 +350,9 @@ addgroup ftpuser
 # Replace USERNAME with an Username and replace PATH with the Folder Path
 adduser USERNAME --shell /bin/false --home /PATH --ingroup ftpuser
 # Debian 10 Buster
-curl -L -o /etc/proftpd/proftpd.conf https://dl.san0j.de/setup/proftpd10.conf
+curl -L -o /etc/proftpd/proftpd.conf https://raw.githubusercontent.com/SanCraft-io/Debian-Setup/main/configs/proftpd10.conf
 # Debian 11 Bullseye
-curl -L -o /etc/proftpd/proftpd.conf https://dl.san0j.de/setup/proftpd11.conf
+curl -L -o /etc/proftpd/proftpd.conf https://raw.githubusercontent.com/SanCraft-io/Debian-Setup/main/configs/proftpd11.conf
 
 service proftpd restart
 apt update && apt upgrade -y && apt autoremove -y
@@ -437,7 +437,7 @@ nano /etc/ssh/sshd_config
 # Now Install the Tarpit
 pip3 install ssh-tarpit
 cd /root
-curl -L -o /root/tarpit.sh https://dl.san0j.de/setup/tarpit.sh
+curl -L -o /root/tarpit.sh https://raw.githubusercontent.com/SanCraft-io/Debian-Setup/main/configs/tarpit.sh.txt
 chmod 700 ./tarpit.sh
 # Run on Reboot
 { crontab -l 2>/dev/null; echo "@reboot sleep 10 && cd /root && ./tarpit.sh" ; } | crontab -
