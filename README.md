@@ -443,4 +443,6 @@ chmod 700 ./tarpit.sh
 # Run now
 ./tarpit.sh
 # Your Tarpit log is in /root/tarpit.log saved
+
+# For analyzation i recommend https://github.com/RPiList/TarpitAn
 ```
