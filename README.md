@@ -39,6 +39,7 @@ apt update && apt upgrade -y && apt autoremove -y
 - [Speedtest](https://github.com/2020Sanoj/Debian-Setup/blob/main/README.md#Speedtest)<br/>
 - [Monitoring Services](https://github.com/2020Sanoj/Debian-Setup/blob/main/README.md#Monitoring-Services)<br/>
 - [SSH-Tarpit](https://github.com/2020Sanoj/Debian-Setup/blob/main/README.md#SSH-Tarpit)<br/>
+- [Force-Update to latest git version of something](https://github.com/2020Sanoj/Debian-Setup/blob/main/README.md#Force-Update-to-latest-git-version-of-something)<br/>
 
 ## Java:
 ```sh
@@ -447,3 +448,9 @@ chmod 700 ./tarpit.sh
 
 # For analyzation i recommend https://github.com/RPiList/TarpitAn
 ```
+## Force-Update to latest git version of something
+```sh
+# Local Changes may get lost
+git fetch origin
+git reset --hard origin/master
+```sh
