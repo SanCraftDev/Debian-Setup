@@ -13,33 +13,33 @@ apt install wget tmux jq python-pip-whl make sqlite3 youtube-dl ffmpeg vim sudo 
 apt update && apt upgrade -y && apt autoremove -y
 ```
 
-# [List of Content (Only Works on Github):](https://github.com/SanCraft-io/Debian-Setup/blob/main/README.md#list-of-content-only-works-on-direkt-on-github)<br/>
-- [Upgrade Debian 10 -> 11](https://github.com/2020Sanoj/Debian-Setup/blob/main/Debian-Raspian-Upgrade/readme.md)<br/>
-- [Default](https://github.com/2020Sanoj/Debian-Setup/blob/main/README.md#Default)<br/>
-- [Java](https://github.com/2020Sanoj/Debian-Setup/blob/main/README.md#Java)<br/>
-- [MongoDB](https://github.com/2020Sanoj/Debian-Setup/blob/main/README.md#MongoDB)<br/>
-- [Ruby and Rails](https://github.com/2020Sanoj/Debian-Setup/blob/main/README.md#Ruby-and-Rails)<br/>
-- [Node.js](https://github.com/2020Sanoj/Debian-Setup/blob/main/README.md#Nodejs)<br/>
-- [PM2](https://github.com/2020Sanoj/Debian-Setup/blob/main/README.md#PM2)<br/>
-- [Snapd](https://github.com/2020Sanoj/Debian-Setup/blob/main/README.md#Snapd)<br/>
-- [Apache and Certbot](https://github.com/2020Sanoj/Debian-Setup/blob/main/README.md#Apache-and-Certbot)<br/>
-- [Apache2 Configs](https://github.com/2020Sanoj/Debian-Setup/blob/main/README.md#Apache2-Configs)<br/>
-- [PHP](https://github.com/2020Sanoj/Debian-Setup/blob/main/README.md#PHP)<br/>
-- [Composer](https://github.com/2020Sanoj/Debian-Setup/blob/main/README.md#Composer)<br/>
-- [MariaDB](https://github.com/2020Sanoj/Debian-Setup/blob/main/README.md#MariaDB)<br/>
-- [PHPMyAdmin](https://github.com/2020Sanoj/Debian-Setup/blob/main/README.md#PHPMyAdmin)<br/>
-- [Docker](https://github.com/2020Sanoj/Debian-Setup/blob/main/README.md#Docker)<br/>
-- [Docker-Compose](https://github.com/2020Sanoj/Debian-Setup/blob/main/README.md#Docker-Compose)<br/>
-- [Docker-Portainer](https://github.com/2020Sanoj/Debian-Setup/blob/main/README.md#Docker-Portainer)<br/>
-- [Wireguard (VPN)](https://github.com/2020Sanoj/Debian-Setup/blob/main/README.md#Wireguard-VPN)<br/>
-- [Webmin](https://github.com/2020Sanoj/Debian-Setup/blob/main/README.md#Webmin)<br/>
-- [Squid (HTTP-Proxy - with Password Authentication)](https://github.com/2020Sanoj/Debian-Setup/blob/main/README.md#Squid-HTTP-Proxy---with-Password-Authentication)<br/>
-- [ProFTPD](https://github.com/2020Sanoj/Debian-Setup/blob/main/README.md#ProFTPD)<br/>
-- [Jenkins](https://github.com/2020Sanoj/Debian-Setup/blob/main/README.md#Jenkins)<br/>
-- [Speedtest](https://github.com/2020Sanoj/Debian-Setup/blob/main/README.md#Speedtest)<br/>
-- [Monitoring Services](https://github.com/2020Sanoj/Debian-Setup/blob/main/README.md#Monitoring-Services)<br/>
-- [SSH-Tarpit](https://github.com/2020Sanoj/Debian-Setup/blob/main/README.md#SSH-Tarpit)<br/>
-- [Force-Update to latest git version of something](https://github.com/2020Sanoj/Debian-Setup/blob/main/README.md#Force-Update-to-latest-git-version-of-something)<br/>
+# [List of Content:](./README.md#list-of-content-only-works-on-direkt-on-github)<br/>
+- [Upgrade Debian 10 -> 11](./Debian-Raspian-Upgrade/readme.md)<br/>
+- [Default](./README.md#Default)<br/>
+- [Java](./README.md#Java)<br/>
+- [MongoDB](./README.md#MongoDB)<br/>
+- [Ruby and Rails](./README.md#Ruby-and-Rails)<br/>
+- [Node.js](./README.md#Nodejs)<br/>
+- [PM2](./README.md#PM2)<br/>
+- [Snapd](./README.md#Snapd)<br/>
+- [Apache and Certbot](./README.md#Apache-and-Certbot)<br/>
+- [Apache2 Configs](./README.md#Apache2-Configs)<br/>
+- [PHP](./README.md#PHP)<br/>
+- [Composer](./README.md#Composer)<br/>
+- [MariaDB](./README.md#MariaDB)<br/>
+- [PHPMyAdmin](./README.md#PHPMyAdmin)<br/>
+- [Docker](./README.md#Docker)<br/>
+- [Docker-Compose](./README.md#Docker-Compose)<br/>
+- [Docker-Portainer](./README.md#Docker-Portainer)<br/>
+- [Wireguard (VPN)](./README.md#Wireguard-VPN)<br/>
+- [Webmin](./README.md#Webmin)<br/>
+- [Squid (HTTP-Proxy - with Password Authentication)](./README.md#Squid-HTTP-Proxy---with-Password-Authentication)<br/>
+- [ProFTPD](./README.md#ProFTPD)<br/>
+- [Jenkins](./README.md#Jenkins)<br/>
+- [Speedtest](./README.md#Speedtest)<br/>
+- [Monitoring Services](./README.md#Monitoring-Services)<br/>
+- [SSH-Tarpit](./README.md#SSH-Tarpit)<br/>
+- [Force-Update to latest git version of something](./README.md#Force-Update-to-latest-git-version-of-something)<br/>
 
 ## Java:
 ```sh
