@@ -1,5 +1,5 @@
 
-# [Debian 10/11 Buster/Bullseye Setup](https://github.com/SanCraft-io/Debian-Setup/blob/main/README.md#list-of-content-only-works-on-direkt-on-github)
+# [Debian 10/11 Buster/Bullseye Setup](./README.md#List-of-Content)
 
 **Please run everything as root User (run `su` or `sudo su` and than enter the password)** <br/>
 **Please run every Command for its own and Please read the Comments!**
@@ -13,7 +13,7 @@ apt install wget tmux jq python-pip-whl make sqlite3 youtube-dl ffmpeg vim sudo 
 apt update && apt upgrade -y && apt autoremove -y
 ```
 
-# [List of Content:](./README.md#list-of-content-only-works-on-direkt-on-github)<br/>
+# [List of Content:](./README.md#List-of-Content)<br/>
 - [Upgrade Debian 10 -> 11](./Debian-Raspian-Upgrade/readme.md)<br/>
 - [Default](./README.md#Default)<br/>
 - [Java](./README.md#Java)<br/>
