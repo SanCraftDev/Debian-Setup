@@ -121,7 +121,7 @@ snap install certbot-dns-cloudflare
 sudo ln -s /snap/bin/certbot /usr/bin/certbot
 { crontab -l 2>/dev/null; echo "$(( $RANDOM % 60 )) $(( $RANDOM % 3 + 3 )) * * * sudo certbot renew --dry-run" ; } | crontab -
 apt install apache2 libapache2-mod-php -y
-curl -L -o /etc/apache2/apache2.conf https://raw.githubusercontent.com/SanCraft-io/Debian-Setup/main/configs/apache2.conf
+curl -L -o /etc/apache2/apache2.conf https://raw.githubusercontent.com/SanCraftDev/Debian-Setup/main/configs/apache2.conf
 rm /etc/apache2/sites-enabled/000-default.conf
 a2enmod rewrite
 a2enmod headers
@@ -146,7 +146,7 @@ apt update && apt upgrade -y && apt autoremove -y
 Install Apache2 and Certbot (see https://github.com/2020Sanoj/Debian-Setup#Apache-and-Certbot)
 Set your DNS Records
 Replace every `DOMAIN` with your Domain<br/>
-Run `curl -L -o /etc/apache2/sites-enabled/DOMAIN.conf https://raw.githubusercontent.com/SanCraft-io/Debian-Setup/main/configs/domains.conf`<br/>
+Run `curl -L -o /etc/apache2/sites-enabled/DOMAIN.conf https://raw.githubusercontent.com/SanCraftDev/Debian-Setup/main/configs/domains.conf`<br/>
 `cd /etc/apache2/sites-enabled`
 `mv DOMAIN.conf DOMAIN.conf` <- Change Only the last DOMAIN
 Replace every `DOMAIN` with your Domain with `nano DOMAIN.conf` <- Change `DOMAIN` in the Command<br/>
@@ -159,7 +159,7 @@ Now restart Apache2 with `service apache2 restart`<br/>
 Install Apache2 and Certbot (see https://github.com/2020Sanoj/Debian-Setup#Apache-and-Certbot)
 Set your DNS RecordsSet your DNS Records
 Replace every `SUBDOMAIN` with your Subdomain<br/>
-Run `curl -L -o /etc/apache2/sites-enabled/SUBDOMAIN.conf https://raw.githubusercontent.com/SanCraft-io/Debian-Setup/main/configs/subdomains.conf`<br/>
+Run `curl -L -o /etc/apache2/sites-enabled/SUBDOMAIN.conf https://raw.githubusercontent.com/SanCraftDev/Debian-Setup/main/configs/subdomains.conf`<br/>
 `cd /etc/apache2/sites-enabled`
 `mv SUBDOMAIN.conf SUBDOMAIN.conf` <- Change Only the last DOMAIN
 Replace every `SUBDOMAIN` with your Domain with `nano SUBDOMAIN.conf` <- Change `SUBDOMAIN` in the Command<br/>
@@ -169,7 +169,7 @@ Now restart Apache2 with `service apache2 restart`<br/>
 Install Apache2 and Certbot (see https://github.com/2020Sanoj/Debian-Setup#Apache-and-Certbot)
 ### For IPs:
 Replace every `IP` with your IP<br/>
-Run `curl -L -o /etc/apache2/sites-enabled/IP.conf https://raw.githubusercontent.com/SanCraft-io/Debian-Setup/main/configs/ip.conf`<br/>
+Run `curl -L -o /etc/apache2/sites-enabled/IP.conf https://raw.githubusercontent.com/SanCraftDev/Debian-Setup/main/configs/ip.conf`<br/>
 Replace every `IP` with your IP with `nano /etc/apache2/sites-enabled/IP.conf`<br/>
 Now restart Apache2 with `service apache2 restart`<br/>
 
@@ -185,7 +185,7 @@ apt install libapache2-mod-php libapache2-mod-php8.0 php8.0 php8.0-cli php8.0-co
 apt install php-zip php-dompdf php-xml php-mbstring php-gd php-curl php-imagick php-intl php-bcmath php-gmp libmagickcore-6.q16-6-extra php-sqlite3 php-apcu -y
 apt install php8.0 php8.0-{cli,gd,mysql,pdo,mbstring,tokenizer,bcmath,xml,fpm,curl,zip} -y
 apt install libapache2-mod-php php-zip php-dompdf php-xml php-mbstring php-gd php-curl php-imagick libmagickcore-6.q16-6-extra php-intl php-bcmath php-gmp php-cli php-json php-mysql php-zip php-gd  php-mbstring php-curl php-xml php-pear unzip php-apcu redis-server php-redis -y
-curl -L -o /etc/php/8.0/apache2/php.ini https://raw.githubusercontent.com/SanCraft-io/Debian-Setup/main/configs/php.ini
+curl -L -o /etc/php/8.0/apache2/php.ini https://raw.githubusercontent.com/SanCraftDev/Debian-Setup/main/configs/php.ini
 apt update && apt upgrade -y && apt autoremove -y
 ```
 
@@ -229,7 +229,7 @@ unzip phpmyadmin.zip
 rm phpmyadmin.zip
 mv phpMyAdmin-*-all-languages pma
 mv pma /var/www
-curl -L -o /var/www/pma/config.inc.php https://raw.githubusercontent.com/SanCraft-io/Debian-Setup/main/configs/config.inc.php.txt
+curl -L -o /var/www/pma/config.inc.php https://raw.githubusercontent.com/SanCraftDev/Debian-Setup/main/configs/config.inc.php.txt
 chown -R www-data:www-data /var/www
 apt update && apt upgrade -y && apt autoremove -y
 
@@ -333,7 +333,7 @@ apt update && apt upgrade -y && apt autoremove -y
 ```sh
 apt update && apt upgrade -y && apt autoremove -y
 apt install squid squid3 -y
-curl -L -o /etc/squid/squid.conf https://raw.githubusercontent.com/SanCraft-io/Debian-Setup/main/configs/squid.conf
+curl -L -o /etc/squid/squid.conf https://raw.githubusercontent.com/SanCraftDev/Debian-Setup/main/configs/squid.conf
 # Create User (Replace "USERNAME" with a Username)
 htpasswd -c /etc/squid/passwords USERNAME
 # Enter a new Password
@@ -351,9 +351,9 @@ addgroup ftpuser
 # Replace USERNAME with an Username and replace PATH with the Folder Path
 adduser USERNAME --shell /bin/false --home /PATH --ingroup ftpuser
 # Debian 10 Buster
-curl -L -o /etc/proftpd/proftpd.conf https://raw.githubusercontent.com/SanCraft-io/Debian-Setup/main/configs/proftpd10.conf
+curl -L -o /etc/proftpd/proftpd.conf https://raw.githubusercontent.com/SanCraftDev/Debian-Setup/main/configs/proftpd10.conf
 # Debian 11 Bullseye
-curl -L -o /etc/proftpd/proftpd.conf https://raw.githubusercontent.com/SanCraft-io/Debian-Setup/main/configs/proftpd11.conf
+curl -L -o /etc/proftpd/proftpd.conf https://raw.githubusercontent.com/SanCraftDev/Debian-Setup/main/configs/proftpd11.conf
 
 service proftpd restart
 apt update && apt upgrade -y && apt autoremove -y
@@ -361,7 +361,7 @@ apt update && apt upgrade -y && apt autoremove -y
 
 ## Jenkins:
 ```sh
-# Install Java11 (see https://github.com/2020Sanoj/Debian-Setup#Java)
+# Install Java11 (see https://github.com/SanCraftDev/Debian-Setup#Java)
 apt update && apt upgrade -y && apt autoremove -y
 wget -q -O - https://pkg.jenkins.io/debian/jenkins.io.key | sudo apt-key add -
 # For Weekly Updates
@@ -372,10 +372,10 @@ sudo apt-get update
 sudo apt-get install jenkins
 apt update && apt upgrade -y && apt autoremove -y
 
-# Install Apache2 and Certbot (see https://github.com/2020Sanoj/Debian-Setup#Apache-and-Certbot)
+# Install Apache2 and Certbot (see https://github.com/SanCraftDev/Debian-Setup#Apache-and-Certbot)
 # Set your DNS Records
 # Create Jenkins Apache2 Config
-curl -L -o /etc/apache2/sites-enabled/ci.conf https://raw.githubusercontent.com/SanCraft-io/Debian-Setup/main/configs/ci.conf
+curl -L -o /etc/apache2/sites-enabled/ci.conf https://raw.githubusercontent.com/SanCraftDev/Debian-Setup/main/configs/ci.conf
 # Replace SUBDOMAIN with your Subdomain you want to use
 nano /etc/apache2/sites-enabled/ci.conf
 certbot certonly --apache -d SUBDOMAIN
@@ -406,21 +406,21 @@ apt update && apt upgrade -y && apt autoremove -y
 ## Monitoring Services:
 ```sh
 # gtop (recomended):
-# Install Node.js (see https://github.com/2020Sanoj/Debian-Setup#Nodejs)
+# Install Node.js (see https://github.com/SanCraftDev/Debian-Setup#Nodejs)
 npm install -g gtop
 { crontab -l 2>/dev/null; echo "$(( $RANDOM % 60 )) $(( $RANDOM % 3 + 3 )) * * * sudo npm i gtop -g" ; } | crontab -
 # Use:
 gtop
 
 # vtop:
-# Install Node.js (see https://github.com/2020Sanoj/Debian-Setup#Nodejs)
+# Install Node.js (see https://github.com/SanCraftDev/Debian-Setup#Nodejs)
 npm install -g vtop
 { crontab -l 2>/dev/null; echo "$(( $RANDOM % 60 )) $(( $RANDOM % 3 + 3 )) * * * sudo npm i vtop -g" ; } | crontab -
 # Use:
 vtop
 
 # duf (for disks):
-# Install Snapd (see https://github.com/2020Sanoj/Debian-Setup#Snapd)
+# Install Snapd (see https://github.com/SanCraftDev/Debian-Setup#Snapd)
 snap install duf-utility
 # Use:
 duf
@@ -438,7 +438,7 @@ nano /etc/ssh/sshd_config
 # Now Install the Tarpit
 pip3 install ssh-tarpit
 cd /root
-curl -L -o /root/tarpit.sh https://raw.githubusercontent.com/SanCraft-io/Debian-Setup/main/configs/tarpit.sh.txt
+curl -L -o /root/tarpit.sh https://raw.githubusercontent.com/SanCraftDev/Debian-Setup/main/configs/tarpit.sh.txt
 chmod 700 ./tarpit.sh
 # Run on Reboot
 { crontab -l 2>/dev/null; echo "@reboot sleep 10 && cd /root && ./tarpit.sh" ; } | crontab -
