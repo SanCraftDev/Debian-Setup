@@ -122,7 +122,6 @@ sudo ln -s /snap/bin/certbot /usr/bin/certbot
 { crontab -l 2>/dev/null; echo "$(( $RANDOM % 60 )) $(( $RANDOM % 3 + 3 )) * * * sudo certbot renew --dry-run" ; } | crontab -
 apt install apache2 libapache2-mod-php -y
 curl -L -o /etc/apache2/apache2.conf https://raw.githubusercontent.com/SanCraftDev/Debian-Setup/main/configs/apache2.conf
-rm /etc/apache2/sites-enabled/000-default.conf
 a2enmod rewrite
 a2enmod headers
 a2enmod env
