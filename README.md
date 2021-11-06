@@ -168,6 +168,7 @@ Now restart Apache2 with `service apache2 restart`<br/>
 Install Apache2 and Certbot (see https://github.com/2020Sanoj/Debian-Setup#Apache-and-Certbot)
 ### For IPs:
 Replace every `IP` with your IP<br/>
+Run `curl -L -o /etc/apache2/sites-enabled/IP.conf https://raw.githubusercontent.com/SanCraftDev/Debian-Setup/main/configs/ip.conf`<br/>
 Replace every `IP` with your IP with `nano /etc/apache2/sites-enabled/IP.conf`<br/>
 Now restart Apache2 with `service apache2 restart`<br/>
 
