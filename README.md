@@ -212,7 +212,7 @@ y
 # Create User with root permissions on MariaDB
 mysql -u root -p
 # Enter the Password
-# Replace "USERNAME" with an Username don not use root and "PASSWORD" with a Password
+# Replace "USERNAME" with an Username do not use root and "PASSWORD" with a Password
 CREATE USER 'USERNAME'@'localhost' IDENTIFIED BY 'PASSWORD';
 GRANT ALL PRIVILEGES ON *.* TO 'Username'@'localhost' WITH GRANT OPTION;
 FLUSH PRIVILEGES;
