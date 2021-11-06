@@ -139,37 +139,33 @@ apt update && apt upgrade -y && apt autoremove -y
 ```
 
 ## Apache2 Configs:
-
+First make sure your domain or subdomain is located to your server in its dns setting
 ### For Domains:
 
-Install Apache2 and Certbot (see https://github.com/2020Sanoj/Debian-Setup#Apache-and-Certbot)
-Set your DNS Records
-Replace every `DOMAIN` with your Domain<br/>
+Generate a SSL-Certificate with `certbot certonly --apache -d DOMAIN`<br/>
+Replace every `DOMAIN` with your Domain in the next commands<br/>
+Generate a SSL-Certificate with `certbot certonly --apache -d DOMAIN`<br/>
 Run `curl -L -o /etc/apache2/sites-enabled/DOMAIN.conf https://raw.githubusercontent.com/SanCraftDev/Debian-Setup/main/configs/domains.conf`<br/>
-`cd /etc/apache2/sites-enabled`
-`mv DOMAIN.conf DOMAIN.conf` <- Change Only the last DOMAIN
-Replace every `DOMAIN` with your Domain with `nano DOMAIN.conf` <- Change `DOMAIN` in the Command<br/>
-Generate before restarting Apache2 a SSL-Certificate with `certbot certonly --apache -d DOMAIN`<br/>
-And `certbot certonly --apache -d www.DOMAIN`<br/>
+Replace every `DOMAIN` with your Domain with `nano /etc/apache2/sites-enabled/DOMAIN.conf` <- Change `DOMAIN` in the Command and set a folder path under "DocumentRoot", all files in this folder will be aviable on your IP in the web<br/>
+Now create this folder with `mkdir /var/www/FOLDER`
 Now restart Apache2 with `service apache2 restart`<br/>
 
 ### For Subdomains:
 
-Install Apache2 and Certbot (see https://github.com/2020Sanoj/Debian-Setup#Apache-and-Certbot)
-Set your DNS RecordsSet your DNS Records
-Replace every `SUBDOMAIN` with your Subdomain<br/>
+Generate a SSL-Certificate with `certbot certonly --apache -d SUBDOMAIN`<br/>
+Replace every `DOMAIN` with your Domain in the next commands<br/>
+Generate a SSL-Certificate with `certbot certonly --apache -d SUBDOMAIN`<br/>
 Run `curl -L -o /etc/apache2/sites-enabled/SUBDOMAIN.conf https://raw.githubusercontent.com/SanCraftDev/Debian-Setup/main/configs/subdomains.conf`<br/>
-`cd /etc/apache2/sites-enabled`
-`mv SUBDOMAIN.conf SUBDOMAIN.conf` <- Change Only the last DOMAIN
-Replace every `SUBDOMAIN` with your Domain with `nano SUBDOMAIN.conf` <- Change `SUBDOMAIN` in the Command<br/>
-Generate before restarting Apache2 a SSL-Certificate with `certbot certonly --apache -d SUBDOMAIN`<br/>
+Replace every `DOMAIN` with your Domain with `nano /etc/apache2/sites-enabled/SUBDOMAIN.conf` <- Change `SUBDOMAIN` in the Command and set a folder path under "DocumentRoot", all files in this folder will be aviable on your IP in the web<br/>
+Now create this folder with `mkdir /var/www/FOLDER`
 Now restart Apache2 with `service apache2 restart`<br/>
 
-Install Apache2 and Certbot (see https://github.com/2020Sanoj/Debian-Setup#Apache-and-Certbot)
 ### For IPs:
-Replace every `IP` with your IP<br/>
+Replace every `IP` with your IP with your IP in the next commands<br/>
 Run `curl -L -o /etc/apache2/sites-enabled/IP.conf https://raw.githubusercontent.com/SanCraftDev/Debian-Setup/main/configs/ip.conf`<br/>
-Replace every `IP` with your IP with `nano /etc/apache2/sites-enabled/IP.conf`<br/>
+Replace every `IP` with your IP with `nano /etc/apache2/sites-enabled/IP.conf` and set a folder path under "DocumentRoot", all files in this folder will be aviable on your IP in the web<br/>
+Now create this folder with `mkdir /var/www/FOLDER`
+Save your edit with ctrl + x, then press y and now save it with enter
 Now restart Apache2 with `service apache2 restart`<br/>
 
 
