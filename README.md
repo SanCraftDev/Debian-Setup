@@ -132,8 +132,6 @@ a2enmod proxy_http
 a2enmod proxy_wstunnel
 a2enmod headers
 a2enmod ssl
-a2enmod proxy_fcgi setenvif
-a2enconf php8.0-fpm
 service apache2 restart
 apt update && apt upgrade -y && apt autoremove -y
 # To generate an Certificate use "certbot certonly --apache -d DOMAIN" (replace DOMAIN with the Domain or Subdomain)
@@ -182,6 +180,9 @@ apt install zip unzip redis-server libapache2-mod-php8.0 libmagickcore-6.q16-6-e
 curl -L -o /etc/php/8.0/apache2/php.ini https://raw.githubusercontent.com/2020Sanoj/community-tutorials/web/community-tutorials/web/configs/php.ini
 curl -L -o /etc/php/8.0/cli/php.ini https://raw.githubusercontent.com/2020Sanoj/community-tutorials/web/community-tutorials/web/configs/php.ini
 curl -L -o /etc/php/8.0/fpm/php.ini https://raw.githubusercontent.com/2020Sanoj/community-tutorials/web/community-tutorials/web/configs/php.ini
+a2enmod proxy_fcgi setenvif
+a2enconf php8.0-fpm
+service apache2 restart
 apt update && apt upgrade -y && apt autoremove -y
 ```
 
