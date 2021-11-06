@@ -183,6 +183,7 @@ curl -L -o /etc/php/8.0/fpm/php.ini https://raw.githubusercontent.com/SanCraftDe
 a2enmod proxy_fcgi setenvif
 a2enconf php8.0-fpm
 service apache2 restart
+service php8.0-fpm restart
 apt update && apt upgrade -y && apt autoremove -y
 ```
 
