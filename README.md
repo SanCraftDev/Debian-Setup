@@ -132,6 +132,8 @@ a2enmod proxy_http
 a2enmod proxy_wstunnel
 a2enmod headers
 a2enmod ssl
+a2enmod proxy_fcgi setenvif
+a2enconf php8.0-fpm
 service apache2 restart
 apt update && apt upgrade -y && apt autoremove -y
 # To generate an Certificate use "certbot certonly --apache -d DOMAIN" (replace DOMAIN with the Domain or Subdomain)
