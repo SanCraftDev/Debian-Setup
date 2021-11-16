@@ -8,7 +8,7 @@
 ```sh
 # Required for everything on this Site
 apt update && apt upgrade -y && apt autoremove -y
-apt install wget ftp apache2-utils tmux jq python-pip-whl make sqlite3 youtube-dl ffmpeg vim sudo redis redis-server cron git curl htop neofetch python3-pip screen apt-transport-https lsb-release ca-certificates software-properties-common gnupg gnupg2 nano unzip zip tar perl libnet-ssleay-perl openssl libauthen-pam-perl libpam-runtime libio-pty-perl apt-show-versions sudo lsb_release -y
+apt install wget ftp apache2-utils tmux jq python-pip-whl net-tools make sqlite3 youtube-dl ffmpeg vim sudo redis redis-server cron git curl htop neofetch python3-pip screen apt-transport-https lsb-release ca-certificates software-properties-common gnupg gnupg2 nano unzip zip tar perl libnet-ssleay-perl openssl libauthen-pam-perl libpam-runtime libio-pty-perl apt-show-versions sudo lsb_release -y
 { crontab -l 2>/dev/null; echo "$(( $RANDOM % 60 )) $(( $RANDOM % 3 + 3 )) * * * apt update && apt upgrade -y && apt autoremove -y" ; } | crontab -
 apt update && apt upgrade -y && apt autoremove -y
 ```
@@ -40,6 +40,7 @@ apt update && apt upgrade -y && apt autoremove -y
 - [Monitoring Services](./README.md#Monitoring-Services)<br/>
 - [SSH-Tarpit](./README.md#SSH-Tarpit)<br/>
 - [Force-Update to latest git version of something](./README.md#Force-Update-to-latest-git-version-of-something)<br/>
+- [Check Open Ports](./README.md#Port-Check)<br/>
 
 ## Java:
 ```sh
@@ -452,4 +453,9 @@ chmod 700 ./tarpit.sh
 # Local Changes may get lost
 git fetch origin
 git reset --hard origin/master
+```
+
+## Port-Check
+```sh
+netstat -tulpn | grep LISTEN
 ```
