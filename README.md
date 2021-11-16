@@ -179,10 +179,10 @@ sh -c 'echo "deb https://packages.sury.org/php/ $(lsb_release -sc) main" > /etc/
 apt update
 apt install zip unzip redis-server libapache2-mod-php8.0 libmagickcore-6.q16-6-extra php-dompdf php-pear php8.0 php8.0-{cli,gd,mysql,pdo,mbstring,tokenizer,bcmath,xml,fpm,curl,zip,common,intl,redis,opcache,readline,xsl,bz2,imagick,bcmath,gmp,sqlite3,apcu} -y
 curl -L -o /etc/php/8.0/apache2/php.ini https://raw.githubusercontent.com/SanCraftDev/Debian-Setup/main/configs/php.ini
-curl -L -o /etc/php/8.0/cli/php.ini https://raw.githubusercontent.com/SanCraftDev/Debian-Setup/main/configs/php.ini
-curl -L -o /etc/php/8.0/fpm/php.ini https://raw.githubusercontent.com/SanCraftDev/Debian-Setup/main/configs/php.ini
 a2enmod proxy_fcgi setenvif
 a2enconf php8.0-fpm
+cp /etc/php/8.0/apache2/php.ini /etc/php/8.0/cli/php.ini
+cp /etc/php/8.0/apache2/php.ini /etc/php/8.0/fpm/php.ini
 service apache2 restart
 service php8.0-fpm restart
 apt update && apt upgrade -y && apt autoremove -y
