@@ -41,6 +41,7 @@ apt update && apt upgrade -y && apt autoremove -y
 - [SSH-Tarpit](./README.md#SSH-Tarpit)<br/>
 - [Force-Update to latest git version of something](./README.md#Force-Update-to-latest-git-version-of-something)<br/>
 - [Check Open Ports](./README.md#Port-Check)<br/>
+- [ZRAM](./README.md#ZRAM)<br/>
 
 ## Java:
 ```sh
@@ -456,4 +457,12 @@ git reset --hard origin/master
 ## Port-Check
 ```sh
 netstat -tulpn | grep LISTEN
+```
+
+## ZRAM
+```sh
+apt install zram-tools
+nano /etc/default/zramswap
+# Now replace `#SIZE=256` with `SIZE=1024` you can set a value over 1024 if you want to use more than 1024 MB of ZRAM / Swap
+service zramswap restart
 ```
