@@ -451,6 +451,7 @@ chmod 700 ./tarpit.sh
 ```sh
 # Local Changes may get lost
 git fetch origin
+# Replace "master" with the name of the branche (Default: master or main)
 git reset --hard origin/master
 ```
 
