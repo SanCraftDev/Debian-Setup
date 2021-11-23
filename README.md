@@ -8,7 +8,7 @@
 ```sh
 # Required for everything on this Site
 apt update && apt upgrade -y && apt autoremove -y
-apt install wget ftp apache2-utils tmux jq python-pip-whl net-tools make sqlite3 youtube-dl ffmpeg vim sudo redis redis-server cron git curl htop neofetch python3-pip screen apt-transport-https lsb-release ca-certificates software-properties-common gnupg gnupg2 nano unzip zip tar perl libnet-ssleay-perl openssl libauthen-pam-perl libpam-runtime libio-pty-perl apt-show-versions sudo lsb_release -y
+apt install wget ftp apache2-utils tmux jq python-pip-whl net-tools make sqlite3 youtube-dl ffmpeg vim sudo redis redis-server cron git curl htop neofetch python3-pip screen apt-transport-https lsb-release ca-certificates software-properties-common gnupg gnupg2 nano unzip zip tar perl libnet-ssleay-perl openssl libauthen-pam-perl libpam-runtime libio-pty-perl apt-show-versions sudo -y
 { crontab -l 2>/dev/null; echo "$(( $RANDOM % 60 )) $(( $RANDOM % 3 + 3 )) * * * apt update && apt upgrade -y && apt autoremove -y" ; } | crontab -
 apt update && apt upgrade -y && apt autoremove -y
 ```
