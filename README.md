@@ -20,7 +20,6 @@ apt update && apt upgrade -y && apt autoremove -y
 - [MongoDB](./README.md#MongoDB)<br/>
 - [Ruby and Rails](./README.md#Ruby-and-Rails)<br/>
 - [Node.js](./README.md#Nodejs)<br/>
-- [PM2](./README.md#PM2)<br/>
 - [Snapd](./README.md#Snapd)<br/>
 - [Apache and Certbot](./README.md#Apache-and-Certbot)<br/>
 - [Apache2 Configs](./README.md#Apache2-Configs)<br/>
@@ -90,16 +89,13 @@ apt update
 apt-get install nodejs -y
 npm config set fund false --global
 npm i npm -g
+npm i pm2 -g
+npm i yarn -g
+npm i cross-env -g
 { crontab -l 2>/dev/null; echo "$(( $RANDOM % 60 )) $(( $RANDOM % 3 + 3 )) * * * sudo npm i npm -g" ; } | crontab -
-apt update && apt upgrade -y && apt autoremove -y
-```
-
-## PM2:
-```sh
-# Install Node.js (see https://github.com/2020Sanoj/Debian-Setup#Nodejs)
-apt update && apt upgrade -y && apt autoremove -y
-npm install pm2 -g
 { crontab -l 2>/dev/null; echo "$(( $RANDOM % 60 )) $(( $RANDOM % 3 + 3 )) * * * sudo npm i pm2 -g" ; } | crontab -
+{ crontab -l 2>/dev/null; echo "$(( $RANDOM % 60 )) $(( $RANDOM % 3 + 3 )) * * * sudo npm i yarn -g" ; } | crontab -
+{ crontab -l 2>/dev/null; echo "$(( $RANDOM % 60 )) $(( $RANDOM % 3 + 3 )) * * * sudo npm i cross-env -g" ; } | crontab -
 apt update && apt upgrade -y && apt autoremove -y
 ```
 
@@ -423,11 +419,6 @@ vtop
 snap install duf-utility
 # Use:
 duf
-
-# htop:
-apt install htop -y
-# Use:
-htop
 ```
 
 ## SSH-Tarpit
