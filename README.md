@@ -453,7 +453,7 @@ netstat -tulpn | grep LISTEN
 
 ## ZRAM
 ```sh
-apt install zram-tools
+apt install zram-tools -y
 nano /etc/default/zramswap
 # Now replace `#SIZE=256` with `SIZE=1024` you can set a value over 1024 if you want to use more than 1024 MB of ZRAM / Swap
 service zramswap restart
