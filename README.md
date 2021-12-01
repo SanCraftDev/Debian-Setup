@@ -178,8 +178,10 @@ a2enmod proxy_fcgi setenvif
 a2enconf php8.1-fpm
 cp /etc/php/8.1/apache2/php.ini /etc/php/8.1/cli/php.ini
 cp /etc/php/8.1/apache2/php.ini /etc/php/8.1/fpm/php.ini
-service apache2 restart
+a2dismod php*
+a2enmod php8.1
 service php8.1-fpm restart
+service apache2 restart
 apt update && apt upgrade -y && apt autoremove -y
 ```
 
