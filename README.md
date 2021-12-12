@@ -4,19 +4,9 @@
 **Please run everything as root User (run `su` or `sudo su` and than enter the password)** <br/>
 **Please run every Command for its own and Please read the Comments!**
 
-# Default:
-```sh
-# Required for everything on this Site
-apt update && apt upgrade -y && apt autoremove -y
-apt install wget ftp apache2-utils tmux jq python-pip-whl net-tools make sqlite3 youtube-dl ffmpeg vim sudo redis redis-server cron git curl htop neofetch python3-pip screen apt-transport-https lsb-release ca-certificates software-properties-common gnupg gnupg2 nano unzip zip tar perl libnet-ssleay-perl openssl libauthen-pam-perl libpam-runtime libio-pty-perl apt-show-versions sudo -y
-{ crontab -l 2>/dev/null; echo "$(( $RANDOM % 60 )) $(( $RANDOM % 3 + 3 )) * * * apt update && apt upgrade -y && apt autoremove -y" ; } | crontab -
-apt update && apt upgrade -y && apt autoremove -y
-```
-
 # [List of Content:](./README.md#List-of-Content)<br/>
 - [Upgrade Debian 10 -> 11](./Debian-Raspian-Upgrade/readme.md)<br/>
 - [Default](./README.md#Default)<br/>
-- [Java](./README.md#Java)<br/>
 - [MongoDB](./README.md#MongoDB)<br/>
 - [Ruby and Rails](./README.md#Ruby-and-Rails)<br/>
 - [Node.js](./README.md#Nodejs)<br/>
@@ -42,15 +32,12 @@ apt update && apt upgrade -y && apt autoremove -y
 - [Check Open Ports](./README.md#Port-Check)<br/>
 - [ZRAM](./README.md#ZRAM)<br/>
 
-## Java:
+# Default:
 ```sh
+# Required for everything on this Site
 apt update && apt upgrade -y && apt autoremove -y
-wget -O- https://apt.corretto.aws/corretto.key | sudo apt-key add - 
-add-apt-repository 'deb https://apt.corretto.aws stable main'
-# For Java 17
-apt-get update; sudo apt-get install -y java-17-amazon-corretto-jdk maven
-# For Java 11
-apt-get update; sudo apt-get install -y java-11-amazon-corretto-jdk maven
+apt install wget openjdk-17-jdk maven ftp apache2-utils tmux jq python-pip-whl net-tools make sqlite3 youtube-dl ffmpeg vim sudo redis redis-server cron git curl htop neofetch python3-pip screen apt-transport-https lsb-release ca-certificates software-properties-common gnupg gnupg2 nano unzip zip tar perl libnet-ssleay-perl openssl libauthen-pam-perl libpam-runtime libio-pty-perl apt-show-versions sudo -y
+{ crontab -l 2>/dev/null; echo "$(( $RANDOM % 60 )) $(( $RANDOM % 3 + 3 )) * * * apt update && apt upgrade -y && apt autoremove -y" ; } | crontab -
 apt update && apt upgrade -y && apt autoremove -y
 ```
 
@@ -81,6 +68,8 @@ apt update && apt upgrade -y && apt autoremove -y
 ## Node.js:
 ```sh
 apt update && apt upgrade -y && apt autoremove -y
+# For Node.js 17.x
+curl -fsSL https://deb.nodesource.com/setup_17.x | bash -
 # For Node.js 16.x
 curl -fsSL https://deb.nodesource.com/setup_16.x | bash -
 # For Node.js 14.x
