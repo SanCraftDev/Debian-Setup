@@ -32,12 +32,13 @@
 - [Force-Update to latest git version of something](./README.md#Force-Update-to-latest-git-version-of-something)<br/>
 - [Check Open Ports](./README.md#Port-Check)<br/>
 - [ZRAM](./README.md#ZRAM)<br/>
+- [Sysbench](./README.md#Sysbench)<br/>
 
 # Default:
 ```sh
 # Required for everything on this Site
 apt update && apt upgrade -y && apt autoremove -y
-apt install wget sysbench maven ftp apache2-utils tmux jq python-pip-whl net-tools make sqlite3 youtube-dl ffmpeg vim sudo redis redis-server cron git curl htop neofetch python3-pip screen apt-transport-https lsb-release ca-certificates software-properties-common gnupg gnupg2 nano unzip zip tar perl libnet-ssleay-perl openssl libauthen-pam-perl libpam-runtime libio-pty-perl apt-show-versions sudo -y
+apt install wget maven ftp apache2-utils tmux jq python-pip-whl net-tools make sqlite3 youtube-dl ffmpeg vim sudo redis redis-server cron git curl htop neofetch python3-pip screen apt-transport-https lsb-release ca-certificates software-properties-common gnupg gnupg2 nano unzip zip tar perl libnet-ssleay-perl openssl libauthen-pam-perl libpam-runtime libio-pty-perl apt-show-versions sudo -y
 { crontab -l 2>/dev/null; echo "$(( $RANDOM % 60 )) $(( $RANDOM % 3 + 3 )) * * * apt update && apt upgrade -y && apt autoremove -y" ; } | crontab -
 apt update && apt upgrade -y && apt autoremove -y
 ```
@@ -459,8 +460,19 @@ netstat -tulpn | grep LISTEN
 
 ## ZRAM
 ```sh
+apt update && apt upgrade -y && apt autoremove -y
 apt install zram-tools -y
 nano /etc/default/zramswap
 # Now replace `#SIZE=256` with `SIZE=1024` you can set a value over 1024 if you want to use more than 1024 MB of ZRAM / Swap
 service zramswap restart
+apt update && apt upgrade -y && apt autoremove -y
+```
+
+## Sysbench
+```sh
+# On Debian 11
+apt update && apt upgrade -y && apt autoremove -y
+apt install sysbench
+sysbench run cpu
+apt update && apt upgrade -y && apt autoremove -y
 ```
