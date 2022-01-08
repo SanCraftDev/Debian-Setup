@@ -111,7 +111,6 @@ apt update && apt upgrade -y && apt autoremove -y
 ## Snapd
 ```sh
 apt install snapd -y
-snap install core
 snap install core; sudo snap refresh core
 ```
 
