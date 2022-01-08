@@ -305,13 +305,13 @@ apt update && apt upgrade -y && apt autoremove -y
 ## Wireguard (VPN):
 ```sh
 apt update && apt upgrade -y && apt autoremove -y
-wget git.io/wireguard -O wireguard-install.sh && bash wireguard-install.sh
+wget git.io/wireguard -O /root/wireguard-install.sh && bash /root/wireguard-install.sh
 # Select your IP address - Press Enter
 # Set a Random Number under 1000 - Press Enter
 # Give your first VPN Client an Name - Press Enter
 # I recomend to use AdGuard - 6 - Press Enter
 # Press Enter
-wget git.io/wireguard -O wireguard-install.sh
+wget git.io/wireguard -O /root/wireguard-install.sh
 chmod 700 /root/wireguard-install.sh
 apt update && apt upgrade -y && apt autoremove -y
 # Download the Clients from here: https://www.wireguard.com/install/ and load the generated Config
