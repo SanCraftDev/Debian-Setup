@@ -50,6 +50,10 @@ wget -O- https://apt.corretto.aws/corretto.key | sudo apt-key add -
 add-apt-repository 'deb https://apt.corretto.aws stable main'
 # For Java 17
 apt-get update; sudo apt-get install -y java-17-amazon-corretto-jdk
+# For Java 16
+apt-get update; sudo apt-get install -y java-16-amazon-corretto-jdk
+# For Java 15
+apt-get update; sudo apt-get install -y java-15-amazon-corretto-jdk
 # For Java 11
 apt-get update; sudo apt-get install -y java-11-amazon-corretto-jdk
 # For Java 8
