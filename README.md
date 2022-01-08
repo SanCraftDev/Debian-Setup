@@ -296,8 +296,8 @@ apt update && apt upgrade -y && apt autoremove -y
 ```sh
 # Install Docker-Compose and Docker (see https://github.com/2020Sanoj/Debian-Setup#Docker and https://github.com/2020Sanoj/Debian-Setup#Docker)
 apt update && apt upgrade -y && apt autoremove -y
-docker volume create portainer_data
-docker run -d -p 8000:8000 -p 9000:9000 --name=portainer --restart=always -v /var/run/docker.sock:/var/run/docker.sock -v portainer_data:/data portainer/portainer
+docker volume create portainer
+docker run -d -p 9000:9000 --name=portainer --restart=always -v /var/run/docker.sock:/var/run/docker.sock -v portainer:/data portainer/portainer
 apt update && apt upgrade -y && apt autoremove -y
 # Open http://IP:9000 with your Browser
 ```
