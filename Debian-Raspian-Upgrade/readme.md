@@ -63,7 +63,7 @@ cat /etc/os-release
 ## Proftpd:
 **Only If you running Proftpd please run now:**
 ```sh
-curl -L -o /etc/proftpd/proftpd.conf https://dl.san0j.de/setup/proftpd11.conf
+curl -L -o /etc/proftpd/proftpd.conf https://raw.githubusercontent.com/SanCraftDev/Debian-Setup/main/configs/proftpd11.conf
 apt update && apt upgrade -y && apt autoremove -y
 apt install proftpd -y
 apt update && apt upgrade -y && apt autoremove -y
