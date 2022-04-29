@@ -61,7 +61,7 @@ apt install -y java-15-amazon-corretto-jdk
 # For Java 11
 apt install -y java-11-amazon-corretto-jdk
 # For Java 8
-apt install -y java-8-amazon-corretto-jdk
+apt install -y java-1.8.0-amazon-corretto-jdk
 apt update && apt upgrade -y && apt autoremove -y
 ```
 
