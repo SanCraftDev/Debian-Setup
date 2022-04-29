@@ -34,12 +34,13 @@
 - [Check Open Ports](./README.md#Port-Check)<br/>
 - [ZRAM](./README.md#ZRAM)<br/>
 - [Sysbench](./README.md#Sysbench)<br/>
+- [BIOS-Version](./README.md#BIOS-Version)<br/>
 
 # Default:
 ```sh
 # Required for everything on this Site
 apt update && apt upgrade -y && apt autoremove -y
-apt install wget maven ftp dirmngr apache2-utils tmux jq python-pip-whl net-tools make sqlite3 youtube-dl ffmpeg vim sudo redis redis-server cron git curl htop neofetch python3-pip screen apt-transport-https lsb-release ca-certificates software-properties-common gnupg gnupg2 gnupg1 nano unzip zip tar perl libnet-ssleay-perl openssl libauthen-pam-perl libpam-runtime libio-pty-perl apt-show-versions sudo -y
+apt install wget maven ftp dirmngr dmidecode apache2-utils tmux jq python-pip-whl net-tools make sqlite3 youtube-dl ffmpeg vim sudo redis redis-server cron git curl htop neofetch python3-pip screen apt-transport-https lsb-release ca-certificates software-properties-common gnupg gnupg2 gnupg1 nano unzip zip tar perl libnet-ssleay-perl openssl libauthen-pam-perl libpam-runtime libio-pty-perl apt-show-versions sudo -y
 { crontab -l 2>/dev/null; echo "$(( $RANDOM % 60 )) $(( $RANDOM % 3 + 3 )) * * * apt update && apt upgrade -y && apt autoremove -y" ; } | crontab -
 journalctl --vacuum-time=1d
 apt update && apt upgrade -y && apt autoremove -y
@@ -491,5 +492,12 @@ apt update && apt upgrade -y && apt autoremove -y
 apt update && apt upgrade -y && apt autoremove -y
 apt install sysbench
 sysbench run cpu
+apt update && apt upgrade -y && apt autoremove -y
+```
+
+## BIOS-Version
+```sh
+apt update && apt upgrade -y && apt autoremove -y
+dmidecode -s bios-version
 apt update && apt upgrade -y && apt autoremove -y
 ```
