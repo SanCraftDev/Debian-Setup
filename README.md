@@ -39,19 +39,21 @@
 # Default:
 ```sh
 # Required for everything on this Site
-apt update && apt upgrade -y && apt autoremove -y
-apt install wget maven ftp python-is-python3 dirmngr dmidecode apache2-utils tmux jq python-pip-whl net-tools make sqlite3 youtube-dl ffmpeg vim sudo redis redis-server cron git curl htop neofetch python3-pip screen apt-transport-https lsb-release ca-certificates software-properties-common gnupg gnupg2 gnupg1 nano unzip zip tar perl libnet-ssleay-perl openssl libauthen-pam-perl libpam-runtime libio-pty-perl apt-show-versions sudo -y
-{ crontab -l 2>/dev/null; echo "$(( $RANDOM % 60 )) $(( $RANDOM % 3 + 3 )) * * * apt update && apt upgrade -y && apt autoremove -y" ; } | crontab -
+apt update -y && apt upgrade -y --allow-downgrades && apt dist-upgrade -y --allow-downgrades && apt autoremove --purge -y && apt autoclean -y && apt clean -y
+apt install -y wget maven ftp python-is-python3 dirmngr dmidecode apache2-utils tmux jq python-pip-whl net-tools make sqlite3 youtube-dl ffmpeg vim sudo redis redis-server cron git curl htop neofetch python3-pip screen apt-transport-https lsb-release ca-certificates software-properties-common gnupg gnupg2 gnupg1 nano unzip zip tar perl libnet-ssleay-perl openssl libauthen-pam-perl libpam-runtime libio-pty-perl apt-show-versions mariadb-client
+{ crontab -l 2>/dev/null; echo "$(( $RANDOM % 60 )) $(( $RANDOM % 3 + 3 )) * * * apt update -y && apt upgrade -y --allow-downgrades && apt dist-upgrade -y --allow-downgrades && apt autoremove --purge -y && apt autoclean -y && apt clean -y" ; } | crontab -
 journalctl --vacuum-time=1d
-apt update && apt upgrade -y && apt autoremove -y
+apt update -y && apt upgrade -y --allow-downgrades && apt dist-upgrade -y --allow-downgrades && apt autoremove --purge -y && apt autoclean -y && apt clean -y
 ```
 
 ## Java:
 ```sh
-apt update && apt upgrade -y && apt autoremove -y
-wget -O- https://apt.corretto.aws/corretto.key | sudo apt-key add - 
+apt update -y && apt upgrade -y --allow-downgrades && apt dist-upgrade -y --allow-downgrades && apt autoremove --purge -y && apt autoclean -y && apt clean -y
+wget -O- https://apt.corretto.aws/corretto.key | apt-key add - 
 add-apt-repository 'deb https://apt.corretto.aws stable main'
-apt update
+apt update -y && apt upgrade -y --allow-downgrades && apt dist-upgrade -y --allow-downgrades && apt autoremove --purge -y && apt autoclean -y && apt clean -y
+# For Java 19
+apt install -y java-19-amazon-corretto-jdk
 # For Java 18
 apt install -y java-18-amazon-corretto-jdk
 # For Java 17
@@ -64,83 +66,79 @@ apt install -y java-15-amazon-corretto-jdk
 apt install -y java-11-amazon-corretto-jdk
 # For Java 8
 apt install -y java-1.8.0-amazon-corretto-jdk
-apt update && apt upgrade -y && apt autoremove -y
+apt update -y && apt upgrade -y --allow-downgrades && apt dist-upgrade -y --allow-downgrades && apt autoremove --purge -y && apt autoclean -y && apt clean -y
 ```
 
 ## MongoDB:
 ```sh
 # Not working on every server, no plan why
-apt update && apt upgrade -y && apt autoremove -y
+apt update -y && apt upgrade -y --allow-downgrades && apt dist-upgrade -y --allow-downgrades && apt autoremove --purge -y && apt autoclean -y && apt clean -y
 apt remove mongodb
-wget -qO - https://www.mongodb.org/static/pgp/server-5.0.asc | sudo apt-key add -
-echo "deb http://repo.mongodb.org/apt/debian buster/mongodb-org/5.0 main" | sudo tee /etc/apt/sources.list.d/mongodb-org-5.0.list
-apt update
-sudo apt-get install -y mongodb-org
-sudo systemctl daemon-reload
-sudo systemctl start mongod
-sudo systemctl enable mongod
-apt update && apt upgrade -y && apt autoremove -y
+wget -qO - https://www.mongodb.org/static/pgp/server-5.0.asc | apt-key add -
+echo "deb http://repo.mongodb.org/apt/debian buster/mongodb-org/5.0 main" | tee /etc/apt/sources.list.d/mongodb-org-5.0.list
+apt update -y && apt upgrade -y --allow-downgrades && apt dist-upgrade -y --allow-downgrades && apt autoremove --purge -y && apt autoclean -y && apt clean -y
+apt install -y mongodb-org
+systemctl daemon-reload
+systemctl start mongod
+systemctl enable mongod
+apt update -y && apt upgrade -y --allow-downgrades && apt dist-upgrade -y --allow-downgrades && apt autoremove --purge -y && apt autoclean -y && apt clean -y
 ```
 
 ## Ruby and Rails
 ```sh
-apt update && apt upgrade -y && apt autoremove -y
+apt update -y && apt upgrade -y --allow-downgrades && apt dist-upgrade -y --allow-downgrades && apt autoremove --purge -y && apt autoclean -y && apt clean -y
 gpg2 --recv-keys 409B6B1796C275462A1703113804BB82D39DC0E3 7D2BAF1CF37B13E2069D6956105BD0E739499BDB
 curl -sSL https://get.rvm.io | bash -s stable --rails
 source /usr/local/rvm/scripts/rvm
-apt update && apt upgrade -y && apt autoremove -y
+apt update -y && apt upgrade -y --allow-downgrades && apt dist-upgrade -y --allow-downgrades && apt autoremove --purge -y && apt autoclean -y && apt clean -y
 ```
 
 ## mono
 ```sh
-apt update && apt upgrade -y && apt autoremove -y
-sudo apt-key adv --keyserver hkp://keyserver.ubuntu.com:80 --recv-keys 3FA7E0328081BFF6A14DA29AA6A19B38D3D831EF
-echo "deb https://download.mono-project.com/repo/debian stable-buster main" | sudo tee /etc/apt/sources.list.d/mono-official-stable.list
-sudo apt update
-apt install mono-complete -y
-apt update && apt upgrade -y && apt autoremove -y
+apt update -y && apt upgrade -y --allow-downgrades && apt dist-upgrade -y --allow-downgrades && apt autoremove --purge -y && apt autoclean -y && apt clean -y
+apt-key adv --keyserver hkp://keyserver.ubuntu.com:80 --recv-keys 3FA7E0328081BFF6A14DA29AA6A19B38D3D831EF
+echo "deb https://download.mono-project.com/repo/debian stable-buster main" | tee /etc/apt/sources.list.d/mono-official-stable.list
+apt update -y && apt upgrade -y --allow-downgrades && apt dist-upgrade -y --allow-downgrades && apt autoremove --purge -y && apt autoclean -y && apt clean -y
+apt install -y mono-complete
+apt update -y && apt upgrade -y --allow-downgrades && apt dist-upgrade -y --allow-downgrades && apt autoremove --purge -y && apt autoclean -y && apt clean -y
 ```
 
 ## Node.js:
 ```sh
-apt update && apt upgrade -y && apt autoremove -y
+apt update -y && apt upgrade -y --allow-downgrades && apt dist-upgrade -y --allow-downgrades && apt autoremove --purge -y && apt autoclean -y && apt clean -y
+# For Node.js 18.x
+curl -fsSL https://deb.nodesource.com/setup_18.x | bash -
 # For Node.js 17.x
 curl -fsSL https://deb.nodesource.com/setup_17.x | bash -
 # For Node.js 16.x
 curl -fsSL https://deb.nodesource.com/setup_16.x | bash -
 # For Node.js 14.x
 curl -fsSL https://deb.nodesource.com/setup_14.x | bash -
-apt update
-apt-get install nodejs -y
+apt update -y && apt upgrade -y --allow-downgrades && apt dist-upgrade -y --allow-downgrades && apt autoremove --purge -y && apt autoclean -y && apt clean -y
+apt install -y nodejs
 npm config set fund false --global
-npm i npm -g
-npm i pm2 -g
-npm i yarn -g
-npm i cross-env -g
-{ crontab -l 2>/dev/null; echo "$(( $RANDOM % 60 )) $(( $RANDOM % 3 + 3 )) * * * sudo npm i npm -g" ; } | crontab -
-{ crontab -l 2>/dev/null; echo "$(( $RANDOM % 60 )) $(( $RANDOM % 3 + 3 )) * * * sudo npm i pm2 -g" ; } | crontab -
-{ crontab -l 2>/dev/null; echo "$(( $RANDOM % 60 )) $(( $RANDOM % 3 + 3 )) * * * sudo npm i yarn -g" ; } | crontab -
-{ crontab -l 2>/dev/null; echo "$(( $RANDOM % 60 )) $(( $RANDOM % 3 + 3 )) * * * sudo npm i cross-env -g" ; } | crontab -
-apt update && apt upgrade -y && apt autoremove -y
+npm i npm pm2 yarn cross-env -g
+{ crontab -l 2>/dev/null; echo "$(( $RANDOM % 60 )) $(( $RANDOM % 3 + 3 )) * * * npm i npm pm2 yarn cross-env -g" ; } | crontab -
+apt update -y && apt upgrade -y --allow-downgrades && apt dist-upgrade -y --allow-downgrades && apt autoremove --purge -y && apt autoclean -y && apt clean -y
 ```
 
 ## Snapd
 ```sh
-apt install snapd -y
-snap install core; sudo snap refresh core
+apt install -y snapd
+snap install core; snap refresh core
 ```
 
 ## Apache and Certbot:
 ```sh
 # Install Snapd (see https://github.com/SanCraftDev/Debian-Setup#Snapd)
-apt update && apt upgrade -y && apt autoremove -y
-apt-get remove certbot
-sudo snap install --classic certbot
+apt update -y && apt upgrade -y --allow-downgrades && apt dist-upgrade -y --allow-downgrades && apt autoremove --purge -y && apt autoclean -y && apt clean -y
+apt remove certbot
+snap install --classic certbot
 snap set certbot trust-plugin-with-root=ok
 snap install certbot-dns-cloudflare
-sudo ln -s /snap/bin/certbot /usr/bin/certbot
-{ crontab -l 2>/dev/null; echo "$(( $RANDOM % 60 )) $(( $RANDOM % 3 + 3 )) * * * sudo certbot renew --dry-run" ; } | crontab -
-apt install apache2 libapache2-mod-php -y
+ln -s /snap/bin/certbot /usr/bin/certbot
+{ crontab -l 2>/dev/null; echo "$(( $RANDOM % 60 )) $(( $RANDOM % 3 + 3 )) * * * certbot renew --dry-run" ; } | crontab -
+apt install -y apache2 libapache2-mod-php
 curl -L -o /etc/apache2/apache2.conf https://raw.githubusercontent.com/SanCraftDev/Debian-Setup/main/configs/apache2.conf
 a2enmod rewrite
 a2enmod headers
@@ -153,7 +151,7 @@ a2enmod proxy_wstunnel
 a2enmod headers
 a2enmod ssl
 service apache2 restart
-apt update && apt upgrade -y && apt autoremove -y
+apt update -y && apt upgrade -y --allow-downgrades && apt dist-upgrade -y --allow-downgrades && apt autoremove --purge -y && apt autoclean -y && apt clean -y
 # To generate an Certificate use "certbot certonly --apache -d DOMAIN" (replace DOMAIN with the Domain or Subdomain)
 # SSL dont work with IPs
 ```
@@ -192,11 +190,11 @@ Now restart Apache2 with `service apache2 restart`<br/>
 ## PHP:
 ```sh
 # Install Apache2 and Certbot (see https://github.com/SanCraftDev/Debian-Setup#Apache-and-Certbot)
-apt update && apt upgrade -y && apt autoremove -y
+apt update -y && apt upgrade -y --allow-downgrades && apt dist-upgrade -y --allow-downgrades && apt autoremove --purge -y && apt autoclean -y && apt clean -y
 wget -O /etc/apt/trusted.gpg.d/php.gpg https://packages.sury.org/php/apt.gpg
 sh -c 'echo "deb https://packages.sury.org/php/ $(lsb_release -sc) main" > /etc/apt/sources.list.d/php.list'
-apt update
-apt install zip unzip redis-server libapache2-mod-php8.1 libmagickcore-6.q16-6-extra php-dompdf php-pear php8.1 php8.1-{cli,gd,mysql,pdo,mbstring,tokenizer,bcmath,xml,fpm,curl,zip,common,intl,redis,opcache,readline,xsl,bz2,imagick,bcmath,gmp,sqlite3,apcu} -y
+apt update -y && apt upgrade -y --allow-downgrades && apt dist-upgrade -y --allow-downgrades && apt autoremove --purge -y && apt autoclean -y && apt clean -y
+apt install -y zip unzip redis-server libapache2-mod-php8.1 libmagickcore-6.q16-6-extra php-dompdf php-pear php8.1 php8.1-{cli,gd,mysql,pdo,mbstring,tokenizer,bcmath,xml,fpm,curl,zip,common,intl,redis,opcache,readline,xsl,bz2,imagick,bcmath,gmp,sqlite3,apcu}
 curl -L -o /etc/php/8.1/apache2/php.ini https://raw.githubusercontent.com/SanCraftDev/Debian-Setup/main/configs/php.ini
 a2enmod proxy_fcgi setenvif
 a2enconf php8.1-fpm
@@ -206,21 +204,21 @@ a2dismod php*
 a2enmod php8.1
 service php8.1-fpm restart
 service apache2 restart
-apt update && apt upgrade -y && apt autoremove -y
+apt update -y && apt upgrade -y --allow-downgrades && apt dist-upgrade -y --allow-downgrades && apt autoremove --purge -y && apt autoclean -y && apt clean -y
 ```
 
 ## Composer:
 ```sh
-apt update && apt upgrade -y && apt autoremove -y
-curl -sS https://getcomposer.org/installer | sudo php -- --install-dir=/usr/local/bin --filename=composer
-{ crontab -l 2>/dev/null; echo "$(( $RANDOM % 60 )) $(( $RANDOM % 3 + 3 )) * * * curl -sS https://getcomposer.org/installer | sudo php -- --install-dir=/usr/local/bin --filename=composer" ; } | crontab -
-apt update && apt upgrade -y && apt autoremove -y
+apt update -y && apt upgrade -y --allow-downgrades && apt dist-upgrade -y --allow-downgrades && apt autoremove --purge -y && apt autoclean -y && apt clean -y
+curl -sS https://getcomposer.org/installer | php -- --install-dir=/usr/local/bin --filename=composer
+{ crontab -l 2>/dev/null; echo "$(( $RANDOM % 60 )) $(( $RANDOM % 3 + 3 )) * * * curl -sS https://getcomposer.org/installer | php -- --install-dir=/usr/local/bin --filename=composer" ; } | crontab -
+apt update -y && apt upgrade -y --allow-downgrades && apt dist-upgrade -y --allow-downgrades && apt autoremove --purge -y && apt autoclean -y && apt clean -y
 ```
 
 ## MariaDB:
 ```sh
-apt update && apt upgrade -y && apt autoremove -y
-apt install mariadb-server mariadb-client -y
+apt update -y && apt upgrade -y --allow-downgrades && apt dist-upgrade -y --allow-downgrades && apt autoremove --purge -y && apt autoclean -y && apt clean -y
+apt install -y mariadb-server
 mysql_secure_installation
 # Press Enter
 y
@@ -238,12 +236,12 @@ CREATE USER 'USERNAME'@'localhost' IDENTIFIED BY 'PASSWORD';
 GRANT ALL PRIVILEGES ON *.* TO 'Username'@'localhost' WITH GRANT OPTION;
 FLUSH PRIVILEGES;
 exit;
-apt update && apt upgrade -y && apt autoremove -y
+apt update -y && apt upgrade -y --allow-downgrades && apt dist-upgrade -y --allow-downgrades && apt autoremove --purge -y && apt autoclean -y && apt clean -y
 ```
 
 ## PHPMyAdmin:
 ```sh
-apt update && apt upgrade -y && apt autoremove -y
+apt update -y && apt upgrade -y --allow-downgrades && apt dist-upgrade -y --allow-downgrades && apt autoremove --purge -y && apt autoclean -y && apt clean -y
 curl -L https://www.phpmyadmin.net/downloads/phpMyAdmin-latest-all-languages.zip -o phpmyadmin.zip
 unzip phpmyadmin.zip
 rm phpmyadmin.zip
@@ -251,7 +249,7 @@ mv phpMyAdmin-*-all-languages pma
 mv pma /var/www
 curl -L -o /var/www/pma/config.inc.php https://raw.githubusercontent.com/SanCraftDev/Debian-Setup/main/configs/config.inc.php.txt
 chown -R www-data:www-data /var/www
-apt update && apt upgrade -y && apt autoremove -y
+apt update -y && apt upgrade -y --allow-downgrades && apt dist-upgrade -y --allow-downgrades && apt autoremove --purge -y && apt autoclean -y && apt clean -y
 
 # Install Apache2 and Certbot (see https://github.com/SanCraftDev/Debian-Setup#Apache-and-Certbot)
 # Install PHP (see https://github.com/SanCraftDev/Debian-Setup#PHP)
@@ -267,14 +265,14 @@ service apache restart
 
 ## docker & docker compose:
 ```sh
-apt update && apt upgrade -y && apt autoremove -y
-apt-get remove docker docker-engine docker.io containerd runc docker-compose -y
-curl -fsSL https://download.docker.com/linux/debian/gpg | sudo gpg --dearmor -o /usr/share/keyrings/docker-archive-keyring.gpg
-echo "deb [arch=$(dpkg --print-architecture) signed-by=/usr/share/keyrings/docker-archive-keyring.gpg] https://download.docker.com/linux/debian $(lsb_release -cs) stable" | sudo tee /etc/apt/sources.list.d/docker.list > /dev/null
-apt update
-apt-get install docker-ce docker-ce-cli containerd.io docker-compose-plugin -y
+apt update -y && apt upgrade -y --allow-downgrades && apt dist-upgrade -y --allow-downgrades && apt autoremove --purge -y && apt autoclean -y && apt clean -y
+apt remove docker docker-engine docker.io containerd runc docker-compose -y
+curl -fsSL https://download.docker.com/linux/debian/gpg | gpg --dearmor -o /usr/share/keyrings/docker-archive-keyring.gpg
+echo "deb [arch=$(dpkg --print-architecture) signed-by=/usr/share/keyrings/docker-archive-keyring.gpg] https://download.docker.com/linux/debian $(lsb_release -cs) stable" | tee /etc/apt/sources.list.d/docker.list > /dev/null
+apt update -y && apt upgrade -y --allow-downgrades && apt dist-upgrade -y --allow-downgrades && apt autoremove --purge -y && apt autoclean -y && apt clean -y
+apt install -y docker-ce docker-ce-cli containerd.io docker-compose-plugin
 systemctl enable --now docker
-apt update && apt upgrade -y && apt autoremove -y
+apt update -y && apt upgrade -y --allow-downgrades && apt dist-upgrade -y --allow-downgrades && apt autoremove --purge -y && apt autoclean -y && apt clean -y
 ```
 
 ## docker-compose (compose-switch)
@@ -291,22 +289,22 @@ curl -fL https://github.com/docker/compose-switch/releases/latest/download/docke
 { crontab -l 2>/dev/null; echo "$(( $RANDOM % 60 )) $(( $RANDOM % 3 + 3 )) * * * curl -fL https://github.com/docker/compose-switch/releases/latest/download/docker-compose-linux-arm64 -o /usr/local/bin/docker-compose" ; } | crontab -
 chmod +x /usr/local/bin/docker-compose
 
-apt update && apt upgrade -y && apt autoremove -y
+apt update -y && apt upgrade -y --allow-downgrades && apt dist-upgrade -y --allow-downgrades && apt autoremove --purge -y && apt autoclean -y && apt clean -y
 ```
 
 ## Docker-Portainer
 ```sh
 # Install Docker-Compose and Docker (see https://github.com/SanCraftDev/Debian-Setup/blob/main/README.md#docker--docker-compose)
-apt update && apt upgrade -y && apt autoremove -y
+apt update -y && apt upgrade -y --allow-downgrades && apt dist-upgrade -y --allow-downgrades && apt autoremove --purge -y && apt autoclean -y && apt clean -y
 docker volume create portainer
 docker run -d -p 9000:9000 --name=portainer --restart=always -v /var/run/docker.sock:/var/run/docker.sock -v portainer:/data portainer/portainer
-apt update && apt upgrade -y && apt autoremove -y
+apt update -y && apt upgrade -y --allow-downgrades && apt dist-upgrade -y --allow-downgrades && apt autoremove --purge -y && apt autoclean -y && apt clean -y
 # Open http://IP:9000 with your Browser
 ```
 
 ## Wireguard (VPN):
 ```sh
-apt update && apt upgrade -y && apt autoremove -y
+apt update -y && apt upgrade -y --allow-downgrades && apt dist-upgrade -y --allow-downgrades && apt autoremove --purge -y && apt autoclean -y && apt clean -y
 wget git.io/wireguard -O /root/wireguard-install.sh && bash /root/wireguard-install.sh
 # Select your IP address - Press Enter
 # Set a Random Number under 1000 - Press Enter
@@ -315,7 +313,7 @@ wget git.io/wireguard -O /root/wireguard-install.sh && bash /root/wireguard-inst
 # Press Enter
 wget git.io/wireguard -O /root/wireguard-install.sh
 chmod 700 /root/wireguard-install.sh
-apt update && apt upgrade -y && apt autoremove -y
+apt update -y && apt upgrade -y --allow-downgrades && apt dist-upgrade -y --allow-downgrades && apt autoremove --purge -y && apt autoclean -y && apt clean -y
 # Download the Clients from here: https://www.wireguard.com/install/ and load the generated Config
 # To create a New Wireguard User or remove one use:
 /root/wireguard-install.sh
@@ -325,20 +323,20 @@ apt update && apt upgrade -y && apt autoremove -y
 
 ## Webmin:
 ```sh
-apt update && apt upgrade -y && apt autoremove -y
+apt update -y && apt upgrade -y --allow-downgrades && apt dist-upgrade -y --allow-downgrades && apt autoremove --purge -y && apt autoclean -y && apt clean -y
 add-apt-repository 'deb https://download.webmin.com/download/repository sarge contrib'
 wget https://download.webmin.com/jcameron-key.asc
 apt-key add jcameron-key.asc 
 rm jcameron-key.asc
-apt update
-apt install webmin -y
-apt update && apt upgrade -y && apt autoremove -y
+apt update -y && apt upgrade -y --allow-downgrades && apt dist-upgrade -y --allow-downgrades && apt autoremove --purge -y && apt autoclean -y && apt clean -y
+apt install -y webmin
+apt update -y && apt upgrade -y --allow-downgrades && apt dist-upgrade -y --allow-downgrades && apt autoremove --purge -y && apt autoclean -y && apt clean -y
 ```
 
 ## Squid (HTTP-Proxy - with Password Authentication):
 ```sh
-apt update && apt upgrade -y && apt autoremove -y
-apt install squid squid3 -y
+apt update -y && apt upgrade -y --allow-downgrades && apt dist-upgrade -y --allow-downgrades && apt autoremove --purge -y && apt autoclean -y && apt clean -y
+apt install -y squid
 curl -L -o /etc/squid/squid.conf https://raw.githubusercontent.com/SanCraftDev/Debian-Setup/main/configs/squid.conf
 # Create User (Replace "USERNAME" with a Username)
 htpasswd -c /etc/squid/passwords USERNAME
@@ -346,13 +344,13 @@ htpasswd -c /etc/squid/passwords USERNAME
 service squid restart
 # Port is 8449
 # The restart take a moment
-apt update && apt upgrade -y && apt autoremove -y
+apt update -y && apt upgrade -y --allow-downgrades && apt dist-upgrade -y --allow-downgrades && apt autoremove --purge -y && apt autoclean -y && apt clean -y
 ```
 
 ## ProFTPD:
 ```sh
-apt update && apt upgrade -y && apt autoremove -y
-apt install proftpd -y
+apt update -y && apt upgrade -y --allow-downgrades && apt dist-upgrade -y --allow-downgrades && apt autoremove --purge -y && apt autoclean -y && apt clean -y
+apt install -y proftpd
 addgroup ftpuser
 # Replace USERNAME with an Username and replace PATH with the Folder Path
 adduser USERNAME --shell /bin/false --home /PATH --ingroup ftpuser
@@ -362,21 +360,21 @@ curl -L -o /etc/proftpd/proftpd.conf https://raw.githubusercontent.com/SanCraftD
 curl -L -o /etc/proftpd/proftpd.conf https://raw.githubusercontent.com/SanCraftDev/Debian-Setup/main/configs/proftpd11.conf
 
 service proftpd restart
-apt update && apt upgrade -y && apt autoremove -y
+apt update -y && apt upgrade -y --allow-downgrades && apt dist-upgrade -y --allow-downgrades && apt autoremove --purge -y && apt autoclean -y && apt clean -y
 ```
 
 ## Jenkins:
 ```sh
 # Install Java11 (see https://github.com/SanCraftDev/Debian-Setup#Java)
-apt update && apt upgrade -y && apt autoremove -y
-wget -q -O - https://pkg.jenkins.io/debian/jenkins.io.key | sudo apt-key add -
+apt update -y && apt upgrade -y --allow-downgrades && apt dist-upgrade -y --allow-downgrades && apt autoremove --purge -y && apt autoclean -y && apt clean -y
+wget -q -O - https://pkg.jenkins.io/debian/jenkins.io.key | apt-key add -
 # For Weekly Updates
 add-apt-repository 'deb https://pkg.jenkins.io/debian binary/'
 # Or for LTS
 add-apt-repository 'deb https://pkg.jenkins.io/debian-stable binary/'
-sudo apt-get update
-sudo apt-get install jenkins
-apt update && apt upgrade -y && apt autoremove -y
+apt update -y && apt upgrade -y --allow-downgrades && apt dist-upgrade -y --allow-downgrades && apt autoremove --purge -y && apt autoclean -y && apt clean -y
+apt install -y jenkins
+apt update -y && apt upgrade -y --allow-downgrades && apt dist-upgrade -y --allow-downgrades && apt autoremove --purge -y && apt autoclean -y && apt clean -y
 
 # Install Apache2 and Certbot (see https://github.com/SanCraftDev/Debian-Setup#Apache-and-Certbot)
 # Set your DNS Records
@@ -403,10 +401,10 @@ service apache2 restart
 
 ## Speedtest:
 ```sh
-apt update && apt upgrade -y && apt autoremove -y
-curl -s https://install.speedtest.net/app/cli/install.deb.sh | sudo bash
-sudo apt-get install speedtest -y
-apt update && apt upgrade -y && apt autoremove -y
+apt update -y && apt upgrade -y --allow-downgrades && apt dist-upgrade -y --allow-downgrades && apt autoremove --purge -y && apt autoclean -y && apt clean -y
+curl -s https://install.speedtest.net/app/cli/install.deb.sh | bash
+apt install -y speedtest
+apt update -y && apt upgrade -y --allow-downgrades && apt dist-upgrade -y --allow-downgrades && apt autoremove --purge -y && apt autoclean -y && apt clean -y
 ```
 
 ## Monitoring Services:
@@ -414,14 +412,14 @@ apt update && apt upgrade -y && apt autoremove -y
 # gtop (recomended):
 # Install Node.js (see https://github.com/SanCraftDev/Debian-Setup#Nodejs)
 npm install -g gtop
-{ crontab -l 2>/dev/null; echo "$(( $RANDOM % 60 )) $(( $RANDOM % 3 + 3 )) * * * sudo npm i gtop -g" ; } | crontab -
+{ crontab -l 2>/dev/null; echo "$(( $RANDOM % 60 )) $(( $RANDOM % 3 + 3 )) * * * npm i gtop -g" ; } | crontab -
 # Use:
 gtop
 
 # vtop:
 # Install Node.js (see https://github.com/SanCraftDev/Debian-Setup#Nodejs)
 npm install -g vtop
-{ crontab -l 2>/dev/null; echo "$(( $RANDOM % 60 )) $(( $RANDOM % 3 + 3 )) * * * sudo npm i vtop -g" ; } | crontab -
+{ crontab -l 2>/dev/null; echo "$(( $RANDOM % 60 )) $(( $RANDOM % 3 + 3 )) * * * npm i vtop -g" ; } | crontab -
 # Use:
 vtop
 
@@ -464,26 +462,26 @@ netstat -tulpn | grep LISTEN
 
 ## ZRAM
 ```sh
-apt update && apt upgrade -y && apt autoremove -y
-apt install zram-tools -y
+apt update -y && apt upgrade -y --allow-downgrades && apt dist-upgrade -y --allow-downgrades && apt autoremove --purge -y && apt autoclean -y && apt clean -y
+apt install -y zram-tools
 nano /etc/default/zramswap
 # Now replace `#SIZE=256` with `SIZE=1024` you can set a value over 1024 if you want to use more than 1024 MB of ZRAM / Swap
 service zramswap restart
-apt update && apt upgrade -y && apt autoremove -y
+apt update -y && apt upgrade -y --allow-downgrades && apt dist-upgrade -y --allow-downgrades && apt autoremove --purge -y && apt autoclean -y && apt clean -y
 ```
 
 ## Sysbench
 ```sh
 # On Debian 11
-apt update && apt upgrade -y && apt autoremove -y
-apt install sysbench
+apt update -y && apt upgrade -y --allow-downgrades && apt dist-upgrade -y --allow-downgrades && apt autoremove --purge -y && apt autoclean -y && apt clean -y
+apt install -y sysbench
 sysbench run cpu
-apt update && apt upgrade -y && apt autoremove -y
+apt update -y && apt upgrade -y --allow-downgrades && apt dist-upgrade -y --allow-downgrades && apt autoremove --purge -y && apt autoclean -y && apt clean -y
 ```
 
 ## BIOS-Version
 ```sh
-apt update && apt upgrade -y && apt autoremove -y
+apt update -y && apt upgrade -y --allow-downgrades && apt dist-upgrade -y --allow-downgrades && apt autoremove --purge -y && apt autoclean -y && apt clean -y
 dmidecode -s bios-version
-apt update && apt upgrade -y && apt autoremove -y
+apt update -y && apt upgrade -y --allow-downgrades && apt dist-upgrade -y --allow-downgrades && apt autoremove --purge -y && apt autoclean -y && apt clean -y
 ```
