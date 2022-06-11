@@ -280,13 +280,18 @@ apt update -y && apt upgrade -y --allow-downgrades && apt dist-upgrade -y --allo
 # Install Docker (see [https://github.com/SanCraftDev/Debian-Setup#Docker](https://github.com/SanCraftDev/Debian-Setup/blob/main/README.md#docker--docker-compose))
 
 # For x86_64 / amd64 Platforms
-curl -fL https://github.com/docker/compose-switch/releases/latest/download/docker-compose-linux-amd64 -o /usr/local/bin/docker-compose
-{ crontab -l 2>/dev/null; echo "$(( $RANDOM % 60 )) $(( $RANDOM % 3 + 3 )) * * * curl -fL https://github.com/docker/compose-switch/releases/latest/download/docker-compose-linux-amd64 -o /usr/local/bin/docker-compose" ; } | crontab -
+curl -sL https://github.com/SanCraftDev/compose-compose-switch/releases/latest/download/docker-compose-linux-amd64 -o /usr/local/bin/docker-compose
+{ crontab -l 2>/dev/null; echo "0 * * * * curl -sL https://github.com/SanCraftDev/compose-compose-switch/releases/latest/download/docker-compose-linux-amd64 -o /usr/local/bin/docker-compose" ; } | crontab -
 chmod +x /usr/local/bin/docker-compose
 
 # For arm64 / aarch64 / armv8
-curl -fL https://github.com/docker/compose-switch/releases/latest/download/docker-compose-linux-arm64 -o /usr/local/bin/docker-compose
-{ crontab -l 2>/dev/null; echo "$(( $RANDOM % 60 )) $(( $RANDOM % 3 + 3 )) * * * curl -fL https://github.com/docker/compose-switch/releases/latest/download/docker-compose-linux-arm64 -o /usr/local/bin/docker-compose" ; } | crontab -
+curl -sL https://github.com/SanCraftDev/compose-compose-switch/releases/latest/download/docker-compose-linux-arm64 -o /usr/local/bin/docker-compose
+{ crontab -l 2>/dev/null; echo "0 * * * * curl -sL https://github.com/SanCraftDev/compose-compose-switch/releases/latest/download/docker-compose-linux-arm64 -o /usr/local/bin/docker-compose" ; } | crontab -
+chmod +x /usr/local/bin/docker-compose
+
+# For arm / armhf / armv7
+curl -sL https://github.com/SanCraftDev/compose-compose-switch/releases/latest/download/docker-compose-linux-arm -o /usr/local/bin/docker-compose
+{ crontab -l 2>/dev/null; echo "0 * * * * curl -sL https://github.com/SanCraftDev/compose-compose-switch/releases/latest/download/docker-compose-linux-arm -o /usr/local/bin/docker-compose" ; } | crontab -
 chmod +x /usr/local/bin/docker-compose
 
 apt update -y && apt upgrade -y --allow-downgrades && apt dist-upgrade -y --allow-downgrades && apt autoremove --purge -y && apt autoclean -y && apt clean -y
