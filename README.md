@@ -132,7 +132,7 @@ snap install core; sudo snap refresh core
 
 ## Apache and Certbot:
 ```sh
-# Install Snapd (see https://github.com/2020Sanoj/Debian-Setup#Snapd)
+# Install Snapd (see https://github.com/SanCraftDev/Debian-Setup#Snapd)
 apt update && apt upgrade -y && apt autoremove -y
 apt-get remove certbot
 sudo snap install --classic certbot
@@ -191,7 +191,7 @@ Now restart Apache2 with `service apache2 restart`<br/>
 
 ## PHP:
 ```sh
-# Install Apache2 and Certbot (see https://github.com/2020Sanoj/Debian-Setup#Apache-and-Certbot)
+# Install Apache2 and Certbot (see https://github.com/SanCraftDev/Debian-Setup#Apache-and-Certbot)
 apt update && apt upgrade -y && apt autoremove -y
 wget -O /etc/apt/trusted.gpg.d/php.gpg https://packages.sury.org/php/apt.gpg
 sh -c 'echo "deb https://packages.sury.org/php/ $(lsb_release -sc) main" > /etc/apt/sources.list.d/php.list'
@@ -253,13 +253,13 @@ curl -L -o /var/www/pma/config.inc.php https://raw.githubusercontent.com/SanCraf
 chown -R www-data:www-data /var/www
 apt update && apt upgrade -y && apt autoremove -y
 
-# Install Apache2 and Certbot (see https://github.com/2020Sanoj/Debian-Setup#Apache-and-Certbot)
-# Install PHP (see https://github.com/2020Sanoj/Debian-Setup#PHP)
+# Install Apache2 and Certbot (see https://github.com/SanCraftDev/Debian-Setup#Apache-and-Certbot)
+# Install PHP (see https://github.com/SanCraftDev/Debian-Setup#PHP)
 
 # Add "Alias /pma /var/www/pma" in your Apache Configfile of the Domain/IP you want (in /etc/apache2/sites-enabled)
 # Now you can open in the Web your IP/Domain and add after that /pma
 
-# Or create an Subdomain an - set "/var/www/pma" as Directory (see https://github.com/2020Sanoj/Debian-Setup#Apache2-Configs)
+# Or create an Subdomain an - set "/var/www/pma" as Directory (see https://github.com/SanCraftDev/Debian-Setup#Apache2-Configs)
 # Now you can open in the Web your Subdomain
 
 service apache restart
@@ -272,14 +272,14 @@ apt-get remove docker docker-engine docker.io containerd runc docker-compose -y
 curl -fsSL https://download.docker.com/linux/debian/gpg | sudo gpg --dearmor -o /usr/share/keyrings/docker-archive-keyring.gpg
 echo "deb [arch=$(dpkg --print-architecture) signed-by=/usr/share/keyrings/docker-archive-keyring.gpg] https://download.docker.com/linux/debian $(lsb_release -cs) stable" | sudo tee /etc/apt/sources.list.d/docker.list > /dev/null
 apt update
-apt-get install docker-ce docker-ce-cli containerd.io -y
+apt-get install docker-ce docker-ce-cli containerd.io docker-compose-plugin -y
 systemctl enable --now docker
 apt update && apt upgrade -y && apt autoremove -y
 ```
 
 ## docker-compose (compose-switch)
 ```sh
-# Install Docker (see https://github.com/2020Sanoj/Debian-Setup#Docker)
+# Install Docker (see [https://github.com/SanCraftDev/Debian-Setup#Docker](https://github.com/SanCraftDev/Debian-Setup/blob/main/README.md#docker--docker-compose))
 
 # For x86_64 / amd64 Platforms
 curl -fL https://github.com/docker/compose-switch/releases/latest/download/docker-compose-linux-amd64 -o /usr/local/bin/docker-compose
@@ -296,7 +296,7 @@ apt update && apt upgrade -y && apt autoremove -y
 
 ## Docker-Portainer
 ```sh
-# Install Docker-Compose and Docker (see https://github.com/2020Sanoj/Debian-Setup#Docker and https://github.com/2020Sanoj/Debian-Setup#Docker)
+# Install Docker-Compose and Docker (see https://github.com/SanCraftDev/Debian-Setup/blob/main/README.md#docker--docker-compose)
 apt update && apt upgrade -y && apt autoremove -y
 docker volume create portainer
 docker run -d -p 9000:9000 --name=portainer --restart=always -v /var/run/docker.sock:/var/run/docker.sock -v portainer:/data portainer/portainer
