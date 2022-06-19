@@ -49,7 +49,7 @@ apt update -y && apt upgrade -y --allow-downgrades && apt dist-upgrade -y --allo
 ## Java:
 ```sh
 apt update -y && apt upgrade -y --allow-downgrades && apt dist-upgrade -y --allow-downgrades && apt autoremove --purge -y && apt autoclean -y && apt clean -y
-wget -O- https://apt.corretto.aws/corretto.key | apt-key add - 
+wget -q -O - https://apt.corretto.aws/corretto.key | apt-key add - 
 add-apt-repository 'deb https://apt.corretto.aws stable main'
 apt update -y && apt upgrade -y --allow-downgrades && apt dist-upgrade -y --allow-downgrades && apt autoremove --purge -y && apt autoclean -y && apt clean -y
 # For Java 19
