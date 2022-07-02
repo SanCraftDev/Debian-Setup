@@ -20,7 +20,6 @@
 - [MariaDB](./README.md#MariaDB)<br/>
 - [PHPMyAdmin](./README.md#PHPMyAdmin)<br/>
 - [docker & docker compose:](./README.md#docker--docker-compose)<br/>
-- [docker-compose (compose-switch)](./README.md#docker-compose-compose-switch)<br/>
 - [Docker-Portainer](./README.md#Docker-Portainer)<br/>
 - [Wireguard (VPN)](./README.md#Wireguard-VPN)<br/>
 - [Webmin](./README.md#Webmin)<br/>
