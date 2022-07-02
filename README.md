@@ -272,28 +272,8 @@ echo "deb [arch=$(dpkg --print-architecture) signed-by=/usr/share/keyrings/docke
 apt update -y && apt upgrade -y --allow-downgrades && apt dist-upgrade -y --allow-downgrades && apt autoremove --purge -y && apt autoclean -y && apt clean -y
 apt install -y docker-ce docker-ce-cli containerd.io docker-compose-plugin
 systemctl enable --now docker
-apt update -y && apt upgrade -y --allow-downgrades && apt dist-upgrade -y --allow-downgrades && apt autoremove --purge -y && apt autoclean -y && apt clean -y
-```
-
-## docker-compose (compose-switch)
-```sh
-# Install Docker (see [https://github.com/SanCraftDev/Debian-Setup#Docker](https://github.com/SanCraftDev/Debian-Setup/blob/main/README.md#docker--docker-compose))
-
-## for the x86_64 / amd64 platform
-curl -sL https://github.com/SanCraftDev/compose-compose-switch/releases/latest/download/docker-compose-linux-amd64 -o /usr/local/bin/docker-compose
-{ crontab -l 2>/dev/null; echo "0 * * * * curl -sL https://github.com/SanCraftDev/compose-compose-switch/releases/latest/download/docker-compose-linux-amd64 -o /usr/local/bin/docker-compose" ; } | crontab -
+curl -L https://github.com/docker/compose/releases/latest/download/docker-compose-$(uname -s)-$(uname -m) -o /usr/local/bin/docker-compose
 chmod +x /usr/local/bin/docker-compose
-
-## for the arm64 / aarch64 / armv8 platform
-curl -sL https://github.com/SanCraftDev/compose-compose-switch/releases/latest/download/docker-compose-linux-arm64 -o /usr/local/bin/docker-compose
-{ crontab -l 2>/dev/null; echo "0 * * * * curl -sL https://github.com/SanCraftDev/compose-compose-switch/releases/latest/download/docker-compose-linux-arm64 -o /usr/local/bin/docker-compose" ; } | crontab -
-chmod +x /usr/local/bin/docker-compose
-
-## for the arm / armhf / armv7 platform
-curl -sL https://github.com/SanCraftDev/compose-compose-switch/releases/latest/download/docker-compose-linux-arm -o /usr/local/bin/docker-compose
-{ crontab -l 2>/dev/null; echo "0 * * * * curl -sL https://github.com/SanCraftDev/compose-compose-switch/releases/latest/download/docker-compose-linux-arm -o /usr/local/bin/docker-compose" ; } | crontab -
-chmod +x /usr/local/bin/docker-compose
-
 apt update -y && apt upgrade -y --allow-downgrades && apt dist-upgrade -y --allow-downgrades && apt autoremove --purge -y && apt autoclean -y && apt clean -y
 ```
 
